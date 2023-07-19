@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
       <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-        <main>
+        <main className={styles.effects}>
           <div>
             <div className={styles.contenedorPr}>
               <AboutMe />
