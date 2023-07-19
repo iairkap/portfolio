@@ -18,6 +18,8 @@ import VideoPortfolio from "./videoPortfolio/videoPortfolio";
 import Whatsapp from "./whatsapp/whatsapp";
 import Email from "./email/email";
 import Spotify from "./spotify/spotify";
+import SoyHenry from "./soyHenry/soyhenry";
+
 export default function Home() {
   const [language, setLanguage] = useState("ES");
   const [darkMode, setDarkMode] = useState(false);
@@ -58,6 +60,7 @@ export default function Home() {
               <Email />
             </div>
             <div className={styles.quintoRenglon}>
+              <SoyHenry />
               <Spotify />
             </div>
           </div>

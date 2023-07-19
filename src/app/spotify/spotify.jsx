@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import styles from "./spotify.module.css";
+import ReactPlayer from "react-player";
+import { IoPlaySharp, IoPauseSharp } from "react-icons/io5";
 
-const SpotifyRecentTrack = () => {
+export default function SpotifyRecentTrack() {
   const [track, setTrack] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const fetchTrack = async () => {
+    const playlistId = "5Qywi4uOPjRcFaU7WroWew";
+
+    const response = await axios.post("/api/spotify", { id: playlistId });
+
+    const tracks = response.data.map((item) => ({
+      name: item.name,
+      artists: item.artist,
+      album: item.album,
+      image: item.image,
+      preview: item.preview,
+      id: item.id,
+    }));
+
+    const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+
+    setTrack(randomTrack);
+  };
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
 
   useEffect(() => {
-    const fetchRecentTrack = async () => {
-      try {
-        const response = await axios.get("/api/recentlyPlayed");
-        setTrack(response.data);
-      } catch (error) {
-        console.error("Error fetching recent track:", error);
-      }
-    };
-
-    fetchRecentTrack();
-    ç;
+    fetchTrack();
   }, []);
 
   if (!track) {
@@ -23,12 +40,39 @@ const SpotifyRecentTrack = () => {
   }
 
   return (
-    <div>
-      <h2>Recent Spotify Track</h2>
-      <p>{track.name}</p>
-      <p>{track.artists.map((artist) => artist.name).join(", ")}</p>
+    <div
+      className={styles.generalContainer}
+      style={{ backgroundImage: `url(${track.image})` }}
+    >
+      <div className={styles.textContainer}>
+        <h1 className={styles.title}>Escuchado recientemente</h1>
+        <h2 className={styles.subtitle}>{track.name}</h2>
+        <h2 className={styles.subtitle}>{track.artists}</h2>
+        <h3 className={styles.subtitleb}>{track.album}</h3>
+        <div className={styles.audiovisual} onClick={togglePlay}>
+          {isPlaying ? (
+            <IoPauseSharp size={32} color="white" />
+          ) : (
+            <IoPlaySharp size={32} color="white" />
+          )}
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div
+              key={i}
+              className={`${styles.audiowire} ${
+                isPlaying ? styles.animate : ""
+              }`}
+              id={`audio${i + 1}`}
+            ></div>
+          ))}
+        </div>
+        <ReactPlayer
+          url={track.preview}
+          playing={isPlaying}
+          controls={true}
+          width="0"
+          height="0"
+        />
+      </div>
     </div>
   );
-};
-
-export default SpotifyRecentTrack;
+}
