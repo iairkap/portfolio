@@ -1,0 +1,33 @@
+.generalContainer {
+  width: 17.8125rem;
+  height: 20.25rem;
+  flex-direction: column;
+  border-radius: 1.5625rem;
+  margin-top: 1.5rem;
+  background-color: #d04f4f;
+  margin-left: 10rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 7rem;
+}
+
+.subtitulo {
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: -20px; /* Adjust this value to meet your needs */
+}
+
+.titulo {
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin-bottom: -10px; /* Adjust this value to meet your needs */
+}

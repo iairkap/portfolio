@@ -1,0 +1,15 @@
+.contenedorPr {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contenedorPrB {
+  display: flex;
+  flex-direction: column;
+}
+
+.prueba {
+  display: flex;
+  flex-direction: column;
+}

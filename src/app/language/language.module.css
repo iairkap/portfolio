@@ -1,0 +1,53 @@
+.generalBackground {
+  width: 17.8125rem;
+  height: 20.25rem;
+  flex-direction: column;
+  border-radius: 1.5625rem;
+  margin-top: 1.5rem;
+
+  background: #0b143b;
+
+  /* Agregado para centrar todo en este contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.idiomas {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.selected {
+  color: #e846e1;
+}
+
+.languageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
