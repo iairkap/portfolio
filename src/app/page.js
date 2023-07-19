@@ -17,6 +17,7 @@ import English from "./english/english";
 import VideoPortfolio from "./videoPortfolio/videoPortfolio";
 import Whatsapp from "./whatsapp/whatsapp";
 import Email from "./email/email";
+import Spotify from "./spotify/spotify";
 export default function Home() {
   const [language, setLanguage] = useState("ES");
   const [darkMode, setDarkMode] = useState(false);
@@ -55,6 +56,9 @@ export default function Home() {
               <VideoPortfolio />
               <Whatsapp />
               <Email />
+            </div>
+            <div className={styles.quintoRenglon}>
+              <Spotify />
             </div>
           </div>
         </main>

@@ -1,0 +1,13 @@
+.generalContainer {
+  width: 45rem;
+  height: 20.25rem;
+  border-radius: 30px;
+  background-size: cover;
+  margin-top: 1.5rem;
+  position: relative;
+  margin-left: 10rem;
+  background-color: red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
