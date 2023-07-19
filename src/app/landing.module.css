@@ -21,3 +21,19 @@
   align-items: flex-start;
   gap: 2rem;
 }
+
+.tercerRenglon {
+  display: flex;
+  flex-direction: row;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.cuartoRenglon {
+  display: flex;
+  flex-direction: row;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 2rem;
+}

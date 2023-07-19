@@ -1,0 +1,26 @@
+.generalContainer {
+  width: 285px;
+  height: 20.25rem;
+  flex-direction: column;
+  border-radius: 1.5625rem;
+  margin-top: 1.5rem;
+  background-color: #36a6ad;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.iconContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2.1000000000000014rem;
+  width: 75%;
+  height: 65%;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

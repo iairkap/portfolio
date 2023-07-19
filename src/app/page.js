@@ -11,7 +11,12 @@ import { useState } from "react";
 import Edad from "./edad/edad";
 import Linkedin from "./linkedin/linkedin";
 import Proyectos from "./proyectos/proyectos";
-
+import Github from "./github/github";
+import Stack from "./stack/stack";
+import English from "./english/english";
+import VideoPortfolio from "./videoPortfolio/videoPortfolio";
+import Whatsapp from "./whatsapp/whatsapp";
+import Email from "./email/email";
 export default function Home() {
   const [language, setLanguage] = useState("ES");
   const [darkMode, setDarkMode] = useState(false);
@@ -40,6 +45,16 @@ export default function Home() {
               <Edad />
               <Linkedin />
               <Proyectos />
+            </div>
+            <div className={styles.tercerRenglon}>
+              <Github />
+              <Stack />
+              <English />
+            </div>
+            <div className={styles.cuartoRenglon}>
+              <VideoPortfolio />
+              <Whatsapp />
+              <Email />
             </div>
           </div>
         </main>

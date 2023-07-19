@@ -1,0 +1,18 @@
+.generalContainer {
+  width: 285px;
+  height: 20.25rem;
+  flex-direction: column;
+  border-radius: 1.5625rem;
+  margin-top: 1.5rem;
+  background-color: #153a98;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+}
+
+.generalContainer:hover {
+  transform: scale(
+    1.02
+  ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+}
