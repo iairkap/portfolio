@@ -9,6 +9,8 @@ import { LanguageContext } from "./contexts/LanguageContext";
 import { DarkModeContext } from "./contexts/DarkModeContext";
 import { useState } from "react";
 import Edad from "./edad/edad";
+import Linkedin from "./linkedin/linkedin";
+import Proyectos from "./proyectos/proyectos";
 
 export default function Home() {
   const [language, setLanguage] = useState("ES");
@@ -36,6 +38,8 @@ export default function Home() {
             </div>
             <div className={styles.segundoRenglon}>
               <Edad />
+              <Linkedin />
+              <Proyectos />
             </div>
           </div>
         </main>

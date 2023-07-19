@@ -26,7 +26,7 @@ function Edad(props) {
       <h6 className={styles.subtitulo}>{language === "ES" ? "EDAD" : "AGE"}</h6>
       <h1 className={styles.titulo}>{age}</h1>
       <h6 className={styles.subtitulo}>
-        {language === "ES" ? "AÑOS" : "YEARS OLD"}
+        {language === "ES" ? "AÑOS" : "YEARS"}
       </h6>
     </div>
   );
