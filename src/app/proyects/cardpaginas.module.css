@@ -2,8 +2,61 @@
   width: 38.375rem;
   height: 32.375rem;
   border-radius: 1.875rem;
-  background-image: url("../../../public/talent-tech-hub.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  overflow: hidden;
+  background: #6351b9;
+  margin-top: 1rem;
+  margin-left: 8rem;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: 125%;
+  height: 125%;
+  object-fit: cover;
+}
+
+.hoverContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: opacity 2s ease-in-out;
+}
+
+.contenedor:hover .hoverContent {
+  opacity: 1;
+}
+
+.nombreDelProyecto {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.5625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+.textExplain {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-left: 2rem;
+  margin-top: 3rem;
+  height: 12rem;
 }
