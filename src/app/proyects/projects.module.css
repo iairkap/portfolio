@@ -1,0 +1,35 @@
+.contenedorTitulo {
+  width: 100w;
+  height: 12.75rem;
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 1.5625rem;
+  background: #930000;
+  margin-top: 2rem;
+  align-self: center;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 4.6875rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.imagen {
+  margin-right: 1rem;
+}
+
+.tituloba {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}

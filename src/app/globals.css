@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 body {
+  position: relative;
   height: 100vh;
   width: 100vw;
-  transition: background-color 0.5s ease; /* Agregar transición suave de color de fondo */
+  transition: background-color 0.5s ease;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2236px;
+  width: 100%;
+  background-image: url("../../public/noise.gif");
+
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.01;
+  pointer-events: none;
 }
 
 body.light {

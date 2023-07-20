@@ -4,8 +4,10 @@ import { LanguageContext } from "../contexts/LanguageContext";
 
 function Language(props) {
   const { language, setLanguage } = useContext(LanguageContext);
+  console.log("Render Language component:", language); // Agrega esta línea
 
   const handleLanguageChange = (newLanguage) => {
+    console.log("Changing language to:", newLanguage); // Verifica que el evento de click se está disparando correctamente.
     setLanguage(newLanguage);
   };
 

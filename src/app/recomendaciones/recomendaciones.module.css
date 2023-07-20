@@ -1,0 +1,136 @@
+.generalContainer {
+  width: 285px;
+  height: 20.25rem;
+  flex-direction: column;
+  border-radius: 1.5625rem;
+  margin-top: 1.5rem;
+  background-color: #c53434;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 7rem;
+  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+}
+
+.generalContainer:hover {
+  transform: scale(
+    1.02
+  ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+}
+
+.modalContent {
+  position: relative;
+  background-color: #d9d9d9;
+  border-radius: 1.4rem;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.modalContent::before {
+  content: "";
+  position: absolute;
+  width: 103%; /* Ajusta según tus necesidades */
+  height: 107%; /* Ajusta según tus necesidades */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(
+    196,
+    49,
+    49,
+    0.515
+  ); /* Ajusta la opacidad según tus necesidades */
+  border-radius: 1.4rem;
+  z-index: -1; /* Esto coloca el elemento detrás del contenido */
+  justify-content: center; /* Centrar verticalmente el contenido */
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 2rem;
+  margin-top: 6rem;
+  margin-right: 1rem;
+}
+
+.primerRenglon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.name {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+.texto {
+  margin-top: 1rem;
+}
+
+.projectName,
+.closeM,
+.phoneNumber {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.texto {
+  color: #000;
+  text-align: justify;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.date {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.phoneNumber {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeM {
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  z-index: 9999;
+  font-size: 2rem;
+  /* Agrega otros estilos necesarios */
+}
+
+.Arrow {
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.ending {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+}

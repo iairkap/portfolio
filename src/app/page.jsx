@@ -19,9 +19,12 @@ import Whatsapp from "./whatsapp/whatsapp";
 import Email from "./email/email";
 import Spotify from "./spotify/spotify";
 import SoyHenry from "./soyHenry/soyhenry";
+import Recomendaciones from "./recomendaciones/recomendaciones";
+import Noise from "./noise/noise";
+import { useContext } from "react";
 
 export default function Home() {
-  const [language, setLanguage] = useState("ES");
+  const { language, setLanguage } = useContext(LanguageContext);
   const [darkMode, setDarkMode] = useState(false);
 
   // Esto se ejecutará cuando 'darkMode' cambie.
@@ -31,41 +34,41 @@ export default function Home() {
   }, [darkMode]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
-      <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-        <main className={styles.effects}>
-          <div>
-            <div className={styles.contenedorPr}>
-              <AboutMe />
-              <div className={styles.contenedorPrB}>
-                <div className={styles.prueba}>
-                  <Language />
-                  <DarkMode />
-                </div>
+    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+      <main className={styles.effects}>
+        <div>
+          <div className={styles.contenedorPr}>
+            <AboutMe />
+            <div className={styles.contenedorPrB}>
+              <div className={styles.prueba}>
+                <Language />
+                <DarkMode />
               </div>
             </div>
-            <div className={styles.segundoRenglon}>
-              <Edad />
-              <Linkedin />
-              <Proyectos />
-            </div>
-            <div className={styles.tercerRenglon}>
-              <Github />
-              <Stack />
-              <English />
-            </div>
-            <div className={styles.cuartoRenglon}>
-              <VideoPortfolio />
-              <Whatsapp />
-              <Email />
-            </div>
-            <div className={styles.quintoRenglon}>
-              <SoyHenry />
-              <Spotify />
-            </div>
           </div>
-        </main>
-      </DarkModeContext.Provider>
-    </LanguageContext.Provider>
+          <div className={styles.segundoRenglon}>
+            <Edad />
+            <Linkedin />
+            <Proyectos />
+          </div>
+          <div className={styles.tercerRenglon}>
+            <Github />
+            <Stack />
+            <English />
+          </div>
+          <div className={styles.cuartoRenglon}>
+            <VideoPortfolio />
+            <Whatsapp />
+            <Email />
+          </div>
+          <div className={styles.quintoRenglon}>
+            <SoyHenry />
+            <Spotify />
+            <Recomendaciones />
+          </div>
+        </div>
+        <Noise />
+      </main>
+    </DarkModeContext.Provider>
   );
 }

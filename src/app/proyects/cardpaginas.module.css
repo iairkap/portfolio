@@ -1,0 +1,9 @@
+.contenedor {
+  width: 38.375rem;
+  height: 32.375rem;
+  border-radius: 1.875rem;
+  background-image: url("../../../public/talent-tech-hub.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
