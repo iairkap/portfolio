@@ -15,7 +15,9 @@ function Proyects(props) {
     <div>
       <div className={styles.contenedorTitulo}>
         <div className={styles.tituloba}>
-          <Image src={prevArrow} className={styles.Arrow} />
+          <a href="/">
+            <Image src={prevArrow} className={styles.Arrow} />
+          </a>
           <h1 className={styles.titulo}>
             {language === "ES" ? "PROYECTOS" : "PROJECTS"}
           </h1>{" "}

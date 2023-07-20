@@ -49,7 +49,9 @@ export default function Home() {
           <div className={styles.segundoRenglon}>
             <Edad />
             <Linkedin />
-            <Proyectos />
+            <a href="/proyects">
+              <Proyectos />
+            </a>
           </div>
           <div className={styles.tercerRenglon}>
             <Github />

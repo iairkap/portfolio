@@ -1,14 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Modal from "react-modal";
 import styles from "./cardpaginas.module.css";
-import ReactModal from "react-modal";
+import { proyectosWebs } from "../portfolio/webProjects";
+import { Helmet } from "react-helmet";
 
-function Card(props) {
-  const [isHovered, setIsHovered] = React.useState(false);
+function getFirstTenWords(str) {
+  return str.split(" ").slice(0, 20).join(" ") + "...";
+}
 
+function Card({ project }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = (event) => {
+    event.stopPropagation();
+    setModalIsOpen(false);
+  };
+
+  const customStyles = {
+    overlay: {
+      backgroundColor: "rgba(0,0,0,0.75)",
+      backdropFilter: "blur(5px)",
+    },
+    content: {
+      backgroundColor: "transparent",
+      border: "none",
+      width: "80%",
+      height: "70%",
+      margin: "auto",
+      overflow: "visible",
+    },
+  };
+
+  function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16),
+        }
+      : null;
+  }
   return (
-    <div className={styles.contenedor}>
+    <div
+      className={styles.contenedor}
+      onClick={() => setModalIsOpen(true)}
+      style={{ background: project.backgroundContainer }} // Aplicar el color de fondo del proyecto
+    >
+      {" "}
       <motion.div
         className={`absolute bottom-0 overflow-hidden rounded-t-3xl transition-all duration-300 ease-in-out ${
           isHovered
@@ -19,50 +65,89 @@ function Card(props) {
         onMouseLeave={() => setIsHovered(false)}
       >
         <Image
-          src={
-            "https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/talent-tech-hub.png?alt=media&token=b3663675-b6f8-4047-b523-bf13c04acd06"
-          }
+          src={project.picture}
           className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
           draggable={false}
           alt="card image"
           layout="fill"
         />
       </motion.div>
-      <h1 className={styles.nombreDelProyecto}>Talent-Tech-Hub</h1>
-      <h3 className={styles.textExplain}>
-        During Soy Henry's bootcamp, I led a team in creating a platform to
-        connect Israeli startups with skilled Latin American professionals. The
-        Goal We sought to solve a global problem: Israel's growing startups
-        needing skilled professionals, and Latin America's pool of qualified
-        talent. Our aim was to bridge this gap, offering remote work
-        opportunities for Latin American professionals, and affordable quality
-        services for Israeli startups. The Team and Leadership Role I led a team
-        of diverse professionals. This role honed my leadership skills,
-        promoting a collaborative, efficient environment. I coordinated tasks,
-        assigned responsibilities, ensured seamless communication, and
-        maintained our shared vision. The Tech Stack We used several
-        technologies to optimize our development and meet project expectations:
-        Next.js: Chosen for its server-side rendering, SEO optimization, and
-        integrated routing system. Prisma: Our ORM for database management. Its
-        TypeScript type generation provided a safe, efficient development
-        environment. Vercel: Ideal for deployment and hosting, it provided a
-        simplified development experience with one-click deployment and
-        real-time preview. Payment Gateway: Incorporated to manage monetary
-        transactions between parties. Third-party Auth: Used to authenticate
-        users securely and efficiently. Cloudinary: Managed all platform media
-        assets, enhancing page loading. Firebase: Provided a variety of backend
-        services like real-time database, storage, and notifications. Admin
-        Dashboard: Designed for efficient site management and user activity
-        control. Conclusion Developing this project was rewarding and
-        educational. We created an efficient solution to a global problem,
-        hoping to foster work connections between Latin American professionals
-        and Israeli startups. This project served as a testament to our
-        technical skills, teamwork, and problem-solving abilities, embodying the
-        essence of Soy Henry's bootcamp: continuous learning, growth, and
-        improvement
-      </h3>
+      <div className={styles.textContainer}>
+        <h1 className={styles.nombreDelProyecto}>{project.name}</h1>
+        <h3 className={styles.textExplain}>
+          {getFirstTenWords(project.textExplain)}
+        </h3>
+        <div className={styles.stackAll}>
+          {project.stack.map((tech, index) => (
+            <h3
+              key={index}
+              className={styles.stackfa}
+              style={{ backgroundColor: project.backgroundContainer }}
+            >
+              {tech}
+            </h3>
+          ))}
+        </div>
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Mi Modal"
+        style={customStyles}
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+      >
+        <Helmet>
+          <style>{`
+      .modalContent::before {
+        background-color: ${project.backgroundContainer};
+      }
+    `}</style>
+        </Helmet>
+        <div className={styles.modalContent}>
+          <div className={styles.textContainerModal}>
+            <h1 className={styles.name}>{project.name}</h1>
+            <h3 className={styles.parrafo}>{project.textExplain}</h3>{" "}
+            {/* Muestra todo el texto en el modal */}
+            <div className={styles.stackAll}>
+              {project.stack.map((tech, index) => (
+                <h3
+                  key={index}
+                  className={styles.stackfa}
+                  style={{ backgroundColor: project.backgroundContainer }}
+                >
+                  {tech}
+                </h3>
+              ))}
+            </div>{" "}
+            <div className={styles.linkContainer}>
+              <h2>
+                <h2 className={styles.website}>Web site:</h2>
+                <a href={project.demo} target="_blank" className={styles.link}>
+                  {project.demo}
+                </a>
+              </h2>
+            </div>
+            <h2>
+              <h2 className={styles.website}>GitHub:</h2>
+
+              <a href={project.github} target="_blank" className={styles.link}>
+                {project.github}
+              </a>
+            </h2>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
 
-export default Card;
+export default function CardsContainer() {
+  return (
+    <div className={styles.cardContainer}>
+      {proyectosWebs.map((project, index) => (
+        <Card key={index} project={project} />
+      ))}
+    </div>
+  );
+}
