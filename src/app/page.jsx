@@ -24,7 +24,7 @@ import Noise from "./noise/noise";
 import { useContext } from "react";
 
 export default function Home() {
-  const { language, setLanguage } = useContext(LanguageContext);
+  const { language, setLanguage } = LanguageContext();
   const [darkMode, setDarkMode] = useState(false);
 
   // Esto se ejecutará cuando 'darkMode' cambie.
@@ -38,23 +38,21 @@ export default function Home() {
       <main className={styles.effects}>
         <div>
           <div className={styles.contenedorPr}>
-            <AboutMe />
+            <AboutMe language={language} />
             <div className={styles.contenedorPrB}>
               <div className={styles.prueba}>
-                <Language />
+                <Language language={language} setLanguage={setLanguage} />
                 <DarkMode />
               </div>
             </div>
           </div>
           <div className={styles.segundoRenglon}>
-            <Edad />
-            <Linkedin />
-            <a href="/proyects">
-              <Proyectos />
-            </a>
+            <Edad language={language} />
+            <Linkedin language={language} />
+            <Proyectos language={language} />
           </div>
           <div className={styles.tercerRenglon}>
-            <Github />
+            <Github language={language} />
             <Stack />
             <English />
           </div>

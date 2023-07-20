@@ -4,7 +4,7 @@ import { useContext } from "react";
 import styles from "./english.module.css";
 
 function English(props) {
-  const { language } = useContext(LanguageContext);
+  const { language } = LanguageContext;
 
   return (
     <a href="https://www.efset.org/cert/Lonahf">

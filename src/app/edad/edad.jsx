@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./edad.module.css";
-import { LanguageContext } from "../contexts/LanguageContext";
-import { useContext } from "react";
 
-function Edad(props) {
-  const { language } = useContext(LanguageContext);
-
+function Edad( { language }) {
+  
   const currentYear = new Date().getFullYear();
 
   const birthYear = 1994;
