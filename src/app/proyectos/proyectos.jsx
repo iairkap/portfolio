@@ -4,7 +4,7 @@ import { LanguageContext } from "../contexts/LanguageContext";
 import { useContext } from "react";
 
 function Proyectos(props) {
-  const { language } = useContext(LanguageContext);
+  const { language } = LanguageContext;
 
   return (
     <div className={styles.generalContainer}>

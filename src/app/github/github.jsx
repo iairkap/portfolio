@@ -6,7 +6,7 @@ import Fithub from "../../../public/github.svg";
 import Image from "next/image";
 
 function Github(props) {
-  const { language } = useContext(LanguageContext);
+  const { language } = LanguageContext;
 
   return (
     <a

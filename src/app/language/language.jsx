@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import styles from "./language.module.css";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-function Language(props) {
-  const { language, setLanguage } = useContext(LanguageContext);
+function Language({ language,setLanguage }) {
   console.log("Render Language component:", language); // Agrega esta línea
 
   const handleLanguageChange = (newLanguage) => {
@@ -23,7 +22,7 @@ function Language(props) {
             onClick={() => handleLanguageChange("ES")}
           >
             <div>
-              <h6 className={language === "ES" ? styles.selected : ""}>ES</h6>
+              <h6 className={language === "ES" ? styles.selected : null}>ES</h6>
             </div>
           </div>
           <div
@@ -31,7 +30,7 @@ function Language(props) {
             onClick={() => handleLanguageChange("EN")}
           >
             <div>
-              <h6 className={language === "EN" ? styles.selected : ""}>EN</h6>
+              <h6 className={language === "EN" ? styles.selected : null}>EN</h6>
             </div>
           </div>
         </div>
