@@ -5,9 +5,7 @@ import { useContext } from "react";
 import Fithub from "../../../public/github.svg";
 import Image from "next/image";
 
-function Github(props) {
-  const { language } = LanguageContext;
-
+function Github({ language }) {
   return (
     <a
       href="https://github.com/iairkap"

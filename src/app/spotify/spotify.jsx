@@ -4,7 +4,7 @@ import styles from "./spotify.module.css";
 import ReactPlayer from "react-player";
 import { IoPlaySharp, IoPauseSharp } from "react-icons/io5";
 
-export default function SpotifyRecentTrack() {
+export default function SpotifyRecentTrack({ language }) {
   const [track, setTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -45,7 +45,10 @@ export default function SpotifyRecentTrack() {
       style={{ backgroundImage: `url(${track.image})` }}
     >
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>Escuchado recientemente</h1>
+        <h1 className={styles.title}>
+          {" "}
+          {language === "ES" ? "Reproducido recientemente" : "Recently played"}
+        </h1>
         <h2 className={styles.subtitle}>{track.name}</h2>
         <h2 className={styles.subtitle}>{track.artists}</h2>
         <h3 className={styles.subtitleb}>{track.album}</h3>

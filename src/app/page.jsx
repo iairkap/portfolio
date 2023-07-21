@@ -20,12 +20,21 @@ import Email from "./email/email";
 import Spotify from "./spotify/spotify";
 import SoyHenry from "./soyHenry/soyhenry";
 import Recomendaciones from "./recomendaciones/recomendaciones";
+import { motion } from "framer-motion";
+import { setLanguage, selectLanguage } from "./redux/languageSlice";
+import { useSelector, useDispatch } from "react-redux";
+
 import Noise from "./noise/noise";
 import { useContext } from "react";
 
 export default function Home() {
-  const { language, setLanguage } = LanguageContext();
   const [darkMode, setDarkMode] = useState(false);
+  const dispatch = useDispatch();
+  const language = useSelector(selectLanguage);
+
+  useEffect(() => {
+    document.body.className = darkMode ? "dark" : "light";
+  }, [darkMode]);
 
   // Esto se ejecutará cuando 'darkMode' cambie.
   useEffect(() => {
@@ -41,7 +50,10 @@ export default function Home() {
             <AboutMe language={language} />
             <div className={styles.contenedorPrB}>
               <div className={styles.prueba}>
-                <Language language={language} setLanguage={setLanguage} />
+                <Language
+                  language={language}
+                  setLanguage={(lang) => dispatch(setLanguage(lang))}
+                />
                 <DarkMode />
               </div>
             </div>
@@ -49,22 +61,24 @@ export default function Home() {
           <div className={styles.segundoRenglon}>
             <Edad language={language} />
             <Linkedin language={language} />
-            <Proyectos language={language} />
+            <a href="/proyects">
+              <Proyectos language={language} />
+            </a>
           </div>
           <div className={styles.tercerRenglon}>
             <Github language={language} />
             <Stack />
-            <English />
+            <English language={language} />
           </div>
           <div className={styles.cuartoRenglon}>
-            <VideoPortfolio />
+            <VideoPortfolio language={language} />
             <Whatsapp />
             <Email />
           </div>
           <div className={styles.quintoRenglon}>
-            <SoyHenry />
-            <Spotify />
-            <Recomendaciones />
+            <SoyHenry language={language} />
+            <Spotify language={language} />
+            <Recomendaciones language={language} />
           </div>
         </div>
         <Noise />

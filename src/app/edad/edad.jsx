@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./edad.module.css";
 
-function Edad( { language }) {
-  
+function Edad({ language }) {
   const currentYear = new Date().getFullYear();
 
   const birthYear = 1994;

@@ -5,6 +5,8 @@ import Modal from "react-modal";
 import styles from "./cardpaginas.module.css";
 import { proyectosWebs } from "../portfolio/webProjects";
 import { Helmet } from "react-helmet";
+import { setLanguage, selectLanguage } from "../redux/languageSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 function getFirstTenWords(str) {
   return str.split(" ").slice(0, 20).join(" ") + "...";
@@ -13,6 +15,8 @@ function getFirstTenWords(str) {
 function Card({ project }) {
   const [isHovered, setIsHovered] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const language = useSelector(selectLanguage);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -53,6 +57,8 @@ function Card({ project }) {
       className={styles.contenedor}
       onClick={() => setModalIsOpen(true)}
       style={{ background: project.backgroundContainer }} // Aplicar el color de fondo del proyecto
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {" "}
       <motion.div
@@ -61,8 +67,6 @@ function Card({ project }) {
             ? "w-[95%] h-[55%] left-[2.5%] transform hover:scale-90"
             : "md:h-full md:w-full md:left-0 w-[95%] h-[50%] left-[2.5%] transform hover:scale-90"
         }`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <Image
           src={project.picture}
@@ -74,8 +78,11 @@ function Card({ project }) {
       </motion.div>
       <div className={styles.textContainer}>
         <h1 className={styles.nombreDelProyecto}>{project.name}</h1>
+
         <h3 className={styles.textExplain}>
-          {getFirstTenWords(project.textExplain)}
+          {getFirstTenWords(
+            language === "ES" ? project.textExplainEs : project.textExplainEn
+          )}
         </h3>
         <div className={styles.stackAll}>
           {project.stack.map((tech, index) => (
@@ -107,7 +114,11 @@ function Card({ project }) {
         <div className={styles.modalContent}>
           <div className={styles.textContainerModal}>
             <h1 className={styles.name}>{project.name}</h1>
-            <h3 className={styles.parrafo}>{project.textExplain}</h3>{" "}
+            <h3 className={styles.parrafo}>
+              {language === "ES"
+                ? project.textExplainEs
+                : project.textExplainEn}
+            </h3>{" "}
             {/* Muestra todo el texto en el modal */}
             <div className={styles.stackAll}>
               {project.stack.map((tech, index) => (

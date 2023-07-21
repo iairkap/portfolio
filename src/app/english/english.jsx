@@ -3,9 +3,7 @@ import { LanguageContext } from "../contexts/LanguageContext";
 import { useContext } from "react";
 import styles from "./english.module.css";
 
-function English(props) {
-  const { language } = LanguageContext;
-
+function English({ language }) {
   return (
     <a href="https://www.efset.org/cert/Lonahf">
       <div className={styles.generalContainer}>
