@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./projects.module.css";
 import prevArrow from "../../../public/prevArrow.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 import Card from "./cardpaginas";
 import { motion } from "framer-motion";
@@ -43,9 +44,9 @@ function Proyects() {
         <br />
         <div className={styles.contenedorTitulo}>
           <div className={styles.tituloba}>
-            <a href="/">
+            <Link href="/">
               <Image src={prevArrow} className={styles.Arrow} />
-            </a>
+            </Link>
             <h1 className={styles.titulo}>
               {language === "ES" ? "PROYECTOS" : "PROJECTS"}
             </h1>{" "}

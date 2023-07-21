@@ -18,6 +18,7 @@ import Email from "./email/email";
 import Spotify from "./spotify/spotify";
 import SoyHenry from "./soyHenry/soyhenry";
 import Recomendaciones from "./recomendaciones/recomendaciones";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
 import { toggleDarkMode, selectDarkMode } from "./redux/DarkModeSlice"; // add this
@@ -62,9 +63,9 @@ export default function Home() {
         <div className={styles.segundoRenglon}>
           <Edad language={language} />
           <Linkedin language={language} />
-          <a href="/proyects">
+          <Link href="/proyects">
             <Proyectos language={language} />
-          </a>
+          </Link>
         </div>
         <div className={styles.tercerRenglon}>
           <Github language={language} />
