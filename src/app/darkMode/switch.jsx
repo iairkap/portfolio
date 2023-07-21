@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import "./SwitchComponent.css";
+import { useSelector } from "react-redux";
 
-const SwitchComponent = ({ isChecked, handleToggle }) => {
+const SwitchComponent = ({ handleToggle }) => {
+  const isChecked = useSelector((state) => state.darkMode);
   return (
     <label>
-      <input
-        type="checkbox"
-        className="slider"
-        checked={isChecked}
-        onChange={handleToggle}
-      />
+      <input type="checkbox" className="slider" onChange={handleToggle} />
       <div className={`switch ${isChecked ? "checked" : ""}`}>
         <div className="suns"></div>
         <div className="moons">
