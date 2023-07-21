@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 function Proyects() {
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
-  const darkMode = useSelector((state) => state.darkMode); // Utilizas el selector para acceder a darkMode
+  const darkMode = useSelector((state) => state.darkMode.value); // Utilizas el selector para acceder a darkMode
 
   const pageVariants = {
     initial: { opacity: 0, scale: 0.9 },

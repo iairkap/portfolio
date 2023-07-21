@@ -30,7 +30,7 @@ import Noise from "./noise/noise";
 import { useContext } from "react";
 
 export default function Home() {
-  const darkMode = useSelector((state) => state.darkMode); // updated from useState
+  const darkMode = useSelector((state) => state.darkMode.value); // updated from useState
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
 

@@ -17,7 +17,7 @@ function Card({ project }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
-  const darkMode = useSelector((state) => state.darkMode); // Utilizas el selector para acceder a darkMode
+  const darkMode = useSelector((state) => state.darkMode.value); // Utilizas el selector para acceder a darkMode
 
   const modalContentStyles = darkMode
     ? styles.modalContentDark
