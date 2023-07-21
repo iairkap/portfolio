@@ -21,7 +21,7 @@ import Recomendaciones from "./recomendaciones/recomendaciones";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
-import { toggleDarkMode } from "./redux/DarkModeSlice"; // add this
+import { toggleDarkMode } from "./redux/darkm"; // add this
 
 import { useSelector, useDispatch } from "react-redux";
 import NoiseBackground from "./helpers/NoiseBackground";
