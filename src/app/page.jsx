@@ -21,7 +21,7 @@ import Recomendaciones from "./recomendaciones/recomendaciones";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
-import { toggleDarkMode, selectDarkMode } from "./redux/DarkModeSlice"; // add this
+import { toggleDarkMode } from "./redux/DarkModeSlice"; // add this
 
 import { useSelector, useDispatch } from "react-redux";
 import NoiseBackground from "./helpers/NoiseBackground";
@@ -30,7 +30,7 @@ import Noise from "./noise/noise";
 import { useContext } from "react";
 
 export default function Home() {
-  const darkMode = useSelector(selectDarkMode); // updated from useState
+  const darkMode = useSelector((state) => state.darkMode); // updated from useState
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
 

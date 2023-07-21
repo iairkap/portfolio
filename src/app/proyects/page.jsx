@@ -9,12 +9,11 @@ import Card from "./cardpaginas";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { selectDarkMode } from "@/app/redux/DarkModeSlice";
 
 function Proyects() {
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
-  const darkMode = useSelector(selectDarkMode); // Utilizas el selector para acceder a darkMode
+  const darkMode = useSelector((state) => state.darkMode); // Utilizas el selector para acceder a darkMode
 
   const pageVariants = {
     initial: { opacity: 0, scale: 0.9 },

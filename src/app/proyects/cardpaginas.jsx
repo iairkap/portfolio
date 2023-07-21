@@ -7,7 +7,6 @@ import { proyectosWebs } from "../portfolio/webProjects";
 import { Helmet } from "react-helmet";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { selectDarkMode } from "@/app/redux/DarkModeSlice"; // Importas el selector
 
 function getFirstTenWords(str) {
   return str.split(" ").slice(0, 20).join(" ") + "...";
@@ -18,7 +17,7 @@ function Card({ project }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
-  const darkMode = useSelector(selectDarkMode); // Utilizas el selector para acceder a darkMode
+  const darkMode = useSelector((state) => state.darkMode); // Utilizas el selector para acceder a darkMode
 
   const modalContentStyles = darkMode
     ? styles.modalContentDark

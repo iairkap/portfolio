@@ -4,13 +4,12 @@ import Modal from "react-modal";
 import nextrec from "../../../public/nextrec.svg";
 import Image from "next/image";
 import { useSelector } from "react-redux"; // Importas el hook useSelector
-import { selectDarkMode } from "../redux/DarkModeSlice"; // Importas el selector
 
 function Recomendaciones({ language }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentRecommendationIndex, setCurrentRecommendationIndex] =
     useState(0);
-  const darkMode = useSelector(selectDarkMode); // Utilizas el selector para acceder a darkMode
+  const darkMode = useSelector((state) => state.darkMode); // Utilizas el selector para acceder a darkMode
 
   const modalContentStyles = darkMode
     ? styles.modalContentDark
