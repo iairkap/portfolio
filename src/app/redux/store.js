@@ -20,4 +20,6 @@ export const store = configureStore({
   },
 });
 
+export const RootState = store.getState;
+
 export const persistor = persistStore(store);
