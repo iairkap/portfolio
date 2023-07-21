@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleDarkMode, selectDarkMode } from "@/app/redux/DarkModeSlice";
+import { toggleDarkMode } from "@/app/redux/DarkModeSlice";
 import styles from "./dark.module.css";
 import SwitchComponent from "./switch";
 
 function DarkMode() {
   const dispatch = useDispatch();
-  const darkMode = useSelector(selectDarkMode);
+  const darkMode = useSelector();
 
   return (
     <div className={styles.generalBackground}>
