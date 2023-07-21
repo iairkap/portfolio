@@ -9,7 +9,7 @@ import Card from "./cardpaginas";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { selectDarkMode } from "../redux/DarkModeSlice"; // Importas el selector
+import { selectDarkMode } from "@/app/redux/DarkModeSlice";
 
 function Proyects() {
   const dispatch = useDispatch();

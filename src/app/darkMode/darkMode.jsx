@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleDarkMode, selectDarkMode } from "../redux/DarkModeSlice";
+import { toggleDarkMode, selectDarkMode } from "@/app/redux/DarkModeSlice";
 import styles from "./dark.module.css";
 import SwitchComponent from "./switch";
 
