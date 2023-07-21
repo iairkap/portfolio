@@ -2,10 +2,15 @@ import React from "react";
 import styles from "./proyectos.module.css";
 import { LanguageContext } from "../contexts/LanguageContext";
 import { useContext } from "react";
+import Image from "next/image";
+import click from "../../../public/click.svg";
 
 function Proyectos({ language }) {
   return (
     <div className={styles.generalContainer}>
+      <div className={styles.clickContainer}>
+        <Image src={click} className={styles.click}></Image>
+      </div>
       <div className={styles.textContainer}>
         <h1 className={styles.titulo}>
           {language === "ES"

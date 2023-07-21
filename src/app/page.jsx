@@ -5,8 +5,6 @@ import AboutMe from "./landing/aboutMe";
 import Language from "./language/language";
 import styles from "./landing.module.css";
 import DarkMode from "./darkMode/darkMode";
-import { LanguageContext } from "./contexts/LanguageContext";
-import { DarkModeContext } from "./contexts/DarkModeContext";
 import { useState } from "react";
 import Edad from "./edad/edad";
 import Linkedin from "./linkedin/linkedin";
@@ -22,13 +20,16 @@ import SoyHenry from "./soyHenry/soyhenry";
 import Recomendaciones from "./recomendaciones/recomendaciones";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
+import { toggleDarkMode, selectDarkMode } from "./redux/DarkModeSlice"; // add this
+
 import { useSelector, useDispatch } from "react-redux";
+import NoiseBackground from "./helpers/NoiseBackground";
 
 import Noise from "./noise/noise";
 import { useContext } from "react";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
+  const darkMode = useSelector(selectDarkMode); // updated from useState
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
 
@@ -43,46 +44,45 @@ export default function Home() {
   }, [darkMode]);
 
   return (
-    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-      <main className={styles.effects}>
-        <div>
-          <div className={styles.contenedorPr}>
-            <AboutMe language={language} />
-            <div className={styles.contenedorPrB}>
-              <div className={styles.prueba}>
-                <Language
-                  language={language}
-                  setLanguage={(lang) => dispatch(setLanguage(lang))}
-                />
-                <DarkMode />
-              </div>
+    <main className={styles.effects}>
+      <div>
+        <div className={styles.NoiseBackground}></div>
+        <div className={styles.contenedorPr}>
+          <AboutMe language={language} />
+          <div className={styles.contenedorPrB}>
+            <div className={styles.prueba}>
+              <Language
+                language={language}
+                setLanguage={(lang) => dispatch(setLanguage(lang))}
+              />
+              <DarkMode />
             </div>
           </div>
-          <div className={styles.segundoRenglon}>
-            <Edad language={language} />
-            <Linkedin language={language} />
-            <a href="/proyects">
-              <Proyectos language={language} />
-            </a>
-          </div>
-          <div className={styles.tercerRenglon}>
-            <Github language={language} />
-            <Stack />
-            <English language={language} />
-          </div>
-          <div className={styles.cuartoRenglon}>
-            <VideoPortfolio language={language} />
-            <Whatsapp />
-            <Email />
-          </div>
-          <div className={styles.quintoRenglon}>
-            <SoyHenry language={language} />
-            <Spotify language={language} />
-            <Recomendaciones language={language} />
-          </div>
         </div>
-        <Noise />
-      </main>
-    </DarkModeContext.Provider>
+        <div className={styles.segundoRenglon}>
+          <Edad language={language} />
+          <Linkedin language={language} />
+          <a href="/proyects">
+            <Proyectos language={language} />
+          </a>
+        </div>
+        <div className={styles.tercerRenglon}>
+          <Github language={language} />
+          <Stack />
+          <English language={language} />
+        </div>
+        <div className={styles.cuartoRenglon}>
+          <VideoPortfolio language={language} />
+          <Whatsapp />
+          <Email />
+        </div>
+        <div className={styles.quintoRenglon}>
+          <SoyHenry language={language} />
+          <Spotify language={language} />
+          <Recomendaciones language={language} />
+        </div>
+      </div>
+      <Noise />
+    </main>
   );
 }

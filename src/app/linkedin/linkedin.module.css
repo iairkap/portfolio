@@ -5,15 +5,26 @@
   border-radius: 1.5625rem;
   margin-top: 1.5rem;
   background-color: #76a4fb;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  padding: 7rem;
-  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+
+  transition: transform 0.2 s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
 }
 
 .generalContainer:hover {
   transform: scale(
     1.02
   ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+}
+
+.clickContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+.linkedinContainer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 2rem;
 }

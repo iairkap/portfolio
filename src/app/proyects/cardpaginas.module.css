@@ -89,7 +89,7 @@
   row-gap: 2rem;
 }
 
-.modalContent {
+.modalContentLight {
   position: relative;
   background-color: #d9d9d9;
   border-radius: 1.4rem;
@@ -100,6 +100,16 @@
   display: flex;
 }
 
+.modalContentDark {
+  position: relative;
+  background-color: #2d2d2d;
+  border-radius: 1.4rem;
+  width: 75%;
+  height: 75%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+}
 .modalContent::before {
   content: "";
   position: absolute;
@@ -120,7 +130,6 @@
 }
 
 .name {
-  color: #000;
   font-family: Montserrat;
   font-size: 1.375rem;
   font-style: normal;
@@ -128,7 +137,7 @@
   line-height: normal;
 }
 
-.textContainerModal {
+.textLight {
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
@@ -136,10 +145,20 @@
   align-self: center;
   gap: 1rem;
   margin-top: 1rem;
+  color: #000;
+}
+.textDark {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  justify-content: center;
+  align-self: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: #d9d9d9;
 }
 
 .parrafo {
-  color: #000;
   text-align: justify;
   font-family: Montserrat;
   font-size: 1rem;
@@ -150,7 +169,6 @@
 }
 
 .link {
-  color: #000;
   text-align: justify;
   font-family: Montserrat;
   font-size: 0.9rem;
@@ -160,7 +178,6 @@
   text-decoration: underline;
 }
 .website {
-  color: #000;
   text-align: justify;
   font-family: Montserrat;
   font-size: 0.9rem;

@@ -3,11 +3,20 @@ import styles from "./recomendaciones.module.css";
 import Modal from "react-modal";
 import nextrec from "../../../public/nextrec.svg";
 import Image from "next/image";
+import { useSelector } from "react-redux"; // Importas el hook useSelector
+import { selectDarkMode } from "../redux/DarkModeSlice"; // Importas el selector
 
 function Recomendaciones({ language }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentRecommendationIndex, setCurrentRecommendationIndex] =
     useState(0);
+  const darkMode = useSelector(selectDarkMode); // Utilizas el selector para acceder a darkMode
+
+  const modalContentStyles = darkMode
+    ? styles.modalContentDark
+    : styles.modalContentLight;
+
+  const textStyles = darkMode ? styles.textDark : styles.textLight;
 
   const recomendaciones = [
     {
@@ -169,11 +178,11 @@ function Recomendaciones({ language }) {
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
       >
-        <div className={styles.modalContent}>
+        <div className={modalContentStyles}>
           <button onClick={closeModal} className={styles.closeM}>
             x{" "}
           </button>
-          <div className={styles.textContainer}>
+          <div className={textStyles}>
             <div className={styles.primerRenglon}>
               <div>
                 <h6 className={styles.projectName}>{projectName}</h6>

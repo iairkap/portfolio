@@ -3,17 +3,17 @@ import React from "react";
 import styles from "./projects.module.css";
 import prevArrow from "../../../public/prevArrow.svg";
 import Image from "next/image";
-import { LanguageContext } from "../contexts/LanguageContext";
-import { useContext } from "react";
-import { useState } from "react";
+
 import Card from "./cardpaginas";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { selectDarkMode } from "../redux/DarkModeSlice"; // Importas el selector
 
 function Proyects() {
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
+  const darkMode = useSelector(selectDarkMode); // Utilizas el selector para acceder a darkMode
 
   const pageVariants = {
     initial: { opacity: 0, scale: 0.9 },
@@ -21,13 +21,17 @@ function Proyects() {
     out: { opacity: 0, scale: 1 },
   };
 
+  const background = darkMode ? styles.backgroundDark : styles.backgroundLight;
+
   const pageTransition = {
     type: "tween",
     ease: "anticipate",
     duration: 0.5,
   };
   return (
-    <div>
+    <div className={background}>
+      <div className={styles.NoiseBackground}></div>
+
       <motion.div
         initial="initial"
         animate="in"
@@ -35,6 +39,8 @@ function Proyects() {
         variants={pageVariants}
         transition={pageTransition}
       >
+        <br />
+        <br />
         <div className={styles.contenedorTitulo}>
           <div className={styles.tituloba}>
             <a href="/">

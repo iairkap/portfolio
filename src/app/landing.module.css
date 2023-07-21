@@ -60,3 +60,17 @@
   gap: 2rem;
   margin-bottom: 1rem;
 }
+
+.NoiseBackground {
+  background-image: url(../../public/noise.gif);
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.008;
+  z-index: 100; /* Adjust the z-index value if needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Add this line to make the element "click-through" */
+}

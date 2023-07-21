@@ -5,7 +5,6 @@
   flex-shrink: 0;
   border-radius: 1.5625rem;
   background: #930000;
-  margin-top: 2rem;
   align-self: center;
   margin-left: 8rem;
   margin-right: 8rem;
@@ -33,4 +32,31 @@
   flex-direction: row;
   gap: 4rem;
   align-items: center;
+}
+
+.backgroundDark {
+  left: 0;
+  top: 0;
+  position: relative;
+  background-color: #2d2d2d;
+  height: auto;
+}
+
+.baclgroundLight {
+  background-color: #d9d9d9;
+  height: auto;
+}
+
+.NoiseBackground {
+  background-image: url(../../../public/noise.gif);
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.008;
+  z-index: 1000000; /* Adjust the z-index value if needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Add this line to make the element "click-through" */
 }

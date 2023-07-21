@@ -7,7 +7,9 @@
   background-size: cover;
   margin-top: 1.5rem;
   position: relative;
-  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+  transition: transform 0.2s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+  display: flex;
+  flex-direction: column;
 }
 
 .generalContainer:hover {
@@ -48,6 +50,14 @@
 }
 
 .textContainer {
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-left: 1rem;
+}
+
+.clickContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  z-index: 2;
 }

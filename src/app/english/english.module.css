@@ -1,16 +1,14 @@
 .generalContainer {
   width: 285px;
   height: 20.25rem;
+  flex-direction: column;
+  position: relative; /* Agregado */
+
   border-radius: 1.5625rem;
   margin-top: 1.5rem;
   background-color: #ad365a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 1.5rem;
-  box-sizing: border-box;
-  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+  transition: transform 0.2s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
 }
 .generalContainer:hover {
   transform: scale(
@@ -37,4 +35,17 @@
   line-height: normal;
   text-align: center;
   margin: 0;
+}
+
+.clickContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textContainer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }

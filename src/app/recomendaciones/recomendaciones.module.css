@@ -18,9 +18,19 @@
   ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
 }
 
-.modalContent {
+.modalContentLight {
   position: relative;
   background-color: #d9d9d9;
+  border-radius: 1.4rem;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.modalContentDark {
+  position: relative;
+  background-color: #2d2d2d;
   border-radius: 1.4rem;
   width: 90%;
   height: 90%;
@@ -47,13 +57,22 @@
   justify-content: center; /* Centrar verticalmente el contenido */
 }
 
-.textContainer {
+.textLight {
   display: flex;
   flex-direction: column;
-
   margin-left: 2rem;
   margin-top: 6rem;
   margin-right: 1rem;
+  color: black;
+}
+
+.textDark {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-top: 6rem;
+  margin-right: 1rem;
+  color: #d9d9d9;
 }
 
 .primerRenglon {
@@ -64,7 +83,6 @@
 }
 
 .name {
-  color: #000;
   font-family: Montserrat;
   font-size: 1.375rem;
   font-style: normal;
@@ -78,7 +96,6 @@
 .projectName,
 .closeM,
 .phoneNumber {
-  color: #000;
   font-family: Montserrat;
   font-size: 1rem;
   font-style: normal;
@@ -87,7 +104,6 @@
 }
 
 .texto {
-  color: #000;
   text-align: justify;
   font-family: Montserrat;
   font-size: 1rem;
@@ -100,7 +116,6 @@
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
-  color: #000;
   font-family: Montserrat;
   font-size: 1rem;
   font-style: normal;
