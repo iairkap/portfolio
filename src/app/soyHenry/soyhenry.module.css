@@ -27,3 +27,13 @@
   font-weight: 900;
   line-height: normal;
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: 13rem;
+  }
+
+  .titulo {
+    font-size: 1.75rem;
+  }
+}

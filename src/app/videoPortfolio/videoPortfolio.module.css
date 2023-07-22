@@ -93,3 +93,18 @@
   z-index: 100000000;
   flex-direction: column;
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    width: 27rem;
+    height: 11.7rem;
+  }
+  .playbu {
+    display: none;
+  }
+  .videoReel {
+    font-size: 3rem;
+    margin-left: 0px;
+    margin-top: 1rem;
+  }
+}

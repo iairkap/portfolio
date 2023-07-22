@@ -61,3 +61,10 @@
   left: 1rem; /* Mover el texto hacia la parte izquierda del contenedor */
   z-index: 2;
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    width: 27rem;
+    height: 11.7rem;
+  }
+}

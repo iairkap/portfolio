@@ -53,8 +53,16 @@
 
 @media screen and (max-width: 768px) {
   .generalBackground {
-    /*     width: 13rem;
- */ /*     height: 13rem;
- */
+    height: auto;
+    width: auto;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .generalBackground {
+    height: auto;
+    width: auto;
+    padding: 1rem;
   }
 }

@@ -63,8 +63,9 @@ function VideoPortfolio(props) {
             whileHover="hover"
             variants={buttonVariants}
             onClick={openModal}
+            className={styles.button}
           >
-            <Image src={play} className={styles.play}></Image>
+            <Image src={play} className={styles.playbu}></Image>
           </PlayButton>
           <h1 className={styles.videoReel}>Video Reel!</h1>
         </div>

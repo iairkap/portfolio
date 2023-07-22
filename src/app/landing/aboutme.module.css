@@ -138,3 +138,9 @@
     background-image: none;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .backgroundColor {
+    width: 27rem;
+  }
+}

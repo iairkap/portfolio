@@ -15,3 +15,9 @@
     1.02
   ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: 12rem;
+  }
+}

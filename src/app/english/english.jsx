@@ -14,11 +14,11 @@ function English({ language }) {
           <Image src={click} className={styles.click}></Image>
         </div>
         <div className={styles.textContainer}>
-          <h6 className={styles.subtitulo}>
+          <h6 className={styles.subtituloa}>
             {language === "ES" ? "NIVEL DE INGLÉS" : "ENGLISH LEVEL"}
           </h6>
           <h1 className={styles.titulo}>C2</h1>
-          <h6 className={styles.subtitulo}>
+          <h6 className={styles.subtitulob}>
             {language === "ES" ? "EF SET" : "EF SET"}
           </h6>
         </div>

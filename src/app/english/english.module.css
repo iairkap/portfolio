@@ -15,7 +15,8 @@
   ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
 }
 
-.subtitulo {
+.subtituloa,
+.subtitulob {
   color: #fff;
   font-family: Montserrat, sans-serif;
   font-size: 1.5rem;
@@ -52,5 +53,25 @@
 @media screen and (max-width: 768px) {
   .generalContainer {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: 11.7rem;
+    margin: none;
+  }
+  .subtituloa {
+    display: none;
+  }
+  .subtitulob {
+    margin-top: -10px;
+  }
+  .titulo {
+    margin: none;
+  }
+  .textContainer {
+    padding: 0rem;
+    gap: -2rem;
   }
 }

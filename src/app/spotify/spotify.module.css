@@ -136,3 +136,25 @@
     height: 50%;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: 13rem;
+    width: 27rem;
+  }
+  .title {
+    font-size: 1rem;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+  }
+  .subtitleb {
+    font-size: 0.75rem;
+  }
+  .textContainer {
+    margin-top: 1rem;
+  }
+  .audiovisual {
+    margin-top: 2rem;
+  }
+}

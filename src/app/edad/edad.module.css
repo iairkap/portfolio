@@ -31,7 +31,20 @@
 
 @media screen and (max-width: 768px) {
   .generalContainer {
-    /*   width: 13rem;
-    height: 13rem; */
+    height: auto;
+    width: auto;
+    padding: 3rem;
+  }
+  .titulo {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: auto;
+    width: auto;
   }
 }

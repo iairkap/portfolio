@@ -27,3 +27,13 @@
   display: flex;
   padding: 2rem;
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: 11.7rem;
+    width: auto;
+  }
+  .linkedinContainer {
+    padding: 0rem;
+  }
+}

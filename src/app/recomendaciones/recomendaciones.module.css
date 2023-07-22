@@ -148,3 +148,9 @@
   align-items: flex-end;
   gap: 2rem;
 }
+
+@media screen and (max-width: 480px) {
+  .generalContainer {
+    height: 13rem;
+  }
+}
