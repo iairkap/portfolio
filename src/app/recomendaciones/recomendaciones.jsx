@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import nextrec from "../../../public/nextrec.svg";
 import Image from "next/image";
 import { useSelector } from "react-redux"; // Importas el hook useSelector
+import star from "../../../public/star.svg";
 
 function Recomendaciones({ language }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -117,58 +118,7 @@ function Recomendaciones({ language }) {
 
   return (
     <div className={styles.generalContainer} onClick={openModal}>
-      <svg
-        width="400"
-        height="400"
-        viewBox="0 0 450 450"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g filter="url(#filter0_i_38_296)">
-          <path
-            d="M158.271 93.5134C180.179 54.2267 191.125 34.5834 207.5 34.5834C223.875 34.5834 234.821 54.2267 256.729 93.5134L262.401 103.681C268.626 114.851 271.739 120.436 276.58 124.12C281.422 127.803 287.474 129.169 299.578 131.901L310.576 134.391C353.113 144.022 374.365 148.829 379.431 165.101C384.48 181.355 369.99 198.318 340.992 232.227L333.487 240.994C325.256 250.625 321.124 255.45 319.273 261.398C317.423 267.364 318.046 273.796 319.291 286.644L320.432 298.35C324.807 343.603 327.003 366.22 313.757 376.267C300.512 386.33 280.592 377.149 240.786 358.819L230.463 354.081C219.155 348.859 213.5 346.266 207.5 346.266C201.5 346.266 195.845 348.859 184.519 354.081L174.231 358.819C134.408 377.149 114.488 386.313 101.26 376.284C87.9973 366.22 90.1933 343.603 94.5681 298.35L95.7094 286.661C96.9544 273.796 97.5769 267.364 95.7094 261.415C93.8765 255.45 89.7438 250.625 81.5129 241.011L74.0084 232.227C45.0102 198.335 30.5198 181.372 35.569 165.101C40.6354 148.829 61.9042 144.005 104.442 134.391L115.439 131.901C127.526 129.169 133.561 127.803 138.42 124.12C143.261 120.436 146.374 114.851 152.599 103.681L158.271 93.5134Z"
-            fill="white"
-          />
-        </g>
-        <defs>
-          <filter
-            id="filter0_i_38_296"
-            x="0"
-            y="0"
-            width="415"
-            height="419"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feColorMatrix
-              in="SourceAlpha"
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-              result="hardAlpha"
-            />
-            <feOffset dy="4" />
-            <feGaussianBlur stdDeviation="7" />
-            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-            />
-            <feBlend
-              mode="normal"
-              in2="shape"
-              result="effect1_innerShadow_38_296"
-            />
-          </filter>
-        </defs>
-      </svg>
-
+      <Image src={star}></Image>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

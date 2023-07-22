@@ -1,15 +1,12 @@
 .generalContainer {
-  width: 285px;
   height: 20.25rem;
   flex-direction: column;
   border-radius: 1.5625rem;
   margin-top: 1.5rem;
   background-color: #d04f4f;
-  margin-left: 10rem;
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 7rem;
 }
 
 .subtitulo {
@@ -30,4 +27,11 @@
   font-weight: 900;
   line-height: normal;
   margin-bottom: -5px; /* Adjust this value to meet your needs */
+}
+
+@media screen and (max-width: 768px) {
+  .generalContainer {
+    /*   width: 13rem;
+    height: 13rem; */
+  }
 }

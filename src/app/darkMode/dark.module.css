@@ -1,6 +1,5 @@
 .generalBackground {
   display: flex;
-  width: 17.8125rem;
   height: 20.25rem;
   flex-direction: column;
   border-radius: 1.5625rem;
@@ -8,4 +7,12 @@
   align-items: center; /* Centra horizontalmente */
   justify-content: center; /* Centra verticalmente */
   background: #0b143b;
+}
+
+@media screen and (max-width: 768px) {
+  .generalBackground {
+    /*     width: 13rem;
+ */ /*     height: 13rem;
+ */
+  }
 }

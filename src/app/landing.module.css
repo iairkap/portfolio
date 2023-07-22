@@ -1,6 +1,7 @@
-.effects {
+/* .effects {
   animation: slide-in 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
+
 @keyframes slide-in {
   0% {
     transform: translateY(-100%);
@@ -12,53 +13,56 @@
   }
 }
 
-.contenedorPr {
-  display: flex;
+.NoiseBackground {
+  background-image: url(../../public/noise.gif);
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.008;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+.contenedorGrid {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "about about about language"
+    "about about about darkmode"
+    "edad linkedin proyectos proyectos"
+    "github  github stack english"
+    "video video whatsapp email"
+    "henry spotify spotify  recomendaciones ";
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
 }
 
-.contenedorPrB {
-  display: flex;
-  flex-direction: column;
+.contenedorGrid > * {
+  max-width: 100%;
+}
+ */
+.effects {
+  animation: slide-in 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
-.prueba {
-  display: flex;
-  flex-direction: column;
-}
-
-.segundoRenglon {
-  display: flex;
-  flex-direction: row;
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.tercerRenglon {
-  display: flex;
-  flex-direction: row;
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.cuartoRenglon {
-  display: flex;
-  flex-direction: row;
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.quintoRenglon {
-  display: flex;
-  flex-direction: row;
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 1rem;
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .NoiseBackground {
@@ -66,11 +70,122 @@
   background-size: cover;
   background-position: center center;
   opacity: 0.008;
-  z-index: 100; /* Adjust the z-index value if needed */
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  pointer-events: none; /* Add this line to make the element "click-through" */
+  pointer-events: none;
+}
+.contenedorGrid {
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "about about about language"
+    "about about about darkmode"
+    "edad linkedin proyectos proyectos"
+    "github  github stack english"
+    "video video whatsapp email"
+    "henry spotify spotify  recomendaciones ";
+  align-items: center;
+  justify-content: center;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+}
+
+.contenedorGrid > * {
+  max-width: 100%;
+}
+
+/* Ensure images are also responsive */
+.contenedorGrid img {
+  max-width: 100%;
+  height: auto;
+}
+.aboutMeContainer {
+  grid-area: about;
+  grid-row: span 2;
+}
+
+.languageContainer {
+  grid-area: language;
+}
+
+.darkModeContainer {
+  grid-area: darkmode;
+}
+
+.edadContainer {
+  grid-area: edad;
+}
+
+.linkedinContainer {
+  grid-area: linkedin;
+}
+
+.proyectosContainer {
+  grid-area: proyectos;
+}
+
+.githubContainer {
+  grid-area: github;
+}
+
+.stackContainer {
+  grid-area: stack;
+}
+
+.englishContainer {
+  grid-area: english;
+}
+
+.videoContainer {
+  grid-area: video;
+}
+
+.whatsappContainer {
+  grid-area: whatsapp;
+}
+
+.emailContainer {
+  grid-area: email;
+}
+
+.henryContainer {
+  grid-area: henry;
+}
+
+.spotifyContainer {
+  grid-area: spotify;
+}
+
+.recomendacionesContainer {
+  grid-area: recomendaciones;
+}
+
+@media screen and (max-width: 768px) {
+  .contenedorGrid {
+    margin-top: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "about about about "
+      "about about about "
+      "language darkmode edad "
+      "linkedin proyectos proyectos"
+      "github  github stack"
+      "english whatsapp email"
+      "video video recomendaciones"
+      "henry spotify spotify";
+    align-items: center;
+    justify-content: center;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+  }
 }

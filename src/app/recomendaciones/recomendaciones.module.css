@@ -1,5 +1,4 @@
 .generalContainer {
-  width: 285px;
   height: 20.25rem;
   flex-direction: column;
   border-radius: 1.5625rem;
@@ -8,7 +7,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 7rem;
+  padding: 4rem;
   transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
 }
 

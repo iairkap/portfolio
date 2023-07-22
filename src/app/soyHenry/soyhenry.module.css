@@ -1,11 +1,9 @@
 .generalContainer {
-  width: 285px;
   height: 20.25rem;
   flex-direction: column;
   border-radius: 1.5625rem;
   margin-top: 1.5rem;
   background-image: url("../../../public/henry.png");
-  margin-left: 10rem;
 
   align-items: center;
   justify-content: center;

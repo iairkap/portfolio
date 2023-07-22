@@ -1,5 +1,4 @@
 .generalContainer {
-  width: 45rem;
   height: 20.25rem;
   border-radius: 30px;
   background-image: url("../../../public/montaje.jpeg");
@@ -10,7 +9,6 @@
   transition: transform 0.2s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
   display: flex;
   flex-direction: column;
-  margin-left: 10rem;
 }
 .modal-video-movie-wrap {
   max-width: 100%;

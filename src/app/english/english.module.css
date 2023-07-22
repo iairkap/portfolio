@@ -1,5 +1,4 @@
 .generalContainer {
-  width: 285px;
   height: 20.25rem;
   flex-direction: column;
   position: relative; /* Agregado */
@@ -48,4 +47,10 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .generalContainer {
+    width: 100%;
+  }
 }

@@ -4,9 +4,7 @@ import Image from "next/image";
 import cyberpunk from "../../../public/Cyberpunk-Poster-Photo-Effect.png";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-function AboutMe({language}) {
-  
-
+function AboutMe({ language }) {
   const esText =
     "Soy un <strong>Desarrollador Full Stack</strong> graduado de Soy Henry, experto en Reactjs, Next.js, JavaScript y más. Con antecedentes en la <strong>industria audiovisual</strong>, aporto creatividad al sector tecnológico, creando <strong>soluciones digitales innovadoras</strong> y <strong>visualmente atractivas</strong>.";
 
@@ -26,15 +24,7 @@ function AboutMe({language}) {
             }}
           />
         </div>
-        <div className={styles.imageContainer}>
-          <Image
-            src={cyberpunk}
-            width={453}
-            height={606}
-            objectFit="cover"
-            className={styles.imagen}
-          />
-        </div>
+        <div className={styles.imageContainer}></div>
       </div>
     </div>
   );

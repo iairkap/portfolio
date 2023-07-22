@@ -46,40 +46,56 @@ export default function Home() {
 
   return (
     <main className={styles.effects}>
-      <div>
+      <div className={styles.contenedorGrid}>
         <div className={styles.NoiseBackground}></div>
-        <div className={styles.contenedorPr}>
+        <div className={styles.aboutMeContainer}>
           <AboutMe language={language} />
-          <div className={styles.contenedorPrB}>
-            <div className={styles.prueba}>
-              <Language
-                language={language}
-                setLanguage={(lang) => dispatch(setLanguage(lang))}
-              />
-              <DarkMode />
-            </div>
-          </div>
         </div>
-        <div className={styles.segundoRenglon}>
+        <div className={styles.languageContainer}>
+          <Language
+            language={language}
+            setLanguage={(lang) => dispatch(setLanguage(lang))}
+          />
+        </div>
+        <div className={styles.darkModeContainer}>
+          <DarkMode />
+        </div>
+        <div className={styles.edadContainer}>
           <Edad language={language} />
+        </div>
+        <div className={styles.linkedinContainer}>
           <Linkedin language={language} />
+        </div>
+        <div className={styles.proyectosContainer}>
           <Link href="/proyects">
             <Proyectos language={language} />
           </Link>
         </div>
-        <div className={styles.tercerRenglon}>
+        <div className={styles.githubContainer}>
           <Github language={language} />
+        </div>
+        <div className={styles.stackContainer}>
           <Stack />
+        </div>
+        <div className={styles.englishContainer}>
           <English language={language} />
         </div>
-        <div className={styles.cuartoRenglon}>
+        <div className={styles.videoContainer}>
           <VideoPortfolio language={language} />
+        </div>
+        <div className={styles.whatsappContainer}>
           <Whatsapp />
+        </div>
+        <div className={styles.emailContainer}>
           <Email />
         </div>
-        <div className={styles.quintoRenglon}>
+        <div className={styles.henryContainer}>
           <SoyHenry language={language} />
+        </div>
+        <div className={styles.spotifyContainer}>
           <Spotify language={language} />
+        </div>
+        <div className={styles.recomendacionesContainer}>
           <Recomendaciones language={language} />
         </div>
       </div>
