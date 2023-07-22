@@ -191,11 +191,12 @@
 }
 @media screen and (max-width: 480px) {
   .contenedorGrid {
-    margin-top: 1rem;
-
     display: grid;
-    grid-template-columns: 208px 208px;
-    grid-template-rows: repeat(auto-fill, 208px);
+    grid-template-columns: 1fr 1fr; /* Se dividen en dos columnas iguales */
+    grid-template-rows: repeat(
+      auto-fill,
+      minmax(25%, auto)
+    ); /* Ajusta el tamaño de las filas */
     grid-template-areas:
       "about about"
       "language darkmode"
@@ -214,7 +215,7 @@
   }
 
   .contenedorGrid > * {
-    height: 208px;
-    width: 208px;
+    height: 100%; /* Toma el 100% del espacio de la celda */
+    width: 100%; /* Toma el 100% del espacio de la celda */
   }
 }
