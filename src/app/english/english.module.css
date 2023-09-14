@@ -56,7 +56,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 390px) {
   .generalContainer {
     height: 11.7rem;
     margin: none;

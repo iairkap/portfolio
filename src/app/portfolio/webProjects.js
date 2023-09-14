@@ -1,3 +1,6 @@
+import realcover from "../../../public/Screenshot 2023-09-13 at 21.50.13.png";
+import realcoverb from "../../../public/linkedin pub.png";
+
 export const proyectosWebs = [
   {
     name: "Talent Tech Hub",
@@ -13,8 +16,7 @@ export const proyectosWebs = [
   },
   {
     name: "Real Cover",
-    picture:
-      "https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screen%20Shot%202023-07-20%20at%2018.52.05.png?alt=media&token=cd8c8ebe-4d3e-426a-93f5-18f00b5b7f5a",
+    picture: realcoverb,
     textExplainEs:
       "Real Cover es mi primer proyecto freelance, una tienda electrónica especializada en la venta al por mayor de fundas de notebooks personalizadas. Esta plataforma se ha diseñado para ofrecer una amplia gama de diseños únicos y personalizables que se adaptan a diversas preferencias y estilos. Gracias a la integración de Next.js, un marco de trabajo de React, se garantiza una experiencia de usuario optimizada, rápida y segura. Además, la implementación de Prisma, un ORM moderno para Node.js y TypeScript, permite un manejo eficiente y seguro de la base de datos. En conjunto, estas tecnologías permiten que Real Cover sea un servicio intuitivo, fácil de usar y completamente seguro para los clientes y para la gestión de su inventario. Con Real Cover, cada funda de notebook es más que una simple protección, es una expresión de identidad.",
     stack: ["Next Js", "Prisma"],

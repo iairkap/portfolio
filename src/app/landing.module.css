@@ -187,17 +187,20 @@
     justify-content: center;
     row-gap: 0.5rem;
     column-gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 390px) {
   .contenedorGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Se dividen en dos columnas iguales */
+    grid-template-columns: 1fr; /* Se dividen en dos columnas iguales */
     grid-template-rows: repeat(
       auto-fill,
       minmax(25%, auto)
     ); /* Ajusta el tamaño de las filas */
     grid-template-areas:
+      "about about"
       "about about"
       "language darkmode"
       "edad linkedin"
@@ -214,8 +217,19 @@
     column-gap: 1rem;
   }
 
+  .aboutMeContainer {
+    margin-bottom: -20rem;
+    margin-top: -20rem;
+  }
+
   .contenedorGrid > * {
-    height: 100%; /* Toma el 100% del espacio de la celda */
-    width: 100%; /* Toma el 100% del espacio de la celda */
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+  }
+  .effects {
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
   }
 }

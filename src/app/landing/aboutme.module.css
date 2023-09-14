@@ -139,8 +139,9 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 390px) {
   .backgroundColor {
-    width: 27rem;
+    width: 90%;
+    text-align: -webkit-center;
   }
 }

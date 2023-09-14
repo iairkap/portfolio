@@ -94,9 +94,10 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 390px) {
   .generalContainer {
-    width: 27rem;
+    /*     width: 27rem;
+ */
     height: 11.7rem;
   }
   .playbu {
