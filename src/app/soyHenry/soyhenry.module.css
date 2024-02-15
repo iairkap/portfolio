@@ -28,12 +28,13 @@
   line-height: normal;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 768px) {
   .generalContainer {
-    height: 13rem;
+    height: 11.7rem;
+    width: auto;
   }
 
   .titulo {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
 }

@@ -100,6 +100,33 @@ export default function Home() {
         </div>
       </div>
       <Noise />
+      <article className={styles.onlyMobile}>
+        <div className={styles.firstRow}>
+          <AboutMe language={language} />
+        </div>{" "}
+        <div className={styles.secondRow}>
+          <Language
+            language={language}
+            setLanguage={(lang) => dispatch(setLanguage(lang))}
+          />
+          <Edad language={language} />
+        </div>
+        <DarkMode />
+        <div className={styles.secondRow}>
+          <Linkedin language={language} />
+          <English language={language} />
+        </div>
+        <Link href="/proyects">
+          <Proyectos language={language} />
+        </Link>
+        <Github />
+        <div className={styles.secondRow}>
+          <Whatsapp />
+          <Email />
+        </div>
+        <VideoPortfolio language={language} />
+        <Stack />
+      </article>
     </main>
   );
 }

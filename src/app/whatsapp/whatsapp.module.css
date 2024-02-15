@@ -16,8 +16,13 @@
   ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 768px) {
   .generalContainer {
     height: 11.7rem;
+    width: auto;
+  }
+
+  .iconContainer {
+    padding: 1rem;
   }
 }

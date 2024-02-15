@@ -4,7 +4,6 @@
   border-radius: 1.5625rem;
   margin-top: 1.5rem;
   background-color: #76a4fb;
-
   transition: transform 0.2 s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
 }
 
@@ -28,7 +27,7 @@
   padding: 2rem;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 768px) {
   .generalContainer {
     height: 11.7rem;
     width: auto;
