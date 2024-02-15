@@ -46,6 +46,10 @@ export default function Home() {
 
   return (
     <main className={styles.effects}>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      ></link>
       <div className={styles.contenedorGrid}>
         <div className={styles.NoiseBackground}></div>
         <div className={styles.aboutMeContainer}>
