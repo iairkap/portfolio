@@ -23,15 +23,3 @@
   align-items: center;
   justify-content: center;
 }
-
-@media screen and (max-width: 390px) {
-  .generalContainer {
-    height: 12rem;
-  }
-  .iconContainer {
-    width: 100%;
-    height: 65%;
-    gap: 2.1000000000000014rem;
-    padding: 0.5em;
-  }
-}

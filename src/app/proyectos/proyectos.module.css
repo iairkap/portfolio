@@ -61,13 +61,3 @@
   margin-right: 1rem;
   z-index: 2;
 }
-
-@media screen and (max-width: 390px) {
-  .generalContainer {
-    height: 13rem;
-  }
-  .textContainer {
-    margin-top: 0rem;
-    margin-left: 1rem;
-  }
-}

@@ -24,11 +24,3 @@
     padding: 3rem;
   }
 }
-
-@media screen and (max-width: 390px) {
-  .generalBackground {
-    height: auto;
-    width: 11rem;
-    padding-right: 1rem;
-  }
-}

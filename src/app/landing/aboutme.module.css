@@ -138,10 +138,3 @@
     background-image: none;
   }
 }
-
-@media screen and (max-width: 390px) {
-  .backgroundColor {
-    width: 90%;
-    text-align: -webkit-center;
-  }
-}
