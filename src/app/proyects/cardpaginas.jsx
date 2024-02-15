@@ -7,12 +7,22 @@ import { proyectosWebs } from "../portfolio/webProjects";
 import { Helmet } from "react-helmet";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function getFirstTenWords(str) {
   return str.split(" ").slice(0, 20).join(" ") + "...";
 }
+function isTouchDevice() {
+  return (
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    navigator.msMaxTouchPoints > 0
+  );
+}
 
 function Card({ project }) {
+  const isSmallScreen = useMediaQuery("(max-width:768px)");
+
   const [isHovered, setIsHovered] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const dispatch = useDispatch();
@@ -63,6 +73,7 @@ function Card({ project }) {
     <div
       className={styles.contenedor}
       onClick={() => setModalIsOpen(true)}
+      onTouchStart={() => setModalIsOpen(true)}
       style={{ background: project.backgroundContainer }} // Aplicar el color de fondo del proyecto
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -73,7 +84,7 @@ function Card({ project }) {
           isHovered
             ? "w-[95%] h-[55%] left-[2.5%] transform hover:scale-90"
             : "md:h-full md:w-full md:left-0 w-[95%] h-[50%] left-[2.5%] transform hover:scale-90"
-        }`}
+        } ${isSmallScreen ? styles.smallScreenClass : styles.largeScreenClass}`}
       >
         <Image
           src={project.picture}
@@ -107,7 +118,14 @@ function Card({ project }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Mi Modal"
-        style={customStyles}
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0,0,0,0.75)",
+            backdropFilter: "blur(5px)",
+          },
+          content: {},
+        }}
+        className={styles.modalContent}
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
       >

@@ -43,9 +43,11 @@ function Proyects() {
         <br />
         <div className={styles.contenedorTitulo}>
           <div className={styles.tituloba}>
-            <Link href="/">
-              <Image src={prevArrow} className={styles.Arrow} />
-            </Link>
+            <div className={styles.arrow}>
+              <Link href="/">
+                <Image src={prevArrow} className={styles.Arrow} />
+              </Link>
+            </div>
             <h1 className={styles.titulo}>
               {language === "ES" ? "PROYECTOS" : "PROJECTS"}
             </h1>{" "}
