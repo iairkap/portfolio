@@ -1,13 +1,13 @@
 .contenedor {
-  width: 42.375rem;
-  height: 32.375rem;
+  /*   width: 42.375rem;
+  height: 32.375rem; */
   border-radius: 1.875rem;
   position: relative;
   overflow: hidden;
   background: #6351b9;
   margin-top: 1rem;
+  height: 32.365rem;
 }
-
 .backgroundImage {
   position: absolute;
   top: -15%;
@@ -82,11 +82,11 @@
 }
 
 .cardContainer {
+  width: calc(100vw - 16rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-left: 8rem;
-  margin-top: 2rem;
-  row-gap: 2rem;
+  gap: 3rem;
 }
 
 .modalContentLight {
@@ -189,4 +189,16 @@
 
 .linkContainer {
   display: flex;
+}
+
+@media screen and (min-width: 1018px) and (max-width: 1280px) {
+  .contenedor {
+    height: 20rem;
+  }
+}
+
+@media screen and (max-width: 1018px) {
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,5 +1,5 @@
 .contenedorTitulo {
-  width: 100w;
+  width: calc(100dvw - 16rem);
   height: 12.75rem;
   display: flex;
   flex-shrink: 0;
@@ -20,6 +20,30 @@
   font-style: normal;
   font-weight: 900;
   line-height: normal;
+}
+
+@media screen and (max-width: 1018px) {
+  .titulo {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 818px) {
+  .imagen {
+    height: calc(172px - 40px);
+    width: calc(233px - 40px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .titulo {
+    font-size: 2.5rem;
+  }
+  .tituloba {
+    display: none;
+  }
+  .imagen {
+    display: none;
+  }
 }
 
 .imagen {
