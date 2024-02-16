@@ -131,6 +131,10 @@
   .imageContainer {
     height: 50vw; /* Ajusta el valor según necesites */
   }
+  .ContainerText {
+    margin: 0px;
+    padding: 1rem;
+  }
 }
 
 @media screen and (max-width: 1399px) {
