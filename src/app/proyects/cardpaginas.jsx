@@ -122,6 +122,7 @@ function Card({ project }) {
           overlay: {
             backgroundColor: "rgba(0,0,0,0.75)",
             backdropFilter: "blur(5px)",
+            height: "100dvh",
           },
           content: {},
         }}
