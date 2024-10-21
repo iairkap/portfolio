@@ -76,7 +76,7 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.githubContainer}>
-          <Github language={language} />
+          <VideoPortfolio language={language} />
         </div>
         <div className={styles.stackContainer}>
           <Stack />
@@ -85,7 +85,7 @@ export default function Home() {
           <English language={language} />
         </div>
         <div className={styles.videoContainer}>
-          <VideoPortfolio language={language} />
+          <Github language={language} />
         </div>
         <div className={styles.whatsappContainer}>
           <Whatsapp />
