@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "./stack.module.css";
 import uil_html5 from "../../../public/uil_html5.svg";
@@ -33,11 +34,42 @@ function Stack(props) {
   return (
     <div className={styles.generalContainer}>
       <div className={styles.iconContainer}>
-        {icons.map((icon, index) => (
-          <div key={index} className={styles.icon}>
-            <Image src={icon} width={45} height={45} alt="" />
-          </div>
-        ))}
+        <div className={styles.icon}>
+          <img src={"/nextjs.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/react.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/typescript.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/javascript.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/postgress.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/nodejs.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/git.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/figma.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/aftereffects.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/premiere.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/uil_html5.svg"} width={45} height={45} alt="" />
+        </div>
+        <div className={styles.icon}>
+          <img src={"/uiw_css3.svg"} width={45} height={45} alt="" />
+        </div>
       </div>
     </div>
   );
