@@ -54,41 +54,24 @@ function VideoPortfolio(props) {
   };
   return (
     <div className={styles.generalContainer}>
-      <Link href={"/audiovisual"}>
-        <div className={styles.clickContainer}>
-          <Image src={click} className={styles.click}></Image>
+      <div className={styles.clickContainer}>
+        <Image src={click} className={styles.click} alt="click"></Image>
+      </div>
+      <div className={styles.playContainer}>
+        <div className={styles.iconContainer}>
+          <PlayButton
+            whileHover="hover"
+            variants={buttonVariants}
+            onClick={openModal}
+            className={styles.button}
+          >
+            <Link href={"/audiovisual"}>
+              <Image src={play} className={styles.playbu} alt="play"></Image>
+            </Link>
+          </PlayButton>
+          <h1 className={styles.videoReel}>Portfolio Audiovisual</h1>
         </div>
-        <div className={styles.playContainer}>
-          <div className={styles.iconContainer}>
-            <PlayButton
-              whileHover="hover"
-              variants={buttonVariants}
-              onClick={openModal}
-              className={styles.button}
-            >
-              <Image src={play} className={styles.playbu}></Image>
-            </PlayButton>
-            <h1 className={styles.videoReel}>Portfolio Audiovisual</h1>
-          </div>
-          {/*     <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          contentLabel="Mi Modal"
-          shouldCloseOnEsc={true}
-          shouldCloseOnOverlayClick={true}
-          style={customStyles}
-        >
-          <iframe
-            src="https://player.vimeo.com/video/429032350?autoplay=1"
-            width="100%"
-            height="100%"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          ></iframe>
-        </Modal> */}
-        </div>
-      </Link>
+      </div>
     </div>
   );
 }
