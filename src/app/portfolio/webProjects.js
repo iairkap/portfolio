@@ -2,6 +2,22 @@ import realcover from "../../../public/Screenshot 2023-09-13 at 21.50.13.png";
 import realcoverb from "../../../public/linkedin pub.png";
 
 export const proyectosWebs = [
+  /*   {
+    name: "Argentinatech",
+    backgroundContainer: "#0F121A",
+    textExplainEn: `Fafafafa`,
+    textExplainEs: "texto en spanish",
+    picture: `https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screenshot%202024-02-15%20at%2012.20.34.png?alt=media&token=477fa169-8597-4330-a6d9-819cafd42fb8`,
+    stack: [
+      "Next Js",
+      "Prisma",
+      "Retool",
+      "Firebase",
+      "REST API",
+      "DocuSign API",
+    ],
+  }, */
+
   {
     name: "Weddinvitation",
     backgroundContainer: "#818369",

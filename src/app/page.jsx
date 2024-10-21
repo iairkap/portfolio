@@ -128,7 +128,9 @@ export default function Home() {
           <Whatsapp />
           <Email />
         </div>
-        <VideoPortfolio language={language} />
+        <Link href={"/audiovisual"}>
+          <VideoPortfolio language={language} />
+        </Link>
         <Stack />
       </article>
     </main>

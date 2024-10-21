@@ -1,0 +1,68 @@
+.generalContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+.contenedorProyecto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #b85353;
+  border-radius: 1.5625rem;
+  padding: 1rem;
+  gap: 1rem;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  color: white;
+}
+
+.contenedorVideo {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.siemens {
+  background-color: blue;
+}
+
+.puntomov {
+  background-color: rgb(123, 14, 14);
+}
+
+.highlight {
+  background-color: #484848;
+}
+
+.seekingalpha {
+  background-color: #ed511b;
+}
+
+.siemens {
+  background-color: #009999;
+}
+
+.keyword {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.keysContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

@@ -6,7 +6,7 @@ import play from "../../../public/play.svg";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import Modal from "react-modal";
-
+import Link from "next/link";
 const PlayButton = styled(motion.button)`
   /* Agrega tus estilos personalizados aquí */
   background: transparent;
@@ -54,22 +54,23 @@ function VideoPortfolio(props) {
   };
   return (
     <div className={styles.generalContainer}>
-      <div className={styles.clickContainer}>
-        <Image src={click} className={styles.click}></Image>
-      </div>
-      <div className={styles.playContainer}>
-        <div className={styles.iconContainer}>
-          <PlayButton
-            whileHover="hover"
-            variants={buttonVariants}
-            onClick={openModal}
-            className={styles.button}
-          >
-            <Image src={play} className={styles.playbu}></Image>
-          </PlayButton>
-          <h1 className={styles.videoReel}>Video Reel!</h1>
+      <Link href={"/audiovisual"}>
+        <div className={styles.clickContainer}>
+          <Image src={click} className={styles.click}></Image>
         </div>
-        <Modal
+        <div className={styles.playContainer}>
+          <div className={styles.iconContainer}>
+            <PlayButton
+              whileHover="hover"
+              variants={buttonVariants}
+              onClick={openModal}
+              className={styles.button}
+            >
+              <Image src={play} className={styles.playbu}></Image>
+            </PlayButton>
+            <h1 className={styles.videoReel}>Portfolio Audiovisual</h1>
+          </div>
+          {/*     <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Mi Modal"
@@ -85,8 +86,9 @@ function VideoPortfolio(props) {
             allow="autoplay; fullscreen"
             allowfullscreen
           ></iframe>
-        </Modal>
-      </div>
+        </Modal> */}
+        </div>
+      </Link>
     </div>
   );
 }
