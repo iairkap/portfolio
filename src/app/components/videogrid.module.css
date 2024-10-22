@@ -1,7 +1,8 @@
 .generalContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  row-gap: 2rem;
   padding-left: 10vw;
   padding-right: 10vw;
   margin-top: 2rem;
@@ -16,53 +17,64 @@
 .contenedorProyecto {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #b85353;
-  border-radius: 1.5625rem;
-  padding: 1rem;
+  color: black;
   gap: 1rem;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.375rem;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  color: white;
+}
+.tituloProyecto {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  white-space: normal;
+  margin: 0px;
 }
 
 .contenedorVideo {
   width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
+  height: 200px;
   overflow: hidden;
-}
-
-.siemens {
-  background-color: blue;
-}
-
-.puntomov {
-  background-color: rgb(123, 14, 14);
-}
-
-.highlight {
-  background-color: #484848;
-}
-
-.seekingalpha {
-  background-color: #ed511b;
-}
-
-.siemens {
-  background-color: #009999;
+  border-radius: 1rem;
 }
 
 .keyword {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 300;
+  margin: 0px;
 }
 
 .keysContainer {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  padding-left: 0rem;
+  margin: 0px;
+}
+.avatarContainer {
+  width: 30px;
+  height: 30px; /* Cambiado de min-height a height */
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.captionConteiner {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.magia {
+  margin: 0rem;
+  display: flex;
+  flex-direction: column;
 }

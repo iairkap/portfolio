@@ -3,6 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 function headerProjects({ styles, language }) {
+  const resumes = {
+    EN: "https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/iair%2FCV-%20Iair%20Kaplun%20Eng.pdf?alt=media&token=ae1fbb62-55d2-4ec6-b877-d818fec180b2",
+    ES: "https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/iair%2FCV-%20Iair%20Kaplun.pdf?alt=media&token=21cd6428-0e47-4c14-bf3e-b11a729c36c4",
+  };
   return (
     <div className={styles.contenedorTitulo}>
       <div className={styles.tituloba}>
@@ -22,6 +26,11 @@ function headerProjects({ styles, language }) {
             : "AUDIOVISUAL PORTFOLIO"}
         </h1>{" "}
       </div>
+      {/*       <div>
+        <a href={resumes[language]} target="_blank" rel="noopener noreferrer">
+          Download Resume
+        </a>
+      </div> */}
       <img
         className={styles.imagen}
         src="https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/proyects.png?alt=media&token=0efecff7-c43b-4536-970d-2d1e3c3ae5a7"

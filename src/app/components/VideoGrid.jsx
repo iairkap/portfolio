@@ -21,13 +21,10 @@ function VideoGrid(props) {
             )}`}
           >
             {" "}
-            <div className={styles.contenedorTituloProyect}>
-              <h4 className={styles.tituloProyecto}>{proyect.title}</h4>
-            </div>
             <div className={styles.contenedorVideo}>
               <iframe
-                width="100%"
-                height="350px"
+                width="350px"
+                height="100%"
                 src={embedLink}
                 title={proyect.title}
                 frameBorder="0"
@@ -35,12 +32,26 @@ function VideoGrid(props) {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className={styles.keysContainer}>
-              {proyect.keywords.map((keyword) => (
-                <span key={keyword} className={styles.keyword}>
-                  {keyword}
-                </span>
-              ))}
+            <div className={styles.captionConteiner}>
+              <div className={styles.avatarContainer}>
+                <img
+                  src={`/avatar/${proyect.avatar}`}
+                  alt={proyect.company}
+                  className={styles.avatarImage}
+                />
+              </div>
+              <div className={styles.magia}>
+                <div className={styles.contenedorTituloProyect}>
+                  <h4 className={styles.tituloProyecto}>{proyect.title}</h4>
+                </div>
+                <div className={styles.keysContainer}>
+                  {proyect.keywords.map((keyword) => (
+                    <span key={keyword} className={styles.keyword}>
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         );
