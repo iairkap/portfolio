@@ -23,8 +23,7 @@ function VideoGrid(props) {
             {" "}
             <div className={styles.contenedorVideo}>
               <iframe
-                width="350px"
-                height="100%"
+                className={styles.video}
                 src={embedLink}
                 title={proyect.title}
                 frameBorder="0"
