@@ -61,7 +61,7 @@ export default function Home() {
           <Linkedin language={language} />
         </div>
         <div className={styles.proyectosContainer}>
-          <Link href="/proyects">
+          <Link href="/projects">
             <Proyectos language={language} />
           </Link>
         </div>
@@ -110,7 +110,7 @@ export default function Home() {
           <Linkedin language={language} />
           <English language={language} />
         </div>
-        <Link href="/proyects">
+        <Link href="/projects">
           <Proyectos language={language} />
         </Link>
         <Github />

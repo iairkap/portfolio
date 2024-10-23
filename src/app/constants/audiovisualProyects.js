@@ -1,4 +1,4 @@
-export const audiovisualProyects = [
+export const audiovisualprojects = [
   {
     id: 9,
     title: "Surge - Trailer",

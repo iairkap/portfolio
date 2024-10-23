@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "../proyects/projects.module.css";
+import styles from "../projects/projects.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";

@@ -40,7 +40,7 @@ function headerProjects({ styles, language }) {
       </div> */}
       <img
         className={styles.imagen}
-        src="https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/proyects.png?alt=media&token=0efecff7-c43b-4536-970d-2d1e3c3ae5a7"
+        src="https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/projects.png?alt=media&token=0efecff7-c43b-4536-970d-2d1e3c3ae5a7"
         alt=""
         width={172}
         height={233}

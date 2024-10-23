@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  audiovisualProyects,
+  audiovisualprojects,
   getEmbedLink,
-} from "../constants/audiovisualProyects";
+} from "../constants/audiovisualproyects";
 import styles from "./videogrid.module.css";
 function VideoGrid(props) {
   const styleByProyectCompany = (proyect) => {
@@ -11,7 +11,7 @@ function VideoGrid(props) {
 
   return (
     <main className={styles.generalContainer}>
-      {audiovisualProyects.map((proyect) => {
+      {audiovisualprojects.map((proyect) => {
         const embedLink = getEmbedLink(proyect.videoLink, proyect.src);
         return (
           <div
