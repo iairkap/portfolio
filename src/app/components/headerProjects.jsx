@@ -20,11 +20,18 @@ function headerProjects({ styles, language }) {
             />
           </Link>
         </div>
-        <h1 className={styles.titulo}>
-          {language === "ES"
-            ? "PORTFOLIO AUDIOVISUAL"
-            : "AUDIOVISUAL PORTFOLIO"}
-        </h1>{" "}
+        <div className={styles.titileContainer}>
+          <h1 className={styles.titulo}>
+            {language === "ES"
+              ? "PORTFOLIO AUDIOVISUAL"
+              : "AUDIOVISUAL PORTFOLIO"}
+          </h1>{" "}
+          <a href={resumes[language]} target="_blank" rel="noopener noreferrer">
+            <span className={styles.subtitle}>
+              {language === "ES" ? "Descargar CV" : "Download Resume"}{" "}
+            </span>
+          </a>
+        </div>
       </div>
       {/*       <div>
         <a href={resumes[language]} target="_blank" rel="noopener noreferrer">

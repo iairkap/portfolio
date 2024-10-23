@@ -11,6 +11,41 @@
   align-items: flex-start;
   z-index: 2;
 }
+
+.generalContainerB {
+  height: 20.25rem;
+  border-radius: 30px;
+  background-size: cover;
+  margin-top: 1.5rem;
+  position: relative;
+  display: flex;
+  justify-content: flex-start; /* Cambio en la alineación */
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.text {
+  position: relative;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  z-index: 3;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
 .generalContainer::before {
   content: "";
   background-image: inherit;

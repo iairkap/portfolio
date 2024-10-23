@@ -3,7 +3,8 @@ import axios from "axios";
 import styles from "./spotify.module.css";
 import ReactPlayer from "react-player";
 import { IoPlaySharp, IoPauseSharp } from "react-icons/io5";
-
+import Image from "next/image";
+import spotifyPicture from "../../../public/spotify.webp";
 export default function SpotifyRecentTrack({ language }) {
   const [track, setTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -36,7 +37,14 @@ export default function SpotifyRecentTrack({ language }) {
   }, []);
 
   if (!track) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.generalContainerB}>
+        <div className={styles.imagenContainer}>
+          <Image src={spotifyPicture} alt="Spotify" fill />
+          <h4 className={styles.text}>Cargando...</h4>
+        </div>
+      </div>
+    );
   }
 
   return (

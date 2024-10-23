@@ -137,7 +137,7 @@
   }
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 770px) {
   .imageContainer {
     background-image: none;
   }

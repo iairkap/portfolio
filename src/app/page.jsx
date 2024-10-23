@@ -1,11 +1,9 @@
 "use client";
 import { useEffect } from "react";
-import Image from "next/image";
 import AboutMe from "./landing/aboutMe";
 import Language from "./language/language";
 import styles from "./landing.module.css";
 import DarkMode from "./darkMode/darkMode";
-import { useState } from "react";
 import Edad from "./edad/edad";
 import Linkedin from "./linkedin/linkedin";
 import Proyectos from "./proyectos/proyectos";
@@ -19,15 +17,9 @@ import Spotify from "./spotify/spotify";
 import SoyHenry from "./soyHenry/soyhenry";
 import Recomendaciones from "./recomendaciones/recomendaciones";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
-import { toggleDarkMode } from "./redux/darkm"; // add this
-
 import { useSelector, useDispatch } from "react-redux";
-import NoiseBackground from "./helpers/NoiseBackground";
-
 import Noise from "./noise/noise";
-import { useContext } from "react";
 
 export default function Home() {
   const darkMode = useSelector((state) => state.darkMode.value); // updated from useState
@@ -38,9 +30,7 @@ export default function Home() {
     document.body.className = darkMode ? "dark" : "light";
   }, [darkMode]);
 
-  // Esto se ejecutará cuando 'darkMode' cambie.
   useEffect(() => {
-    // Cambia la clase CSS del body dependiendo de 'darkMode'.
     document.body.className = darkMode ? "dark" : "light";
   }, [darkMode]);
 
