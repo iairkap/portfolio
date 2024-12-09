@@ -2,7 +2,7 @@ import React from "react";
 import {
   audiovisualprojects,
   getEmbedLink,
-} from "../constants/audiovisualproyects";
+} from "@/app/constants/audiovisualProyects.js";
 import styles from "./videogrid.module.css";
 function VideoGrid(props) {
   const styleByProyectCompany = (proyect) => {
