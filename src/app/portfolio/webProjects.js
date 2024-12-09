@@ -2,12 +2,25 @@ import realcover from "../../../public/Screenshot 2023-09-13 at 21.50.13.png";
 import realcoverb from "../../../public/linkedin pub.png";
 
 export const proyectosWebs = [
-  /*   {
+  {
+    name: "Innovatio",
+    backgroundContainer: "#292929",
+    textExplainEn:
+      "As the lead Front-end Developer, I designed and implemented a modern web application for a decentralized crowdfunding platform on the Cardano blockchain. Utilizing Next.js, I created a dynamic and responsive user interface, while integrating with Smart DB for seamless web3 interactions.",
+    textExplainEs:
+      "Como desarrollador Front-end líder, diseñé e implementé una aplicación web moderna para una plataforma de crowdfunding descentralizada en la blockchain de Cardano. Utilizando Next.js, creé una interfaz de usuario dinámica y receptiva, mientras integraba con Smart DB para interacciones web3 sin problemas.",
+    picture:
+      "https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screenshot%202024-12-09%20at%2020.32.24.png?alt=media&token=7b48b7d3-a5a7-4643-a9fe-88674e6f37b2", // imagen del proyecto
+    stack: ["Next.js", "AWS", "Smart DB", "Cardano Blockchain", "Web3"],
+  },
+
+  {
     name: "Argentinatech",
-    backgroundContainer: "#0F121A",
-    textExplainEn: `Fafafafa`,
-    textExplainEs: "texto en spanish",
-    picture: `https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screenshot%202024-02-15%20at%2012.20.34.png?alt=media&token=477fa169-8597-4330-a6d9-819cafd42fb8`,
+    backgroundContainer: "#A7CEF4",
+    textExplainEn: `I led the development of an interactive platform for the Argentinatechprogram, designing comprehensive solutions from scratch using a modern technology stack. I utilized React and Next.js for frontenddevelopment, ensuring a dynamic and responsive user interface. For the backend, I implemented robust APIs using Node.js, optimizing real-time data interactions. The application includes advanced features such as user eligibility assessment and educational funding data management, with integration in AWS for secure and scalable data storage. I significantly contributed to the project documentation using swagger and implemented best coding practices, facilitating scalability andsystem maintenance.",`,
+    textExplainEs: `Lideré el desarrollo de una plataforma interactiva para el programa Argentinatech, diseñando soluciones integrales desde cero utilizando una pila de tecnología moderna. Utilicé React y Next.js para el desarrollo frontend, asegurando una interfaz de usuario dinámica y receptiva. Para el backend, implementé APIs robustas utilizando Node.js, optimizando las interacciones de datos en tiempo real. La aplicación incluye características avanzadas como evaluación de elegibilidad de usuarios y gestión de datos de financiamiento educativo, con integración en AWS para almacenamiento de datos seguro y escalable. Contribuí significativamente a la documentación del proyecto utilizando Swagger e implementé las mejores prácticas de codificación, facilitando la escalabilidad y el mantenimiento del sistema.`,
+
+    picture: `https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screenshot%202024-12-09%20at%2010.35.07.png?alt=media&token=7fcf3b49-8e90-4b45-92fb-c6af06904fe3`,
     stack: [
       "Next Js",
       "Prisma",
@@ -16,7 +29,7 @@ export const proyectosWebs = [
       "REST API",
       "DocuSign API",
     ],
-  }, */
+  },
 
   {
     name: "Weddinvitation",
