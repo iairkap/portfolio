@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
 
-function projects() {
+function Projects() {
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
   const darkMode = useSelector((state) => state.darkMode.value); // Utilizas el selector para acceder a darkMode
