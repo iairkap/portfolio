@@ -138,6 +138,9 @@ function Card({ project }) {
     `}</style>
         </Helmet>
         <div className={modalContentStyles}>
+          <button className={styles.close} onClick={closeModal}>
+            x
+          </button>
           <div className={textStyles}>
             <h1 className={styles.name}>{project.name}</h1>
             <h3 className={styles.parrafo}>

@@ -218,9 +218,16 @@
     left: 2.5%;
     transform: scale(0.9);
   }
+  .close {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
+  .close {
+    align-self: flex-end;
+    font-size: 26px;
+  }
   .modalContentDark,
   .modalContentLight {
     padding: 0px;
