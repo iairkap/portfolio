@@ -15,6 +15,18 @@ export const proyectosWebs = [
   },
 
   {
+    name: "Estatein",
+    backgroundContainer: "#292929",
+    textExplainEn:
+      "As the lead Front-end Developer, I crafted a cutting-edge real estate web application using Next.js, tailored for a property agency. Estatein provides users with a seamless experience to explore featured properties, read client reviews, and access detailed property listings. The platform includes dynamic filtering, a responsive design optimized for mobile and desktop, and integration with advanced SEO strategies to maximize visibility. With its modern UI and focus on user experience, Estatein stands out as a comprehensive solution for real estate agencies aiming to grow their online presence.",
+    textExplainEs:
+      "Como desarrollador Front-end líder, desarrollé una innovadora aplicación web inmobiliaria utilizando Next.js, diseñada específicamente para una agencia de propiedades. Estatein ofrece a los usuarios una experiencia fluida para explorar propiedades destacadas, leer opiniones de clientes y acceder a listados detallados de propiedades. La plataforma incluye filtrado dinámico, un diseño responsivo optimizado para dispositivos móviles y escritorio, e integración con estrategias avanzadas de SEO para maximizar la visibilidad. Con una interfaz moderna y un enfoque en la experiencia del usuario, Estatein se destaca como una solución integral para agencias inmobiliarias que buscan expandir su presencia en línea.",
+    picture: "/thumbnail.png",
+    stack: ["Next.js", "Tailwind CSS", "AOS", "SEO", "Responsive Design"],
+    github: "https://github.com/iairkap?tab=repositories",
+    demo: "https://real-estate-five-xi.vercel.app/",
+  },
+  {
     name: "Argentinatech",
     backgroundContainer: "#A7CEF4",
     textExplainEn: `I led the development of an interactive platform for the Argentinatechprogram, designing comprehensive solutions from scratch using a modern technology stack. I utilized React and Next.js for frontenddevelopment, ensuring a dynamic and responsive user interface. For the backend, I implemented robust APIs using Node.js, optimizing real-time data interactions. The application includes advanced features such as user eligibility assessment and educational funding data management, with integration in AWS for secure and scalable data storage. I significantly contributed to the project documentation using swagger and implemented best coding practices, facilitating scalability andsystem maintenance.",`,
