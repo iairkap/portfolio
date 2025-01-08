@@ -6,7 +6,7 @@ import Image from "next/image";
 function Whatsapp(props) {
   const handleClick = () => {
     const message = encodeURIComponent("Hola, me gustaría trabajar con vos!");
-    const phoneNumber = "972586925442";
+    const phoneNumber = "5491132067088";
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
 
