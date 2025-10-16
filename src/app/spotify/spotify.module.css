@@ -7,9 +7,25 @@
   margin-top: 1.5rem;
   position: relative;
   display: flex;
-  justify-content: flex-start; /* Cambio en la alineación */
-  align-items: flex-start;
+  justify-content: center; /* Cambio en la alineación */
+  align-items: center;
   z-index: 2;
+  background-color: rgb(12, 61, 26);
+  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+}
+
+.generalContainer:hover {
+  transform: scale(
+    1.02
+  ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+}
+.iconContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 0.2;
 }
 
 .generalContainerB {
@@ -24,28 +40,6 @@
   z-index: 2;
 }
 
-.text {
-  position: relative;
-  z-index: 3;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.75rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  z-index: 3;
-}
-
-.imageContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: red;
-}
 .generalContainer::before {
   content: "";
   background-image: inherit;
@@ -61,117 +55,11 @@
 .title {
   color: #fff;
   font-family: Montserrat, sans-serif;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   z-index: 3;
-}
-
-.subtitle {
-  color: #fff;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  z-index: 3;
-}
-.subtitleb {
-  color: #fff;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  z-index: 3;
-}
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto; /* Nuevo margen inferior */
-  margin-left: 2rem;
-  padding-bottom: 1rem;
-  gap: 0.2rem;
-}
-
-.image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-position: center;
-  object-fit: cover;
-  z-index: -1;
-  transition: all 0.3s ease-in-out;
-}
-
-.audiovisual {
-  height: 1vw;
-  width: min-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.audiowire {
-  height: 50%;
-  margin: 0 2px;
-  padding: 0 1px;
-  background: white;
-  border-radius: 20px;
-}
-
-.animate {
-  animation: animateUpDown 0.5s infinite alternate;
-}
-
-.audiowire:nth-child(1) {
-  animation-delay: 0.5ms;
-}
-
-.audiowire:nth-child(2) {
-  animation-delay: 150ms;
-}
-
-.audiowire:nth-child(3) {
-  animation-delay: 300ms;
-}
-
-.audiowire:nth-child(4) {
-  animation-delay: 450ms;
-}
-
-.audiowire:nth-child(5) {
-  animation-delay: 600ms;
-}
-
-.audiowire:nth-child(6) {
-  animation-delay: 450ms;
-}
-
-.audiowire:nth-child(7) {
-  animation-delay: 300ms;
-}
-
-.audiowire:nth-child(8) {
-  animation-delay: 150ms;
-}
-
-.audiowire:nth-child(9) {
-  animation-delay: 50ms;
-}
-
-@keyframes animateUpDown {
-  to {
-    height: 90%;
-  }
-  from {
-    height: 50%;
-  }
 }
 
 @media screen and (max-width: 390px) {

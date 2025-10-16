@@ -22,4 +22,105 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative; /* añadido: contexto para el tooltip */
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px); /* encima del icono */
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 10;
+}
+
+/* flecha del tooltip */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.85);
+}
+
+/* mostrar al hover/keyboard focus */
+.icon:hover .tooltip,
+.icon:focus-within .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ajuste en pantallas pequeñas */
+@media (max-width: 480px) {
+  .tooltip {
+    font-size: 0.7rem;
+    padding: 5px 6px;
+    bottom: calc(100% + 6px);
+  }
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* añadido: contexto para el tooltip */
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px); /* encima del icono */
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 10;
+}
+
+/* flecha del tooltip */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.85);
+}
+
+/* mostrar al hover/keyboard focus */
+.icon:hover .tooltip,
+.icon:focus-within .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ajuste en pantallas pequeñas */
+@media (max-width: 480px) {
+  .tooltip {
+    font-size: 0.7rem;
+    padding: 5px 6px;
+    bottom: calc(100% + 6px);
+  }
 }
