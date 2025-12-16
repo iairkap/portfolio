@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./linkedin.module.css";
 import linkedin from "../../../public/linkedin.svg";
 import Image from "next/image";
 import click from "../../../public/click.svg";
 import Link from "next/link";
 
-function Linkedin(props) {
+const Linkedin = memo(function Linkedin(props) {
   return (
     <Link href="https://www.linkedin.com/in/iair-kaplun-97145a88/">
       <div className={styles.generalContainer}>
@@ -29,6 +29,6 @@ function Linkedin(props) {
       </div>
     </Link>
   );
-}
+});
 
 export default Linkedin;

@@ -1,21 +1,21 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDarkMode } from "../redux/darkm";
 import styles from "./dark.module.css";
 import SwitchComponent from "./switch";
 
-function DarkMode() {
+const DarkMode = memo(const DarkMode = memo(function DarkMode() {
   const dispatch = useDispatch();
+
+  const handleToggle = useCallback(() => {
+    dispatch(toggleDarkMode());
+  }, [dispatch]);
 
   return (
     <div className={styles.generalBackground}>
-      <SwitchComponent
-        handleToggle={() => {
-          dispatch(toggleDarkMode());
-        }}
-      />
+      <SwitchComponent handleToggle={handleToggle} />
     </div>
   );
-}
+});
 
 export default DarkMode;

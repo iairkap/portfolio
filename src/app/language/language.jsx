@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, memo, useCallback } from "react";
 import styles from "./language.module.css";
 import { LanguageContext } from "../contexts/LanguageContext";
 import { useSelector, useDispatch } from "react-redux";
 import { setLanguage } from "../redux/languageSlice";
 
-function Language() {
+const Language = memo(function Language() {
   const language = useSelector((state) => state.language.value);
   const dispatch = useDispatch();
 
-  const handleLanguageChange = (newLanguage) => {
-    console.log("Changing language to:", newLanguage); // Verifica que el evento de click se está disparando correctamente.
-    dispatch(setLanguage(newLanguage)); // Despacha la acción con el nuevo valor del lenguaje.
-  };
+  const handleLanguageChange = useCallback((newLanguage) => {
+    console.log("Changing language to:", newLanguage);
+    dispatch(setLanguage(newLanguage));
+  }, [dispatch]);
 
   console.log("Render Language component:", language); // Agrega esta línea
   return (
@@ -41,6 +41,6 @@ function Language() {
       </div>
     </div>
   );
-}
+});
 
 export default Language;

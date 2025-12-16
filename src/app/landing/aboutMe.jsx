@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./aboutme.module.css";
 import Image from "next/image";
 import cyberpunk from "../../../public/Cyberpunk-Poster-Photo-Effect.webp";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-function AboutMe({ language }) {
+const AboutMe = memo(function AboutMe({ language }) {
   const esText =
     "Soy un <strong>Desarrollador Full Stack</strong> e <strong>Ingeniero Informático en formación</strong>, experto en Reactjs, Next.js, JavaScript y más. Con antecedentes en la <strong>industria audiovisual</strong>, aporto creatividad al sector tecnológico, creando <strong>soluciones digitales innovadoras</strong> y <strong>visualmente atractivas</strong>.";
 
@@ -28,7 +28,7 @@ function AboutMe({ language }) {
       </div>
     </div>
   );
-}
+});
 
 export default AboutMe;
 /*

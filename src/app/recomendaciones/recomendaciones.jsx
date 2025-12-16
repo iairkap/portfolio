@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo, useMemo } from "react";
 import styles from "./recomendaciones.module.css";
 import Modal from "react-modal";
 import nextrec from "../../../public/nextrec.svg";
@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import star from "../../../public/star.svg";
 import { useModal } from "../hooks/useModal";
 
-function Recomendaciones({ language }) {
+const Recomendaciones = memo(function Recomendaciones({ language }) {
   const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
   const [currentRecommendationIndex, setCurrentRecommendationIndex] =
     useState(0);
@@ -19,7 +19,7 @@ function Recomendaciones({ language }) {
 
   const textStyles = darkMode ? styles.textDark : styles.textLight;
 
-  const recomendaciones = [
+  const recomendaciones = useMemo(() => [
     {
       projectName: "Talent Tech Hub",
       name: "Natalia Malvicino",
@@ -68,7 +68,7 @@ function Recomendaciones({ language }) {
       recomendacionIngles:
         "You are amazing! Your determination to overcome challenges and take your technical skills to another level is inspiring. You are always willing to help and learn, breaking the barriers of knowledge with every challenge. It is a privilege to work with you and witness your triumphs. Keep shining bright and courageous!",
     },
-  ];
+  ], []);
 
   const handleNextRecommendation = () => {
     setCurrentRecommendationIndex((prevIndex) =>
@@ -147,6 +147,6 @@ function Recomendaciones({ language }) {
       </Modal>
     </div>
   );
-}
+});
 
 export default Recomendaciones;

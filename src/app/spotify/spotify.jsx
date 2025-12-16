@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo, useCallback } from "react";
 import Image from "next/image";
 import axios from "axios";
 import styles from "./spotify.module.css";
 import ReactPlayer from "react-player";
 import { IoPlaySharp, IoPauseSharp } from "react-icons/io5";
 
-export default function SpotifyRecentTrack({ language }) {
+const SpotifyRecentTrack = memo(function SpotifyRecentTrack({ language }) {
   const iconCV = {
     src: "/resume.svg",
     alt: "CV",
@@ -13,14 +13,14 @@ export default function SpotifyRecentTrack({ language }) {
 
   const resumePDF = "CV_Iair_Kaplun.pdf";
 
-  const handleDownload = () => {
+  const handleDownload = useCallback(() => {
     const link = document.createElement("a");
     link.href = resumePDF;
     link.download = "CV_Iair_Kaplun.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
+  }, []);
 
   return (
     <div className={styles.generalContainer} onClick={handleDownload}>
@@ -34,4 +34,6 @@ export default function SpotifyRecentTrack({ language }) {
       </div>
     </div>
   );
-}
+});
+
+export default SpotifyRecentTrack;

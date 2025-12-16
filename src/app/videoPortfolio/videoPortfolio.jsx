@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo, useMemo } from "react";
 import styles from "./videoPortfolio.module.css";
 import Image from "next/image";
 import click from "../../../public/click.svg";
@@ -18,10 +18,10 @@ const PlayButton = styled(motion.button)`
   justify-content: center;
 `;
 
-function VideoPortfolio(props) {
+const VideoPortfolio = memo(function VideoPortfolio(props) {
   const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
 
-  const buttonVariants = {
+  const buttonVariants = useMemo(() => ({
     hover: {
       scale: 1.1,
       transition: {
@@ -29,7 +29,7 @@ function VideoPortfolio(props) {
         yoyo: Infinity,
       },
     },
-  };
+  }), []);
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0,0,0,0.75)",
@@ -66,7 +66,7 @@ function VideoPortfolio(props) {
       </div>
     </div>
   );
-}
+});
 
 export default VideoPortfolio;
 //

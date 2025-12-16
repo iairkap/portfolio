@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./github.module.css";
 import { LanguageContext } from "../contexts/LanguageContext";
 import { useContext } from "react";
 import Fithub from "../../../public/github.svg";
 import Image from "next/image";
 
-function Github({ language }) {
+const Github = memo(function Github({ language }) {
   return (
     <a
       href="https://github.com/iairkap"
@@ -27,5 +27,5 @@ function Github({ language }) {
       </div>
     </a>
   );
-}
+});
 export default Github;

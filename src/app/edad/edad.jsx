@@ -1,17 +1,17 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 import styles from "./edad.module.css";
 
-function Edad({ language }) {
-  const currentYear = new Date().getFullYear();
-
-  const birthYear = 1994;
-
-  let age = currentYear - birthYear;
-
-  const birthdateThisYear = new Date(currentYear, 0, 6); // 0 es enero en JavaScript
-  if (new Date() < birthdateThisYear) {
-    age -= 1;
-  }
+const Edad = memo(const Edad = memo(function Edad({ language }) {
+  const age = useMemo(() => {
+    const currentYear = new Date().getFullYear();
+    const birthYear = 1994;
+    let calculatedAge = currentYear - birthYear;
+    const birthdateThisYear = new Date(currentYear, 0, 6);
+    if (new Date() < birthdateThisYear) {
+      calculatedAge -= 1;
+    }
+    return calculatedAge;
+  }, []);
 
   return (
     <div className={styles.generalContainer}>
@@ -22,6 +22,6 @@ function Edad({ language }) {
       </h6>
     </div>
   );
-}
+});
 
 export default Edad;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./cardpaginas.module.css";
@@ -14,7 +14,7 @@ function getFirstTenWords(str) {
  * Componente Card - Presentacional puro
  * Lógica extraída a useCardLogic, modal a CardModal (SRP)
  */
-function Card({ project }) {
+const Card = memo(function Card({ project }) {
   const {
     isHovered,
     setIsHovered,
@@ -27,14 +27,17 @@ function Card({ project }) {
     textStyles,
   } = useCardLogic();
 
+  const handleMouseEnter = useCallback(() => setIsHovered(true), [setIsHovered]);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), [setIsHovered]);
+
   return (
     <div
       className={styles.contenedor}
       onClick={openModal}
       onTouchStart={openModal}
       style={{ background: project.backgroundContainer }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <motion.div
         className={`absolute bottom-0 overflow-hidden rounded-t-3xl transition-all duration-300 ease-in-out ${
@@ -82,7 +85,7 @@ function Card({ project }) {
       />
     </div>
   );
-}
+});
 
 export default function CardsContainer() {
   return (
