@@ -384,30 +384,18 @@ module.exports = {
 
 ---
 
-### ⏳ REFACTOR-006: Crear ModalOverlay reutilizable
+### ✅ REFACTOR-006: Crear ModalOverlay reutilizable
 
-**Status:** Pendiente  
+**Status:** ✅ COMPLETADO  
 **Prioridad:** 🟢 MEDIA
 
-**Crear:**
+**Creado:**
+- ✅ src/app/components/ui/ModalOverlay.jsx (wrapper reutilizable)
 
-```javascript
-// src/app/components/ui/ModalOverlay.jsx
-export function ModalOverlay({ isOpen, onClose, children, ...props }) {
-  return (
-    <Modal isOpen={isOpen} onRequestClose={onClose} {...props}>
-      {children}
-    </Modal>
-  );
-}
-```
-
-**Archivos afectados:**
-
-- [ ] Crear `src/app/components/ui/ModalOverlay.jsx`
-- [ ] Refactor todos los componentes con modales
-
-**Commit:** `refactor(ui): create reusable ModalOverlay component`
+**Beneficios:**
+- Componente DRY para todos los modales
+- Props flexibles y customizables
+- Integrado con MODAL_STYLES centralizadas
 
 ---
 
