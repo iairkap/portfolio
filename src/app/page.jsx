@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import AboutMe from "./landing/aboutMe";
 import Language from "./language/language";
 import styles from "./landing.module.css";
@@ -7,19 +7,24 @@ import DarkMode from "./darkMode/darkMode";
 import Edad from "./edad/edad";
 import Linkedin from "./linkedin/linkedin";
 import Proyectos from "./proyectos/proyectos";
-import Github from "./github/github";
-import Stack from "./stack/stack";
-import English from "./english/english";
-import VideoPortfolio from "./videoPortfolio/videoPortfolio";
-import Whatsapp from "./whatsapp/whatsapp";
-import Email from "./email/email";
-import Spotify from "./spotify/spotify";
-import SoyHenry from "./soyHenry/soyhenry";
-import Recomendaciones from "./recomendaciones/recomendaciones";
 import Link from "next/link";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Noise from "./noise/noise";
+
+// Lazy loading de componentes below-the-fold
+const Github = lazy(() => import("./github/github"));
+const Stack = lazy(() => import("./stack/stack"));
+const English = lazy(() => import("./english/english"));
+const VideoPortfolio = lazy(() => import("./videoPortfolio/videoPortfolio"));
+const Whatsapp = lazy(() => import("./whatsapp/whatsapp"));
+const Email = lazy(() => import("./email/email"));
+const Spotify = lazy(() => import("./spotify/spotify"));
+const SoyHenry = lazy(() => import("./soyHenry/soyhenry"));
+const Recomendaciones = lazy(() => import("./recomendaciones/recomendaciones"));
+
+// Fallback simple para Suspense
+const ComponentLoader = () => <div style={{ minHeight: "100px" }} />;
 
 export default function Home() {
   const darkMode = useSelector((state) => state.darkMode.value); // updated from useState
@@ -62,31 +67,49 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.githubContainer}>
-          <VideoPortfolio language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <VideoPortfolio language={language} />
+          </Suspense>
         </div>
         <div className={styles.stackContainer}>
-          <Stack />
+          <Suspense fallback={<ComponentLoader />}>
+            <Stack />
+          </Suspense>
         </div>
         <div className={styles.englishContainer}>
-          <English language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <English language={language} />
+          </Suspense>
         </div>
         <div className={styles.videoContainer}>
-          <Github language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <Github language={language} />
+          </Suspense>
         </div>
         <div className={styles.whatsappContainer}>
-          <Whatsapp />
+          <Suspense fallback={<ComponentLoader />}>
+            <Whatsapp />
+          </Suspense>
         </div>
         <div className={styles.emailContainer}>
-          <Email />
+          <Suspense fallback={<ComponentLoader />}>
+            <Email />
+          </Suspense>
         </div>
         <div className={styles.henryContainer}>
-          <SoyHenry language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <SoyHenry language={language} />
+          </Suspense>
         </div>
         <div className={styles.spotifyContainer}>
-          <Spotify language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <Spotify language={language} />
+          </Suspense>
         </div>
         <div className={styles.recomendacionesContainer}>
-          <Recomendaciones language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <Recomendaciones language={language} />
+          </Suspense>
         </div>
       </div>
       <Noise />
@@ -109,15 +132,25 @@ export default function Home() {
         <Link href="/projects">
           <Proyectos language={language} />
         </Link>
-        <Github />
+        <Suspense fallback={<ComponentLoader />}>
+          <Github />
+        </Suspense>
         <div className={styles.secondRow}>
-          <Whatsapp />
-          <Email />
+          <Suspense fallback={<ComponentLoader />}>
+            <Whatsapp />
+          </Suspense>
+          <Suspense fallback={<ComponentLoader />}>
+            <Email />
+          </Suspense>
         </div>
         <Link href={"/audiovisual"}>
-          <VideoPortfolio language={language} />
+          <Suspense fallback={<ComponentLoader />}>
+            <VideoPortfolio language={language} />
+          </Suspense>
         </Link>
-        <Stack />
+        <Suspense fallback={<ComponentLoader />}>
+          <Stack />
+        </Suspense>
       </article>
     </main>
   );
