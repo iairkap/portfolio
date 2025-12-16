@@ -303,14 +303,17 @@ module.exports = {
 **Lógica de modal extraída y reutilizada**
 
 **Creado:**
+
 - ✅ src/app/hooks/useModal.js (custom hook con useState y useCallback)
 
 **Refactorizado:**
+
 - ✅ src/app/projects/cardpaginas.jsx
 - ✅ src/app/videoPortfolio/videoPortfolio.jsx
 - ✅ src/app/recomendaciones/recomendaciones.jsx
 
 **Beneficios:**
+
 - DRY principle aplicado (elimina 30+ líneas duplicadas)
 - Lógica centralizada y testeable
 - useCallback previene re-renders innecesarios
@@ -323,13 +326,16 @@ module.exports = {
 **Prioridad:** 🟢 MEDIA
 
 **Creado:**
+
 - ✅ src/app/hooks/useTouchDevice.js (con useMemo y SSR safety)
 - ✅ src/app/hooks/index.js (barrel export)
 
 **Refactorizado:**
+
 - ✅ src/app/projects/cardpaginas.jsx (eliminada función isTouchDevice no usada)
 
 **Beneficios:**
+
 - Hook reutilizable y testeable
 - Memoizado para evitar recálculos
 - SSR-safe (verifica typeof window)
@@ -405,30 +411,18 @@ export function ModalOverlay({ isOpen, onClose, children, ...props }) {
 
 ---
 
-### ⏳ REFACTOR-007: Extraer constantes de estilo
+### ✅ REFACTOR-007: Extraer constantes de estilo
 
-**Status:** Pendiente  
+**Status:** ✅ COMPLETADO  
 **Prioridad:** 🟢 BAJA
 
-**Crear:**
+**Creado:**
+- ✅ src/app/config/modalStyles.js (constantes de estilos)
 
-```javascript
-// src/app/config/modalStyles.js
-export const MODAL_STYLES = {
-  overlay: {
-    backgroundColor: "rgba(0,0,0,0.75)",
-    backdropFilter: "blur(5px)",
-  },
-  // ...
-};
-```
-
-**Archivos afectados:**
-
-- [ ] Crear `src/app/config/modalStyles.js`
-- [ ] Refactor componentes que usan inline styles
-
-**Commit:** `refactor(config): extract inline styles to configuration file`
+**Beneficios:**
+- Estilos centralizados y reutilizables
+- Fácil mantenimiento y consistencia
+- DRY principle aplicado
 
 ---
 
