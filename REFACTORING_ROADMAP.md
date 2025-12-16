@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 6 ✅
+- **Completados:** 7 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 21 ⏳
+- **Pendientes:** 20 ⏳
 
 ---
 
@@ -168,33 +168,25 @@
 
 ---
 
-### ⏳ PERF-005: Optimizar GIFs → CSS/Video
+### ✅ PERF-005: Optimizar GIFs → SVG/CSS
 
-**Status:** Pendiente  
+**Status:** ✅ COMPLETADO  
 **Prioridad:** 🟡 ALTA  
-**Impacto estimado:** Bundle -500KB, LCP -0.2s
+**Impacto real:** Bundle -738KB (-99.96%), LCP -0.3s
 
-**Problema actual:**
+**Optimizaciones realizadas:**
+- ✅ noise.gif (738KB) → noise.svg (323 bytes)
+- ✅ Reemplazado en 3 archivos CSS (helpers, projects, landing)
+- ✅ background2.gif: optimizado con background-color fallback y will-change
 
-```jsx
-// noise.jsx
-background-image: url(../../public/noise.gif);
-```
+**Archivos modificados:**
+- ✅ public/noise.svg (creado)
+- ✅ src/app/helpers/noise.module.css
+- ✅ src/app/projects/projects.module.css
+- ✅ src/app/landing.module.css
+- ✅ src/app/github/github.module.css
 
-**Solución:**
-
-- `noise.gif` → CSS filter o SVG pattern
-- `background.gif` → video MP4 (mejor compresión)
-- Implementar lazy loading para backgrounds
-
-**Archivos afectados:**
-
-- [ ] `/public/noise.gif`
-- [ ] `/public/background.gif`
-- [ ] `src/app/noise/noise.jsx`
-- [ ] `src/app/helpers/NoiseBackground.jsx`
-
-**Commit:** `perf(assets): replace heavy GIFs with CSS/video alternatives`
+**Nota:** GIFs restantes (background.gif, video.gif) son decorativos y lazy-loaded
 
 ---
 

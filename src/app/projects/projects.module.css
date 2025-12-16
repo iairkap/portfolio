@@ -94,7 +94,7 @@
 }
 
 .NoiseBackground {
-  background-image: url(../../../public/noise.gif);
+  background-image: url(../../../public/noise.svg);
   background-size: cover;
   background-position: center center;
   opacity: 0.008;

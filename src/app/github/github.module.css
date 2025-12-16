@@ -1,12 +1,14 @@
 .generalContainer {
   height: 20.25rem;
   border-radius: 30px;
+  background-color: #1a1a1a;
   background-image: url("../../../public/background2.gif");
   background-repeat: repeat;
   background-size: cover;
   margin-top: 1.5rem;
   position: relative;
   transition: transform 0.3s ease-out;
+  will-change: transform;
 
   /* Agregado para disponer los elementos */
   display: flex;
