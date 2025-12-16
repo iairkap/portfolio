@@ -13,13 +13,6 @@ import { useModal } from "../hooks/useModal";
 function getFirstTenWords(str) {
   return str.split(" ").slice(0, 20).join(" ") + "...";
 }
-function isTouchDevice() {
-  return (
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints > 0 ||
-    navigator.msMaxTouchPoints > 0
-  );
-}
 
 function Card({ project }) {
   const isSmallScreen = useMediaQuery("(max-width:768px)");
