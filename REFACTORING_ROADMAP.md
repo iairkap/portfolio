@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 8 ✅
+- **Completados:** 9 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 19 ⏳
+- **Pendientes:** 18 ⏳
 
 ---
 
@@ -295,36 +295,25 @@ module.exports = {
 
 ---
 
-### ⏳ REFACTOR-002: Extraer lógica de modal a custom hook
+### ✅ REFACTOR-002: Extraer lógica de modal a custom hook
 
-**Status:** Pendiente  
+**Status:** ✅ COMPLETADO  
 **Prioridad:** 🟡 ALTA
 
-**Problema:** Lógica de modal repetida en 3 componentes
+**Lógica de modal extraída y reutilizada**
 
-**Crear:**
+**Creado:**
+- ✅ src/app/hooks/useModal.js (custom hook con useState y useCallback)
 
-```javascript
-// src/app/hooks/useModal.js
-export function useModal() {
-  const [isOpen, setIsOpen] = useState(false);
-  const open = useCallback(() => setIsOpen(true), []);
-  const close = useCallback((e) => {
-    e?.stopPropagation();
-    setIsOpen(false);
-  }, []);
-  return { isOpen, open, close };
-}
-```
+**Refactorizado:**
+- ✅ src/app/projects/cardpaginas.jsx
+- ✅ src/app/videoPortfolio/videoPortfolio.jsx
+- ✅ src/app/recomendaciones/recomendaciones.jsx
 
-**Archivos afectados:**
-
-- [ ] Crear `src/app/hooks/useModal.js`
-- [ ] Refactor `src/app/projects/cardpaginas.jsx`
-- [ ] Refactor `src/app/videoPortfolio/videoPortfolio.jsx`
-- [ ] Refactor `src/app/recomendaciones/recomendaciones.jsx`
-
-**Commit:** `refactor(hooks): extract modal logic to useModal custom hook`
+**Beneficios:**
+- DRY principle aplicado (elimina 30+ líneas duplicadas)
+- Lógica centralizada y testeable
+- useCallback previene re-renders innecesarios
 
 ---
 

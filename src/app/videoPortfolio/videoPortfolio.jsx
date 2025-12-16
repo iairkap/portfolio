@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import Modal from "react-modal";
 import Link from "next/link";
+import { useModal } from "../hooks/useModal";
 const PlayButton = styled(motion.button)`
   /* Agrega tus estilos personalizados aquí */
   background: transparent;
@@ -18,16 +19,7 @@ const PlayButton = styled(motion.button)`
 `;
 
 function VideoPortfolio(props) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = (event) => {
-    event.stopPropagation();
-    setModalIsOpen(false);
-  };
+  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
 
   const buttonVariants = {
     hover: {

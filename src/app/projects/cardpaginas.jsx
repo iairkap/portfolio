@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useModal } from "../hooks/useModal";
 
 function getFirstTenWords(str) {
   return str.split(" ").slice(0, 20).join(" ") + "...";
@@ -24,25 +25,16 @@ function Card({ project }) {
   const isSmallScreen = useMediaQuery("(max-width:768px)");
 
   const [isHovered, setIsHovered] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
-  const darkMode = useSelector((state) => state.darkMode.value); // Utilizas el selector para acceder a darkMode
+  const darkMode = useSelector((state) => state.darkMode.value);
 
   const modalContentStyles = darkMode
     ? styles.modalContentDark
     : styles.modalContentLight;
 
   const textStyles = darkMode ? styles.textDark : styles.textLight;
-
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = (event) => {
-    event.stopPropagation();
-    setModalIsOpen(false);
-  };
 
   const customStyles = {
     overlay: {
