@@ -10,12 +10,18 @@ import { useModal } from "./useModal";
  */
 export function useCardLogic() {
   const [isHovered, setIsHovered] = useState(false);
-  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
+  const {
+    isOpen: modalIsOpen,
+    open: openModal,
+    close: closeModal,
+  } = useModal();
   const isSmallScreen = useMediaQuery("(max-width:768px)");
   const language = useSelector(selectLanguage);
   const darkMode = useSelector((state) => state.darkMode.value);
 
-  const modalContentStyles = darkMode ? "modalContentDark" : "modalContentLight";
+  const modalContentStyles = darkMode
+    ? "modalContentDark"
+    : "modalContentLight";
   const textStyles = darkMode ? "textDark" : "textLight";
 
   return {
