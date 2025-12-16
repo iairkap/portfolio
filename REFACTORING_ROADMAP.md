@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 7 ✅
+- **Completados:** 8 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 20 ⏳
+- **Pendientes:** 19 ⏳
 
 ---
 
@@ -77,6 +77,7 @@
 **Impacto real:** Bundle -39MB (-81%), LCP estimado -1.5s
 
 **Optimizaciones realizadas:**
+
 - ✅ Cyberpunk-Poster-Photo-Effect: 26.74MB → 0.33MB (-98.8%)
 - ✅ thumbnail: 6.13MB → 0.04MB (-99.4%)
 - ✅ montaje: 2.71MB → 0.04MB (-98.4%)
@@ -86,9 +87,11 @@
 **Total ahorrado:** 39MB → 0.5MB (-98.7%)
 
 **Script creado:**
+
 - ✅ `scripts/optimize-images.js` (usando sharp)
 
 **Referencias actualizadas:**
+
 - ✅ `src/app/landing/aboutMe.jsx`
 - ✅ `src/app/landing/aboutme.module.css`
 - ✅ `src/app/portfolio/webProjects.js`
@@ -116,6 +119,7 @@
 **Impacto real:** CLS -0.15, LCP -0.2s, Lazy loading automático
 
 **Optimizaciones realizadas:**
+
 - ✅ stack.jsx: 12 iconos SVG (45x45px)
 - ✅ spotify.jsx: CV icon (125x125px)
 - ✅ headerProjects.jsx: projects image (172x233px)
@@ -123,6 +127,7 @@
 - ✅ projects/page.jsx: projects image (172x233px)
 
 **Beneficios:**
+
 - Dimensiones explícitas previenen CLS
 - Lazy loading automático de Next.js
 - Optimización automática de imágenes
@@ -130,6 +135,7 @@
 - Preload de imágenes críticas
 
 **Archivos modificados:**
+
 - ✅ `src/app/stack/stack.jsx`
 - ✅ `src/app/spotify/spotify.jsx`
 - ✅ `src/app/components/headerProjects.jsx`
@@ -148,6 +154,7 @@
 **Impacto real:** Initial Bundle -35%, FCP -0.4s, TTI -0.6s
 
 **Componentes con lazy loading:**
+
 - ✅ Github (React.lazy)
 - ✅ Stack (React.lazy)
 - ✅ English (React.lazy)
@@ -159,11 +166,13 @@
 - ✅ Recomendaciones (React.lazy)
 
 **Implementación:**
+
 - Suspense boundaries con fallback mínimo
 - Componentes above-the-fold mantienen eager loading
 - Mobile y desktop layouts optimizados
 
 **Archivos modificados:**
+
 - ✅ src/app/page.jsx (129 → optimizado)
 
 ---
@@ -175,11 +184,13 @@
 **Impacto real:** Bundle -738KB (-99.96%), LCP -0.3s
 
 **Optimizaciones realizadas:**
+
 - ✅ noise.gif (738KB) → noise.svg (323 bytes)
 - ✅ Reemplazado en 3 archivos CSS (helpers, projects, landing)
 - ✅ background2.gif: optimizado con background-color fallback y will-change
 
 **Archivos modificados:**
+
 - ✅ public/noise.svg (creado)
 - ✅ src/app/helpers/noise.module.css
 - ✅ src/app/projects/projects.module.css
@@ -230,25 +241,28 @@ module.exports = {
 ---
 
 ### ✅ PERF-007: Actualizar Next.js a versión estable más reciente
+
 **Status:** ✅ COMPLETADO  
 **Prioridad:** 🔴 CRÍTICA  
 **Impacto real:** Next.js 13.4.10 → 16.0.10, React 18.2.0 → 19.2.3
 
 **Actualizaciones realizadas:**
+
 - ✅ Next.js: 13.4.10 → 16.0.10 (major upgrade)
 - ✅ React: 18.2.0 → 19.2.3 (React 19)
 - ✅ React-DOM: 18.2.0 → 19.2.3
 - ⚠️ Node.js requirement: >=20.9.0 (actual: 20.8.0)
 
 **Breaking changes conocidos:**
+
 - React 19 elimina defaultProps
 - App Router cambios en metadata API
 - next/image optimizaciones mejoradas
 
-**Nota:** Build requiere actualizar Node.js a >=20.9.0
-5. Verificar que no haya warnings o errores
+**Nota:** Build requiere actualizar Node.js a >=20.9.0 5. Verificar que no haya warnings o errores
 
 **Archivos afectados:**
+
 - [ ] `package.json`
 - [ ] Posibles ajustes en componentes si hay breaking changes
 
@@ -260,26 +274,24 @@ module.exports = {
 
 ## 📋 FASE 2: CLEAN CODE (SOLID)
 
-### ⏳ REFACTOR-001: Eliminar código muerto
+### ✅ REFACTOR-001: Eliminar código muerto
 
-**Status:** Pendiente  
+**Status:** ✅ COMPLETADO  
 **Prioridad:** 🟢 MEDIA
 
-**Código a eliminar:**
+**Código eliminado:**
 
-- [ ] `hexToRgb` function (cardpaginas.jsx línea 62-70) - nunca usada
-- [ ] `DarkModeContext.js` - no utilizado (se usa Redux)
-- [ ] `LanguageContext.js` - no utilizado (se usa Redux)
-- [ ] `useEffect` duplicado (page.jsx líneas 29-36)
+- ✅ `hexToRgb` function (cardpaginas.jsx) - nunca usada
+- ✅ `DarkModeContext.js` - no utilizado (se usa Redux)
+- ✅ `useEffect` duplicado (page.jsx)
 
-**Archivos afectados:**
+**Nota:** LanguageContext.js SÍ está siendo usado en 5 componentes (mantener)
 
-- [ ] `src/app/projects/cardpaginas.jsx`
-- [ ] `src/app/contexts/DarkModeContext.js`
-- [ ] `src/app/contexts/LanguageContext.js`
-- [ ] `src/app/page.jsx`
+**Archivos modificados:**
 
-**Commit:** `refactor(cleanup): remove dead code and unused contexts`
+- ✅ src/app/projects/cardpaginas.jsx (eliminado hexToRgb)
+- ✅ src/app/contexts/DarkModeContext.js (eliminado)
+- ✅ src/app/page.jsx (eliminado useEffect duplicado)
 
 ---
 

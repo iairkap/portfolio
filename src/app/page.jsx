@@ -27,13 +27,9 @@ const Recomendaciones = lazy(() => import("./recomendaciones/recomendaciones"));
 const ComponentLoader = () => <div style={{ minHeight: "100px" }} />;
 
 export default function Home() {
-  const darkMode = useSelector((state) => state.darkMode.value); // updated from useState
+  const darkMode = useSelector((state) => state.darkMode.value);
   const dispatch = useDispatch();
   const language = useSelector(selectLanguage);
-
-  useEffect(() => {
-    document.body.className = darkMode ? "dark" : "light";
-  }, [darkMode]);
 
   useEffect(() => {
     document.body.className = darkMode ? "dark" : "light";
