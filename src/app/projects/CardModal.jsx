@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { ModalOverlay } from "../ui/ModalOverlay";
-import { MODAL_STYLES } from "../../config/modalStyles";
+import { ModalOverlay } from "../components/ui/ModalOverlay";
+import { MODAL_STYLES } from "../config/modalStyles";
 import styles from "./cardpaginas.module.css";
 
 /**
