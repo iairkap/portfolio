@@ -91,7 +91,7 @@
   width: 50vw; /* ajusta según lo necesites */
   background-size: cover;
   background-position: bottom;
-  background-image: url("../../../public/Cyberpunk-Poster-Photo-Effect.png");
+  background-image: url("../../../public/Cyberpunk-Poster-Photo-Effect.webp");
 }
 
 @media screen and (max-width: 768px) {

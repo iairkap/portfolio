@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./aboutme.module.css";
 import Image from "next/image";
-import cyberpunk from "../../../public/Cyberpunk-Poster-Photo-Effect.png";
+import cyberpunk from "../../../public/Cyberpunk-Poster-Photo-Effect.webp";
 import { LanguageContext } from "../contexts/LanguageContext";
 
 function AboutMe({ language }) {

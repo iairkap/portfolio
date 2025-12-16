@@ -7,8 +7,8 @@
 
 ## 📊 RESUMEN DE PROGRESO
 
-- **Total de Tickets:** 26
-- **Completados:** 1 ✅
+- **Total de Tickets:** 27
+- **Completados:** 2 ✅
 - **En Progreso:** 0 🔄
 - **Pendientes:** 25 ⏳
 
@@ -17,6 +17,7 @@
 ## 🔴 PROBLEMAS CRÍTICOS IDENTIFICADOS
 
 ### Performance Issues
+
 - [ ] LCP > 2.5s (Google Fonts bloqueantes)
 - [ ] Imágenes sin optimización (60+ archivos)
 - [ ] No hay lazy loading
@@ -24,16 +25,19 @@
 - [ ] Re-renders innecesarios
 
 ### Code Quality Issues
+
 - [ ] Violaciones SRP en `page.jsx` (129 líneas, 5+ responsabilidades)
 - [ ] Violaciones SRP en `cardpaginas.jsx` (194 líneas, 6+ responsabilidades)
 - [ ] Código duplicado (useEffect, lógica de modal)
 - [ ] Código muerto (hexToRgb, Contexts no usados)
 
 ### Architecture Issues
+
 - [ ] Gestión de estado inconsistente (Redux + Context sin usar)
 - [ ] Props drilling excesivo
 - [ ] No hay TypeScript
 - [ ] Estructura de carpetas no escalable
+- [ ] Next.js 13.4.10 (versión antigua con errores conocidos)
 
 ---
 
@@ -42,11 +46,13 @@
 **Objetivo:** Mejorar Core Web Vitals en 1-2 días
 
 ### ✅ PERF-001: Migrar Google Fonts a next/font
+
 **Status:** ✅ COMPLETADO  
 **Prioridad:** 🔴 CRÍTICA  
 **Impacto estimado:** LCP -0.5s
 
 **Cambios realizados:**
+
 - ✅ Montserrat agregada a `layout.js` con `next/font/google`
 - ✅ Configurado `display: 'swap'` para evitar FOIT
 - ✅ Weights optimizados: 300, 500, 700, 900
@@ -54,6 +60,7 @@
 - ✅ Variable CSS `--font-montserrat` disponible globalmente
 
 **Archivos modificados:**
+
 - ✅ `src/app/layout.js`
 - ✅ `src/app/page.jsx`
 - ✅ `src/app/globals.css`
@@ -63,22 +70,37 @@
 
 ---
 
-### ⏳ PERF-002: Auditar y convertir imágenes a WebP
-**Status:** Pendiente  
+### ✅ PERF-002: Auditar y convertir imágenes a WebP
+
+**Status:** ✅ COMPLETADO (Fase A - Imágenes Críticas)  
 **Prioridad:** 🔴 CRÍTICA  
-**Impacto estimado:** Bundle -30%, LCP -0.3s
+**Impacto real:** Bundle -39MB (-81%), LCP estimado -1.5s
 
-**Problema actual:**
-- 60+ archivos PNG/JPEG/GIF en `/public`
-- Tamaños sin optimizar
-- GIFs pesados (`noise.gif`, `background.gif`)
+**Optimizaciones realizadas:**
+- ✅ Cyberpunk-Poster-Photo-Effect: 26.74MB → 0.33MB (-98.8%)
+- ✅ thumbnail: 6.13MB → 0.04MB (-99.4%)
+- ✅ montaje: 2.71MB → 0.04MB (-98.4%)
+- ✅ linkedin-pub: 2.10MB → 0.04MB (-98.0%)
+- ✅ talent-tech-hub: 1.43MB → 0.03MB (-98.2%)
 
-**Solución:**
-- Convertir PNG/JPEG → WebP
-- Optimizar GIFs → CSS animations o video
-- Eliminar imágenes no utilizadas
+**Total ahorrado:** 39MB → 0.5MB (-98.7%)
+
+**Script creado:**
+- ✅ `scripts/optimize-images.js` (usando sharp)
+
+**Referencias actualizadas:**
+- ✅ `src/app/landing/aboutMe.jsx`
+- ✅ `src/app/landing/aboutme.module.css`
+- ✅ `src/app/portfolio/webProjects.js`
+- ✅ `src/app/videoPortfolio/videoPortfolio.module.css`
+
+**Commit:** `perf(images): convert critical PNG/JPEG to WebP format`
+**Fecha:** 16 Diciembre 2025
+
+**Pendiente:** Optimizar imágenes secundarias y GIFs (PERF-002B, 002C)
 
 **Archivos afectados:**
+
 - [ ] `/public/*.png` → `.webp`
 - [ ] `/public/*.jpg` → `.webp`
 - [ ] `/public/*.gif` → optimizar
@@ -88,22 +110,26 @@
 ---
 
 ### ⏳ PERF-003: Reemplazar <img> por next/image con dimensiones
+
 **Status:** Pendiente  
 **Prioridad:** 🔴 CRÍTICA  
 **Impacto estimado:** CLS -0.1, LCP -0.2s
 
 **Problema actual:**
+
 ```jsx
 // stack.jsx
 <img src={icon.src} width={45} height={45} alt={icon.alt} />
 ```
 
 **Solución:**
+
 - Usar `next/image` con width/height explícitos
 - Implementar `priority` para above-the-fold images
 - Configurar `sizes` para responsive
 
 **Archivos afectados:**
+
 - [ ] `src/app/stack/stack.jsx`
 - [ ] `src/app/landing/aboutMe.jsx`
 - [ ] Otros componentes con `<img>`
@@ -113,11 +139,13 @@
 ---
 
 ### ⏳ PERF-004: Implementar lazy loading para componentes below-the-fold
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA  
 **Impacto estimado:** Initial Bundle -40%, FCP -0.4s
 
 **Problema actual:**
+
 ```jsx
 // page.jsx - todos los componentes se cargan al inicio
 import AboutMe from "./landing/aboutMe";
@@ -126,11 +154,13 @@ import Language from "./language/language";
 ```
 
 **Solución:**
+
 - Usar `React.lazy()` y `Suspense`
 - Lazy load componentes no visibles inicialmente
 - Priorizar componentes above-the-fold
 
 **Componentes para lazy load:**
+
 - [ ] Github
 - [ ] Stack
 - [ ] Spotify
@@ -139,6 +169,7 @@ import Language from "./language/language";
 - [ ] VideoPortfolio (modal)
 
 **Archivos afectados:**
+
 - [ ] `src/app/page.jsx`
 
 **Commit:** `perf(lazy): implement lazy loading for below-the-fold components`
@@ -146,22 +177,26 @@ import Language from "./language/language";
 ---
 
 ### ⏳ PERF-005: Optimizar GIFs → CSS/Video
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA  
 **Impacto estimado:** Bundle -500KB, LCP -0.2s
 
 **Problema actual:**
+
 ```jsx
 // noise.jsx
 background-image: url(../../public/noise.gif);
 ```
 
 **Solución:**
+
 - `noise.gif` → CSS filter o SVG pattern
 - `background.gif` → video MP4 (mejor compresión)
 - Implementar lazy loading para backgrounds
 
 **Archivos afectados:**
+
 - [ ] `/public/noise.gif`
 - [ ] `/public/background.gif`
 - [ ] `src/app/noise/noise.jsx`
@@ -172,11 +207,13 @@ background-image: url(../../public/noise.gif);
 ---
 
 ### ⏳ PERF-006: Configurar next.config.js para optimización
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 MEDIA  
 **Impacto estimado:** Bundle -10%
 
 **Problema actual:**
+
 ```javascript
 // next.config.js
 const nextConfig = {};
@@ -184,41 +221,88 @@ module.exports = { images: { domains: [...] }};
 ```
 
 **Solución:**
+
 ```javascript
 module.exports = {
   images: {
-    domains: ['firebasestorage.googleapis.com'],
-    formats: ['image/avif', 'image/webp'],
+    domains: ["firebasestorage.googleapis.com"],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
   swcMinify: true,
-}
+};
 ```
 
 **Archivos afectados:**
+
 - [ ] `next.config.js`
 
 **Commit:** `perf(config): optimize next.config for images and bundle size`
 
 ---
 
+### ⏳ PERF-007: Actualizar Next.js a versión estable más reciente
+**Status:** Pendiente  
+**Prioridad:** 🔴 CRÍTICA  
+**Impacto estimado:** Estabilidad +40%, Bug fixes, Performance +10%
+
+**Problema actual:**
+```json
+// package.json
+"next": "13.4.10", // Julio 2023 - versión antigua
+"react": "18.2.0",
+"react-dom": "18.2.0"
+```
+
+**Errores conocidos en Next.js 13.4.10:**
+- Problemas con App Router
+- Memory leaks en desarrollo
+- Issues con next/image optimization
+- Bugs de hydration
+
+**Solución:**
+- Actualizar a Next.js 14.2.x o 15.x (estable más reciente)
+- Actualizar React a 18.3.x
+- Revisar breaking changes en documentación
+- Testear build y funcionalidad
+
+**Pasos:**
+1. Backup del proyecto actual
+2. Actualizar dependencies: `npm install next@latest react@latest react-dom@latest`
+3. Revisar y actualizar código deprecado
+4. Testear: `npm run build && npm run start`
+5. Verificar que no haya warnings o errores
+
+**Archivos afectados:**
+- [ ] `package.json`
+- [ ] Posibles ajustes en componentes si hay breaking changes
+
+**Commit:** `chore(deps): upgrade Next.js to latest stable version`
+
+**⚠️ IMPORTANTE:** Este ticket debe ejecutarse DESPUÉS de PERF-001 a PERF-006 para evitar conflictos de refactorización.
+
+---
+
 ## 📋 FASE 2: CLEAN CODE (SOLID)
 
 ### ⏳ REFACTOR-001: Eliminar código muerto
+
 **Status:** Pendiente  
 **Prioridad:** 🟢 MEDIA
 
 **Código a eliminar:**
+
 - [ ] `hexToRgb` function (cardpaginas.jsx línea 62-70) - nunca usada
 - [ ] `DarkModeContext.js` - no utilizado (se usa Redux)
 - [ ] `LanguageContext.js` - no utilizado (se usa Redux)
 - [ ] `useEffect` duplicado (page.jsx líneas 29-36)
 
 **Archivos afectados:**
+
 - [ ] `src/app/projects/cardpaginas.jsx`
 - [ ] `src/app/contexts/DarkModeContext.js`
 - [ ] `src/app/contexts/LanguageContext.js`
@@ -229,12 +313,14 @@ module.exports = {
 ---
 
 ### ⏳ REFACTOR-002: Extraer lógica de modal a custom hook
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA
 
 **Problema:** Lógica de modal repetida en 3 componentes
 
 **Crear:**
+
 ```javascript
 // src/app/hooks/useModal.js
 export function useModal() {
@@ -249,6 +335,7 @@ export function useModal() {
 ```
 
 **Archivos afectados:**
+
 - [ ] Crear `src/app/hooks/useModal.js`
 - [ ] Refactor `src/app/projects/cardpaginas.jsx`
 - [ ] Refactor `src/app/videoPortfolio/videoPortfolio.jsx`
@@ -259,22 +346,27 @@ export function useModal() {
 ---
 
 ### ⏳ REFACTOR-003: Extraer detección táctil a useTouchDevice
+
 **Status:** Pendiente  
 **Prioridad:** 🟢 MEDIA
 
 **Crear:**
+
 ```javascript
 // src/app/hooks/useTouchDevice.js
 export function useTouchDevice() {
-  return useMemo(() => (
-    'ontouchstart' in window ||
-    navigator.maxTouchPoints > 0 ||
-    navigator.msMaxTouchPoints > 0
-  ), []);
+  return useMemo(
+    () =>
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0,
+    []
+  );
 }
 ```
 
 **Archivos afectados:**
+
 - [ ] Crear `src/app/hooks/useTouchDevice.js`
 - [ ] Refactor `src/app/projects/cardpaginas.jsx`
 
@@ -283,16 +375,19 @@ export function useTouchDevice() {
 ---
 
 ### ⏳ REFACTOR-004: Crear componente GridLayout
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA
 
 **Objetivo:** Reducir `page.jsx` de 129 a ~50 líneas
 
 **Crear:**
+
 - `src/app/components/layouts/GridLayout.jsx`
 - `src/app/components/layouts/MobileLayout.jsx`
 
 **Archivos afectados:**
+
 - [ ] Crear componentes layout
 - [ ] Refactor `src/app/page.jsx`
 
@@ -301,17 +396,20 @@ export function useTouchDevice() {
 ---
 
 ### ⏳ REFACTOR-005: Dividir Card component (SRP)
+
 **Status:** Pendiente  
 **Prioridad:** 🔴 CRÍTICA
 
 **Objetivo:** Card.jsx 194 líneas → 3 archivos < 70 líneas c/u
 
 **Crear:**
+
 - `Card.jsx` (presentational, 50 líneas)
 - `useCardLogic.js` (business logic, 40 líneas)
 - `CardModal.jsx` (modal UI, 60 líneas)
 
 **Archivos afectados:**
+
 - [ ] Dividir `src/app/projects/cardpaginas.jsx`
 
 **Commit:** `refactor(card): split Card component following SRP`
@@ -319,10 +417,12 @@ export function useTouchDevice() {
 ---
 
 ### ⏳ REFACTOR-006: Crear ModalOverlay reutilizable
+
 **Status:** Pendiente  
 **Prioridad:** 🟢 MEDIA
 
 **Crear:**
+
 ```javascript
 // src/app/components/ui/ModalOverlay.jsx
 export function ModalOverlay({ isOpen, onClose, children, ...props }) {
@@ -335,6 +435,7 @@ export function ModalOverlay({ isOpen, onClose, children, ...props }) {
 ```
 
 **Archivos afectados:**
+
 - [ ] Crear `src/app/components/ui/ModalOverlay.jsx`
 - [ ] Refactor todos los componentes con modales
 
@@ -343,10 +444,12 @@ export function ModalOverlay({ isOpen, onClose, children, ...props }) {
 ---
 
 ### ⏳ REFACTOR-007: Extraer constantes de estilo
+
 **Status:** Pendiente  
 **Prioridad:** 🟢 BAJA
 
 **Crear:**
+
 ```javascript
 // src/app/config/modalStyles.js
 export const MODAL_STYLES = {
@@ -359,6 +462,7 @@ export const MODAL_STYLES = {
 ```
 
 **Archivos afectados:**
+
 - [ ] Crear `src/app/config/modalStyles.js`
 - [ ] Refactor componentes que usan inline styles
 
@@ -367,10 +471,12 @@ export const MODAL_STYLES = {
 ---
 
 ### ⏳ REFACTOR-008: Crear hooks folder y centralizar
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA
 
 **Crear:**
+
 - `src/app/hooks/useTheme.js`
 - `src/app/hooks/useLanguage.js`
 - `src/app/hooks/useModal.js`
@@ -378,6 +484,7 @@ export const MODAL_STYLES = {
 - `src/app/hooks/index.js` (barrel export)
 
 **Archivos afectados:**
+
 - [ ] Crear carpeta y hooks
 - [ ] Actualizar imports en componentes
 
@@ -386,15 +493,18 @@ export const MODAL_STYLES = {
 ---
 
 ### ⏳ REFACTOR-009: Implementar memoización
+
 **Status:** Pendiente  
 **Prioridad:** 🔴 CRÍTICA
 
 **Aplicar:**
+
 - `React.memo` a componentes puros (AboutMe, Stack, etc.)
 - `useCallback` para event handlers
 - `useMemo` para cálculos costosos
 
 **Archivos afectados:**
+
 - [ ] Todos los componentes presentacionales
 
 **Commit:** `perf(memo): implement React.memo and useCallback to prevent re-renders`
@@ -402,10 +512,12 @@ export const MODAL_STYLES = {
 ---
 
 ### ⏳ REFACTOR-010: Reorganizar en features
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 MEDIA
 
 **Nueva estructura:**
+
 ```
 src/app/
 ├── features/
@@ -426,12 +538,14 @@ src/app/
 ## 📋 FASE 3: ARQUITECTURA
 
 ### ⏳ ARCH-001: Consolidar gestión de estado
+
 **Status:** Pendiente  
 **Prioridad:** 🔴 CRÍTICA
 
 **Decisión:** Mantener Redux, eliminar Contexts no usados
 
 **Archivos afectados:**
+
 - [ ] Eliminar `DarkModeContext.js`
 - [ ] Eliminar `LanguageContext.js`
 - [ ] Documentar decisión
@@ -441,10 +555,12 @@ src/app/
 ---
 
 ### ⏳ ARCH-002: Optimizar Redux con reselect
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA
 
 **Implementar:**
+
 - Selectores memoizados
 - Slices por feature
 
@@ -453,6 +569,7 @@ src/app/
 ---
 
 ### ⏳ ARCH-003: Crear barrel exports
+
 **Status:** Pendiente  
 **Prioridad:** 🟢 BAJA
 
@@ -461,6 +578,7 @@ src/app/
 ---
 
 ### ⏳ ARCH-004: Implementar error boundaries
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 MEDIA
 
@@ -469,6 +587,7 @@ src/app/
 ---
 
 ### ⏳ ARCH-005: Configurar ESLint + Prettier
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 MEDIA
 
@@ -477,6 +596,7 @@ src/app/
 ---
 
 ### ⏳ ARCH-006: Documentar arquitectura
+
 **Status:** Pendiente  
 **Prioridad:** 🟢 BAJA
 
@@ -489,6 +609,7 @@ src/app/
 ## 📋 FASE 4: TYPESCRIPT MIGRATION
 
 ### ⏳ TS-001: Configurar TypeScript
+
 **Status:** Pendiente  
 **Prioridad:** 🔴 CRÍTICA
 
@@ -497,6 +618,7 @@ src/app/
 ---
 
 ### ⏳ TS-002: Crear interfaces
+
 **Status:** Pendiente  
 **Prioridad:** 🔴 CRÍTICA
 
@@ -505,6 +627,7 @@ src/app/
 ---
 
 ### ⏳ TS-003: Tipar Redux store
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA
 
@@ -513,6 +636,7 @@ src/app/
 ---
 
 ### ⏳ TS-004: Habilitar strict mode
+
 **Status:** Pendiente  
 **Prioridad:** 🟡 ALTA
 
@@ -523,17 +647,19 @@ src/app/
 ## 📈 MÉTRICAS OBJETIVO
 
 ### Core Web Vitals
+
 | Métrica | Actual | Objetivo | Estado |
-|---------|--------|----------|--------|
-| LCP | ~4.0s | < 2.5s | ⏳ |
-| FID | ~200ms | < 100ms | ⏳ |
-| CLS | ~0.15 | < 0.1 | ⏳ |
+| ------- | ------ | -------- | ------ |
+| LCP     | ~4.0s  | < 2.5s   | ⏳     |
+| FID     | ~200ms | < 100ms  | ⏳     |
+| CLS     | ~0.15  | < 0.1    | ⏳     |
 
 ### Bundle Size
-| Tipo | Actual | Objetivo | Estado |
-|------|--------|----------|--------|
-| First Load JS | ~280KB | < 200KB | ⏳ |
-| Total Bundle | ~2MB | < 1MB | ⏳ |
+
+| Tipo          | Actual | Objetivo | Estado |
+| ------------- | ------ | -------- | ------ |
+| First Load JS | ~280KB | < 200KB  | ⏳     |
+| Total Bundle  | ~2MB   | < 1MB    | ⏳     |
 
 ---
 
@@ -543,9 +669,11 @@ src/app/
 **Objetivo:** Completar FASE 1 (PERF-001 a PERF-006)
 
 ### ✅ Completado
+
 - **PERF-001:** Migrar Google Fonts a next/font
 
 ### Próximo Ticket
+
 **→ PERF-002: Auditar y convertir imágenes a WebP**
 
 ---
