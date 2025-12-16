@@ -48,10 +48,10 @@ function Card({ project }) {
           className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
           draggable={false}
           alt={`${project.name} preview`}
-          layout="fill"
+          fill
         />
       </motion.div>
-      
+
       <div className={styles.textContainer}>
         <h1 className={styles.nombreDelProyecto}>{project.name}</h1>
         <h3 className={styles.textExplain}>
