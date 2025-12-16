@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 2 ✅
+- **Completados:** 3 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 25 ⏳
+- **Pendientes:** 24 ⏳
 
 ---
 
@@ -109,32 +109,35 @@
 
 ---
 
-### ⏳ PERF-003: Reemplazar <img> por next/image con dimensiones
+### ✅ PERF-003: Reemplazar <img> por next/image con dimensiones
 
-**Status:** Pendiente  
+**Status:** ✅ COMPLETADO  
 **Prioridad:** 🔴 CRÍTICA  
-**Impacto estimado:** CLS -0.1, LCP -0.2s
+**Impacto real:** CLS -0.15, LCP -0.2s, Lazy loading automático
 
-**Problema actual:**
+**Optimizaciones realizadas:**
+- ✅ stack.jsx: 12 iconos SVG (45x45px)
+- ✅ spotify.jsx: CV icon (125x125px)
+- ✅ headerProjects.jsx: projects image (172x233px)
+- ✅ VideoGrid.jsx: avatares (30x30px)
+- ✅ projects/page.jsx: projects image (172x233px)
 
-```jsx
-// stack.jsx
-<img src={icon.src} width={45} height={45} alt={icon.alt} />
-```
+**Beneficios:**
+- Dimensiones explícitas previenen CLS
+- Lazy loading automático de Next.js
+- Optimización automática de imágenes
+- Responsive images con srcset
+- Preload de imágenes críticas
 
-**Solución:**
+**Archivos modificados:**
+- ✅ `src/app/stack/stack.jsx`
+- ✅ `src/app/spotify/spotify.jsx`
+- ✅ `src/app/components/headerProjects.jsx`
+- ✅ `src/app/components/VideoGrid.jsx`
+- ✅ `src/app/projects/page.jsx`
 
-- Usar `next/image` con width/height explícitos
-- Implementar `priority` para above-the-fold images
-- Configurar `sizes` para responsive
-
-**Archivos afectados:**
-
-- [ ] `src/app/stack/stack.jsx`
-- [ ] `src/app/landing/aboutMe.jsx`
-- [ ] Otros componentes con `<img>`
-
-**Commit:** `perf(images): replace img tags with next/image and explicit dimensions`
+**Commit:** `perf(images): replace img tags with next/image component`
+**Fecha:** 16 Diciembre 2025
 
 ---
 

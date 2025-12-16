@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   audiovisualprojects,
   getEmbedLink,
@@ -33,10 +34,12 @@ function VideoGrid(props) {
             </div>
             <div className={styles.captionConteiner}>
               <div className={styles.avatarContainer}>
-                <img
+                <Image
                   src={`/avatar/${proyect.avatar}`}
                   alt={proyect.company}
                   className={styles.avatarImage}
+                  width={30}
+                  height={30}
                 />
               </div>
               <div className={styles.magia}>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import axios from "axios";
 import styles from "./spotify.module.css";
 import ReactPlayer from "react-player";
@@ -24,7 +25,7 @@ export default function SpotifyRecentTrack({ language }) {
   return (
     <div className={styles.generalContainer} onClick={handleDownload}>
       <div className={styles.iconContainer}>
-        <img src={iconCV.src} width={125} height={125} alt={iconCV.alt} />
+        <Image src={iconCV.src} width={125} height={125} alt={iconCV.alt} />
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>

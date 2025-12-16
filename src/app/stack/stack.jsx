@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import styles from "./stack.module.css";
 
 function Stack(props) {
@@ -22,7 +23,7 @@ function Stack(props) {
       <div className={styles.iconContainer}>
         {icons.map((icon, index) => (
           <div key={index} className={styles.icon}>
-            <img src={icon.src} width={45} height={45} alt={icon.alt} />
+            <Image src={icon.src} width={45} height={45} alt={icon.alt} />
             {/* Tooltip por cada vez que hago hover sobre el icon se va a mostrar el nombre que figura en el icons.alt */}
             <span className={styles.tooltip}>{icon.alt}</span>
           </div>
