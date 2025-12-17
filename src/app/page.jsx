@@ -69,11 +69,9 @@ export default function Home() {
             <Email />
           </Suspense>
         </div>
-        <Link href={"/audiovisual"}>
-          <Suspense fallback={<ComponentLoader />}>
-            <VideoPortfolio language={language} />
-          </Suspense>
-        </Link>
+        <Suspense fallback={<ComponentLoader />}>
+          <VideoPortfolio language={language} />
+        </Suspense>
         <Suspense fallback={<ComponentLoader />}>
           <Stack />
         </Suspense>
