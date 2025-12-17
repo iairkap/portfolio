@@ -14,8 +14,10 @@ export const MODAL_STYLES = {
   content: {
     backgroundColor: "transparent",
     border: "none",
-    width: "80%",
-    height: "70%",
+    width: "90%",
+    maxWidth: "1400px",
+    height: "90%",
+    maxHeight: "90vh",
     margin: "auto",
     overflow: "visible",
   },

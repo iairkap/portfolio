@@ -95,8 +95,10 @@
 .modalContentLight {
   background-color: #d9d9d9;
   border-radius: 1.4rem;
-  width: 75%;
-  height: 75%;
+  width: 90%;
+  max-width: 1400px;
+  height: 90%;
+  max-height: 90vh;
   padding: 20px;
   display: flex;
 }
@@ -104,8 +106,10 @@
 .modalContentDark {
   background-color: #2d2d2d;
   border-radius: 1.4rem;
-  width: 75%;
-  height: 75%;
+  width: 90%;
+  max-width: 1400px;
+  height: 90%;
+  max-height: 90vh;
   padding: 20px;
   display: flex;
 }
