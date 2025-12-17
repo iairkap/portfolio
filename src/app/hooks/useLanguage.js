@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectLanguage } from "../redux/languageSlice";
+import { selectLanguage } from "../redux/selectors";
 
 /**
  * Custom hook para acceder al estado de idioma
  * Centraliza la lógica de internacionalización en toda la aplicación
+ * Usa selectores memoizados para optimizar rendimiento
  *
  * @returns {string} language - Código del idioma actual ("ES" | "EN")
  *

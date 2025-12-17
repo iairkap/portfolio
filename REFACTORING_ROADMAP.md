@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 16 ✅
+- **Completados:** 17 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 11 ⏳
+- **Pendientes:** 10 ⏳
 
 ---
 
@@ -531,20 +531,31 @@ src/app/
 
 ## 📋 FASE 3: ARQUITECTURA
 
-### ⏳ ARCH-001: Consolidar gestión de estado
+### ✅ ARCH-001: Consolidar gestión de estado
 
-**Status:** Pendiente  
-**Prioridad:** 🔴 CRÍTICA
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🔴 CRÍTICA  
+**Impacto real:** Context API eliminado, Redux consolidado
 
-**Decisión:** Mantener Redux, eliminar Contexts no usados
+**Acciones completadas:**
 
-**Archivos afectados:**
+- ✅ Eliminar `LanguageContext.js` (archivo y carpeta contexts/)
+- ✅ Eliminar imports de LanguageContext en github.jsx, english.jsx, proyectos.jsx, aboutMe.jsx, language.jsx
+- ✅ Validar que toda la app usa Redux + custom hooks (useTheme, useLanguage)
+- ✅ Documentar decisión en roadmap
 
-- [ ] Eliminar `DarkModeContext.js`
-- [ ] Eliminar `LanguageContext.js`
-- [ ] Documentar decisión
+**Archivos modificados:**
 
-**Commit:** `arch(state): consolidate state management using Redux only`
+- ✅ Eliminado: src/app/contexts/LanguageContext.js
+- ✅ Eliminado: src/app/contexts/ (directorio)
+- ✅ github.jsx: Removido LanguageContext y useContext
+- ✅ english.jsx: Removido LanguageContext y useContext
+- ✅ proyectos.jsx: Removido LanguageContext y useContext
+- ✅ aboutMe.jsx: Removido LanguageContext
+- ✅ language.jsx: Removido LanguageContext y useContext
+
+**Commit:** `arch(state): consolidate state management using Redux only` (85f59c8)  
+**Fecha:** 16 Diciembre 2025
 
 ---
 
