@@ -1,23 +1,23 @@
 import React, { lazy, Suspense } from "react";
 import Link from "next/link";
-import styles from "../landing.module.css";
-import AboutMe from "../landing/aboutMe";
-import Language from "../language/language";
-import DarkMode from "../darkMode/darkMode";
-import Edad from "../edad/edad";
-import Linkedin from "../linkedin/linkedin";
-import Proyectos from "../proyectos/proyectos";
+import styles from "../../landing.module.css";
+import AboutMe from "../../landing/aboutMe";
+import Language from "../../language/language";
+import DarkMode from "../../darkMode/darkMode";
+import Edad from "../../edad/edad";
+import Linkedin from "../../linkedin/linkedin";
+import Proyectos from "../../proyectos/proyectos";
 
 // Lazy loading de componentes below-the-fold
-const Github = lazy(() => import("../github/github"));
-const Stack = lazy(() => import("../stack/stack"));
-const English = lazy(() => import("../english/english"));
-const VideoPortfolio = lazy(() => import("../videoPortfolio/videoPortfolio"));
-const Whatsapp = lazy(() => import("../whatsapp/whatsapp"));
-const Email = lazy(() => import("../email/email"));
-const Spotify = lazy(() => import("../spotify/spotify"));
-const SoyHenry = lazy(() => import("../soyHenry/soyhenry"));
-const Recomendaciones = lazy(() => import("../recomendaciones/recomendaciones"));
+const Github = lazy(() => import("../../github/github"));
+const Stack = lazy(() => import("../../stack/stack"));
+const English = lazy(() => import("../../english/english"));
+const VideoPortfolio = lazy(() => import("../../videoPortfolio/videoPortfolio"));
+const Whatsapp = lazy(() => import("../../whatsapp/whatsapp"));
+const Email = lazy(() => import("../../email/email"));
+const Spotify = lazy(() => import("../../spotify/spotify"));
+const SoyHenry = lazy(() => import("../../soyHenry/soyhenry"));
+const Recomendaciones = lazy(() => import("../../recomendaciones/recomendaciones"));
 
 // Fallback simple para Suspense
 const ComponentLoader = () => <div style={{ minHeight: "100px" }} />;
