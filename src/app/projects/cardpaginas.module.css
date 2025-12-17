@@ -261,14 +261,12 @@
 
 .modalContent {
   border: none;
-  width: 100dvw;
-  height: 100dvh;
   overflow: visible;
-  position: absolute;
-  border: none;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: none;
 }
 
 .smallScreenClass {
