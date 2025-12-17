@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 21 ✅
+- **Completados:** 22 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 6 ⏳
+- **Pendientes:** 5 ⏳
 
 ---
 
@@ -718,14 +718,48 @@ src/app/
 
 ---
 
-### ⏳ ARCH-006: Documentar arquitectura
+### ✅ ARCH-006: Documentar arquitectura
 
-**Status:** Pendiente  
-**Prioridad:** 🟢 BAJA
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🟢 BAJA  
+**Impacto real:** Documentación completa de arquitectura creada
 
-**Crear:** `ARCHITECTURE.md`
+**Acciones completadas:**
 
-**Commit:** `docs(arch): add architecture documentation`
+- ✅ Crear ARCHITECTURE.md con documentación exhaustiva
+- ✅ Documentar tech stack y principios de diseño
+- ✅ Explicar estructura del proyecto con comentarios
+- ✅ Detallar patrones de arquitectura (App Router, Composition, Barrel exports)
+- ✅ Documentar gestión de estado (Redux + Reselect)
+- ✅ Explicar todos los custom hooks (5 hooks)
+- ✅ Documentar sistema de routing y lazy loading
+- ✅ Detallar optimizaciones de performance
+- ✅ Establecer convenciones de código
+- ✅ Justificar decisiones técnicas
+
+**Contenido del documento:**
+
+- Visión general y stack tecnológico
+- Estructura del proyecto (árbol completo)
+- Patrones: App Router, Component Composition, Barrel Exports, CSS Modules
+- Redux Toolkit: slices, selectors memoizados, decisión vs Context
+- Custom hooks: useTheme, useLanguage, useModal, useTouchDevice, useCardLogic
+- Routing: rutas, layouts, lazy loading strategy
+- Performance: optimizaciones de imágenes, React, bundle
+- Convenciones: naming, imports, ESLint rules
+- Decisiones técnicas con rationale
+- Estado del refactoring (22/27)
+
+**Beneficios:**
+
+- Onboarding más rápido para nuevos desarrolladores
+- Referencia centralizada de decisiones técnicas
+- Guía de convenciones y best practices
+- Documentación de por qué se hizo cada optimización
+- Base para futuras mejoras y refactors
+
+**Commit:** `docs(arch): add comprehensive architecture documentation` (4943900)  
+**Fecha:** 17 Diciembre 2025
 
 ---
 

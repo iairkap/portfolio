@@ -3,7 +3,7 @@ import { useEffect, lazy, Suspense } from "react";
 import styles from "./landing.module.css";
 import { setLanguage } from "./redux/languageSlice";
 import { useDispatch } from "react-redux";
-import Noise from "./noise/noise";
+import Noise from "./helpers/noise";
 import { useTheme, useLanguage } from "./hooks";
 import GridLayout from "./components/layouts/GridLayout";
 import AboutMe from "./landing/aboutMe";
