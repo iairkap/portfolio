@@ -1,7 +1,5 @@
 import React, { memo } from "react";
 import styles from "./github.module.css";
-import { LanguageContext } from "../contexts/LanguageContext";
-import { useContext } from "react";
 import Fithub from "../../../public/github.svg";
 import Image from "next/image";
 

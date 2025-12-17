@@ -19,17 +19,24 @@ const PlayButton = styled(motion.button)`
 `;
 
 const VideoPortfolio = memo(function VideoPortfolio(props) {
-  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
+  const {
+    isOpen: modalIsOpen,
+    open: openModal,
+    close: closeModal,
+  } = useModal();
 
-  const buttonVariants = useMemo(() => ({
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.1,
-        yoyo: Infinity,
+  const buttonVariants = useMemo(
+    () => ({
+      hover: {
+        scale: 1.1,
+        transition: {
+          duration: 0.1,
+          yoyo: Infinity,
+        },
       },
-    },
-  }), []);
+    }),
+    []
+  );
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0,0,0,0.75)",

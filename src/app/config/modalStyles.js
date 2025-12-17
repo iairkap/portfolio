@@ -2,8 +2,8 @@
  * Configuración centralizada de estilos para modales
  */
 export const MODAL_STYLES = {
-  overlay: {},  // Estilos de overlay ahora en globals.css
-  overlayWithHeight: {},  // Estilos de overlay ahora en globals.css
+  overlay: {}, // Estilos de overlay ahora en globals.css
+  overlayWithHeight: {}, // Estilos de overlay ahora en globals.css
   content: {
     backgroundColor: "transparent",
     border: "none",

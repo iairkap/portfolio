@@ -27,8 +27,14 @@ const Card = memo(function Card({ project }) {
     textStyles,
   } = useCardLogic();
 
-  const handleMouseEnter = useCallback(() => setIsHovered(true), [setIsHovered]);
-  const handleMouseLeave = useCallback(() => setIsHovered(false), [setIsHovered]);
+  const handleMouseEnter = useCallback(
+    () => setIsHovered(true),
+    [setIsHovered]
+  );
+  const handleMouseLeave = useCallback(
+    () => setIsHovered(false),
+    [setIsHovered]
+  );
 
   return (
     <div

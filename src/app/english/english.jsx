@@ -1,6 +1,4 @@
 import React, { memo } from "react";
-import { LanguageContext } from "../contexts/LanguageContext";
-import { useContext } from "react";
 import styles from "./english.module.css";
 import Image from "next/image";
 import click from "../../../public/click.svg";

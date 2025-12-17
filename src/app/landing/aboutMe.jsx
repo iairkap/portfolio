@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import styles from "./aboutme.module.css";
 import Image from "next/image";
 import cyberpunk from "../../../public/Cyberpunk-Poster-Photo-Effect.webp";
-import { LanguageContext } from "../contexts/LanguageContext";
 
 const AboutMe = memo(function AboutMe({ language }) {
   const esText =

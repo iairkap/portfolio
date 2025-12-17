@@ -39,21 +39,15 @@ export default function Home() {
   return (
     <main className={styles.effects}>
       {/* Desktop Grid Layout */}
-      <GridLayout 
-        language={language} 
-        onLanguageChange={handleLanguageChange} 
-      />
-      
+      <GridLayout language={language} onLanguageChange={handleLanguageChange} />
+
       {/* Mobile Layout */}
       <article className={styles.onlyMobile}>
         <div className={styles.firstRow}>
           <AboutMe language={language} />
         </div>
         <div className={styles.secondRow}>
-          <Language
-            language={language}
-            setLanguage={handleLanguageChange}
-          />
+          <Language language={language} setLanguage={handleLanguageChange} />
           <Edad language={language} />
         </div>
         <DarkMode />
@@ -84,7 +78,7 @@ export default function Home() {
           <Stack />
         </Suspense>
       </article>
-      
+
       <Noise />
     </main>
   );
