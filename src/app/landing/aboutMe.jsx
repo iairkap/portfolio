@@ -28,7 +28,6 @@ const AboutMe = memo(function AboutMe({ language }) {
             src={cyberpunk}
             alt="Iair Kaplun - Full Stack Developer"
             className={styles.heroImage}
-            loading="lazy"
             quality={60}
             sizes="(max-width: 768px) 1px, 50vw"
           />
