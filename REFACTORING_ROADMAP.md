@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 20 ✅
+- **Completados:** 21 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 7 ⏳
+- **Pendientes:** 6 ⏳
 
 ---
 
@@ -675,6 +675,46 @@ src/app/
 
 **Commit:** `arch(lint): configure ESLint 9 and Prettier for code quality` (03df6c8)  
 **Fecha:** 16 Diciembre 2025
+
+---
+
+### ✅ ARCH-003: Crear barrel exports
+
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🟢 BAJA  
+**Impacto real:** Barrel exports implementados en 3 módulos principales
+
+**Acciones completadas:**
+
+- ✅ Crear src/app/components/index.js (ErrorBoundary, VideoGrid, HeaderProjects)
+- ✅ Crear src/app/components/ui/index.js (ModalOverlay con named export)
+- ✅ Crear src/app/redux/index.js (store, actions, selectors)
+- ✅ Actualizar imports en 8 archivos (layout, pages, hooks, darkMode)
+
+**Archivos creados:**
+
+- ✅ src/app/components/index.js: Barrel para componentes principales
+- ✅ src/app/components/ui/index.js: Barrel para UI components
+- ✅ src/app/redux/index.js: Barrel para Redux exports
+
+**Imports actualizados:**
+
+- ✅ layout.js: `from './components'`
+- ✅ projects/page.jsx: `from '../components'` y `from '../redux'`
+- ✅ audiovisual/page.jsx: `from '../components'`
+- ✅ projects/CardModal.jsx: `from '../components/ui'`
+- ✅ 4 archivos más con imports simplificados
+
+**Beneficios:**
+
+- Imports más limpios: `'../components'` vs `'../components/ErrorBoundary'`
+- Single source of truth para exports
+- Facilita refactoring y movimiento de archivos
+- Mejor potencial de tree-shaking
+- Reduce coupling entre módulos
+
+**Commit:** `arch(exports): implement barrel exports for cleaner imports`  
+**Fecha:** 17 Diciembre 2025
 
 ---
 
