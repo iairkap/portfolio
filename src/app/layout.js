@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter, Montserrat } from "next/font/google";
 import ReduxProvider from "./ReduxProvider";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${montserrat.variable}`}>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </ReduxProvider>
       </body>
     </html>
   );

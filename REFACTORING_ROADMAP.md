@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 17 ✅
+- **Completados:** 18 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 10 ⏳
+- **Pendientes:** 9 ⏳
 
 ---
 
@@ -559,17 +559,38 @@ src/app/
 
 ---
 
-### ⏳ ARCH-002: Optimizar Redux con reselect
+### ✅ ARCH-002: Optimizar Redux con reselect
 
-**Status:** Pendiente  
-**Prioridad:** 🟡 ALTA
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🟡 ALTA  
+**Impacto real:** Selectores memoizados implementados, re-renders optimizados
 
-**Implementar:**
+**Acciones completadas:**
 
-- Selectores memoizados
-- Slices por feature
+- ✅ Instalar reselect library (npm install reselect --legacy-peer-deps)
+- ✅ Crear src/app/redux/selectors.js con createSelector
+- ✅ Implementar selectDarkMode selector memoizado
+- ✅ Implementar selectLanguage selector memoizado
+- ✅ Actualizar useTheme hook para usar selectDarkMode
+- ✅ Actualizar useLanguage hook para usar selectLanguage
 
-**Commit:** `arch(redux): implement memoized selectors with reselect`
+**Archivos modificados:**
+
+- ✅ package.json: añadido reselect dependency
+- ✅ src/app/redux/selectors.js: nuevo archivo con selectores memoizados
+- ✅ src/app/hooks/useTheme.js: usa selectDarkMode en lugar de inline selector
+- ✅ src/app/hooks/useLanguage.js: usa selectLanguage en lugar de import desde slice
+
+**Beneficios:**
+
+- Memoización automática: selectores solo recomputan cuando inputs cambian
+- Prevención de re-renders innecesarios en componentes
+- Centralización de lógica de selección Redux
+- Performance mejorada: caching de valores derivados
+- Base sólida para selectores complejos futuros
+
+**Commit:** `arch(redux): implement memoized selectors with reselect` (27d7dce)  
+**Fecha:** 16 Diciembre 2025
 
 ---
 

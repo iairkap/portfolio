@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Card from "./cardpaginas";
+import ErrorBoundary from "../components/ErrorBoundary";
 import { motion } from "framer-motion";
 import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
@@ -30,40 +31,42 @@ function Projects() {
     duration: 0.5,
   };
   return (
-    <div className={background}>
-      <div className={styles.NoiseBackground}></div>
+    <ErrorBoundary>
+      <div className={background}>
+        <div className={styles.NoiseBackground}></div>
 
-      <motion.div
-        initial="initial"
-        animate="in"
-        exit="out"
-        variants={pageVariants}
-        transition={pageTransition}
-      >
-        <br />
-        <br />
-        <div className={styles.contenedorTitulo}>
-          <div className={styles.tituloba}>
-            <div className={styles.arrow}>
-              <Link href="/">
-                <Image src={prevArrow} className={styles.Arrow} />
-              </Link>
+        <motion.div
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          <br />
+          <br />
+          <div className={styles.contenedorTitulo}>
+            <div className={styles.tituloba}>
+              <div className={styles.arrow}>
+                <Link href="/">
+                  <Image src={prevArrow} className={styles.Arrow} />
+                </Link>
+              </div>
+              <h1 className={styles.titulo}>
+                {language === "ES" ? "PROYECTOS" : "PROJECTS"}
+              </h1>{" "}
             </div>
-            <h1 className={styles.titulo}>
-              {language === "ES" ? "PROYECTOS" : "PROJECTS"}
-            </h1>{" "}
+            <Image
+              className={styles.imagen}
+              src="https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/proyects.png?alt=media&token=0efecff7-c43b-4536-970d-2d1e3c3ae5a7"
+              alt="Projects"
+              width={172}
+              height={233}
+            />
           </div>
-          <Image
-            className={styles.imagen}
-            src="https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/proyects.png?alt=media&token=0efecff7-c43b-4536-970d-2d1e3c3ae5a7"
-            alt="Projects"
-            width={172}
-            height={233}
-          />
-        </div>
-        <Card />
-      </motion.div>
-    </div>
+          <Card />
+        </motion.div>
+      </div>
+    </ErrorBoundary>
   );
 }
 

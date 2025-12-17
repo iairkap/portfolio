@@ -8,6 +8,7 @@ import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
 import HeaderProjects from "../components/headerProjects";
 import VideoGrid from "../components/VideoGrid";
+import ErrorBoundary from "../components/ErrorBoundary";
 import { useTheme, useLanguage } from "../hooks";
 
 const AudiovisualPortfolioPage = (props) => {
@@ -20,13 +21,15 @@ const AudiovisualPortfolioPage = (props) => {
   const background = darkMode ? styles.backgroundDark : styles.backgroundLight;
 
   return (
-    <div className={background}>
-      <div className={styles.NoiseBackground}></div>
-      <HeaderProjects styles={styles} language={language} />
-      <div>
-        <VideoGrid />
+    <ErrorBoundary>
+      <div className={background}>
+        <div className={styles.NoiseBackground}></div>
+        <HeaderProjects styles={styles} language={language} />
+        <div>
+          <VideoGrid />
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 
