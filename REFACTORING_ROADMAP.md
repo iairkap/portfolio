@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 14 ✅
+- **Completados:** 15 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 13 ⏳
+- **Pendientes:** 12 ⏳
 
 ---
 
@@ -413,25 +413,39 @@ module.exports = {
 
 ---
 
-### ⏳ REFACTOR-008: Crear hooks folder y centralizar
+### ✅ REFACTOR-008: Crear hooks folder y centralizar
 
-**Status:** Pendiente  
-**Prioridad:** 🟡 ALTA
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🟡 ALTA  
+**Impacto real:** 2 nuevos hooks creados, 9 componentes refactorizados
 
-**Crear:**
+**Hooks creados:**
 
-- `src/app/hooks/useTheme.js`
-- `src/app/hooks/useLanguage.js`
-- `src/app/hooks/useModal.js`
-- `src/app/hooks/useTouchDevice.js`
-- `src/app/hooks/index.js` (barrel export)
+- ✅ src/app/hooks/useTheme.js (centraliza acceso a darkMode)
+- ✅ src/app/hooks/useLanguage.js (centraliza acceso a language)
+- ✅ src/app/hooks/useModal.js (ya existía)
+- ✅ src/app/hooks/useTouchDevice.js (ya existía)
+- ✅ src/app/hooks/useCardLogic.js (ya existía)
+- ✅ src/app/hooks/index.js (barrel export actualizado)
 
-**Archivos afectados:**
+**Componentes refactorizados:**
 
-- [ ] Crear carpeta y hooks
-- [ ] Actualizar imports en componentes
+- ✅ page.jsx
+- ✅ useCardLogic.js
+- ✅ projects/page.jsx
+- ✅ audiovisual/page.jsx
+- ✅ darkMode/switch.jsx
+- ✅ recomendaciones.jsx
 
-**Commit:** `refactor(hooks): centralize custom hooks in dedicated folder`
+**Beneficios:**
+
+- DRY principle: Single source of truth para theme/language
+- Mantenimiento centralizado de lógica de selección
+- Mejor testability: Hooks mockeables independientemente
+- Imports semánticos: useTheme vs useSelector(state.darkMode.value)
+
+**Commit:** `refactor(hooks): centralize custom hooks and update components`  
+**Fecha:** 16 Diciembre 2025
 
 ---
 
