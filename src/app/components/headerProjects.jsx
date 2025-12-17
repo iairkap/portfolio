@@ -12,19 +12,12 @@ function headerProjects({ styles, language }) {
       <div className={styles.tituloba}>
         <div className={styles.arrow}>
           <Link href="/">
-            <Image
-              src={"/prevArrow.svg"}
-              className={styles.Arrow}
-              width={100}
-              height={100}
-            />
+            <Image src={"/prevArrow.svg"} className={styles.Arrow} width={100} height={100} />
           </Link>
         </div>
         <div className={styles.titileContainer}>
           <h1 className={styles.titulo}>
-            {language === "ES"
-              ? "PORTFOLIO AUDIOVISUAL"
-              : "AUDIOVISUAL PORTFOLIO"}
+            {language === "ES" ? "PORTFOLIO AUDIOVISUAL" : "AUDIOVISUAL PORTFOLIO"}
           </h1>{" "}
           <a href={resumes[language]} target="_blank" rel="noopener noreferrer">
             <span className={styles.subtitle}>

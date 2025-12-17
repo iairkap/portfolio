@@ -1,9 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {
-  audiovisualprojects,
-  getEmbedLink,
-} from "@/app/constants/audiovisualProyects.js";
+import { audiovisualprojects, getEmbedLink } from "@/app/constants/audiovisualProyects.js";
 import styles from "./videogrid.module.css";
 function VideoGrid(props) {
   const styleByProyectCompany = (proyect) => {
@@ -17,9 +14,7 @@ function VideoGrid(props) {
         return (
           <div
             key={proyect.id}
-            className={`${styles.contenedorProyecto} ${styleByProyectCompany(
-              proyect
-            )}`}
+            className={`${styles.contenedorProyecto} ${styleByProyectCompany(proyect)}`}
           >
             {" "}
             <div className={styles.contenedorVideo}>

@@ -27,14 +27,8 @@ const Card = memo(function Card({ project }) {
     textStyles,
   } = useCardLogic();
 
-  const handleMouseEnter = useCallback(
-    () => setIsHovered(true),
-    [setIsHovered]
-  );
-  const handleMouseLeave = useCallback(
-    () => setIsHovered(false),
-    [setIsHovered]
-  );
+  const handleMouseEnter = useCallback(() => setIsHovered(true), [setIsHovered]);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), [setIsHovered]);
 
   return (
     <div
@@ -64,9 +58,7 @@ const Card = memo(function Card({ project }) {
       <div className={styles.textContainer}>
         <h1 className={styles.nombreDelProyecto}>{project.name}</h1>
         <h3 className={styles.textExplain}>
-          {getFirstTenWords(
-            language === "ES" ? project.textExplainEs : project.textExplainEn
-          )}
+          {getFirstTenWords(language === "ES" ? project.textExplainEs : project.textExplainEn)}
         </h3>
         <div className={styles.stackAll}>
           {project.stack.map((tech, index) => (

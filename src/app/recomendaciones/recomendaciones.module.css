@@ -14,9 +14,7 @@
 }
 
 .generalContainer:hover {
-  transform: scale(
-    1.02
-  ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+  transform: scale(1.02); /* Al hacer hover, aplicamos un aumento de escala al 105% */
 }
 
 .modalContentLight {
@@ -47,12 +45,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(
-    196,
-    49,
-    49,
-    0.515
-  ); /* Ajusta la opacidad según tus necesidades */
+  background-color: rgba(196, 49, 49, 0.515); /* Ajusta la opacidad según tus necesidades */
   border-radius: 1.4rem;
   z-index: -1; /* Esto coloca el elemento detrás del contenido */
   justify-content: center; /* Centrar verticalmente el contenido */

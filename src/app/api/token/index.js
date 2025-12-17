@@ -8,9 +8,7 @@ const spotifyApi = new SpotifyWebApi({
 
 // En tu ruta de autorización
 const authorize = (req, res) => {
-  const authorizeURL = spotifyApi.createAuthorizeURL([
-    "user-read-recently-played",
-  ]);
+  const authorizeURL = spotifyApi.createAuthorizeURL(["user-read-recently-played"]);
   res.redirect(authorizeURL);
 };
 

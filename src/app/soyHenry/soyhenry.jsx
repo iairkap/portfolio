@@ -10,9 +10,7 @@ const SoyHenry = memo(function SoyHenry({ language }) {
     >
       <div className={styles.generalContainer}>
         <h2 className={styles.titulo}>
-          {language === "ES"
-            ? " Certificado Full Stack 🚀"
-            : "Full Stack Certificate 🚀"}
+          {language === "ES" ? " Certificado Full Stack 🚀" : "Full Stack Certificate 🚀"}
         </h2>
       </div>
     </a>

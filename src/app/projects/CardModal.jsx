@@ -8,14 +8,7 @@ import styles from "./cardpaginas.module.css";
  * Componente Modal para mostrar detalles del proyecto
  * Extraído de Card para seguir SRP
  */
-export function CardModal({
-  isOpen,
-  onClose,
-  project,
-  language,
-  modalContentStyles,
-  textStyles,
-}) {
+export function CardModal({ isOpen, onClose, project, language, modalContentStyles, textStyles }) {
   const customStyles = {
     overlay: MODAL_STYLES.overlayWithHeight,
     content: {},

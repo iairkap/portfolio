@@ -16,9 +16,7 @@ const English = memo(function English({ language }) {
             {language === "ES" ? "NIVEL DE INGLÉS" : "ENGLISH LEVEL"}
           </h6>
           <h1 className={styles.titulo}>C2</h1>
-          <h6 className={styles.subtitulob}>
-            {language === "ES" ? "EF SET" : "EF SET"}
-          </h6>
+          <h6 className={styles.subtitulob}>{language === "ES" ? "EF SET" : "EF SET"}</h6>
         </div>
       </div>
     </Link>

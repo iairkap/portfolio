@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
 // Base selectors (input selectors)
 const selectDarkModeState = (state) => state.darkMode;

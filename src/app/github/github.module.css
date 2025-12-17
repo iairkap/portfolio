@@ -17,9 +17,7 @@
 }
 
 .generalContainer:hover {
-  transform: scale(
-    1.02
-  ); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+  transform: scale(1.02); /* Al hacer hover, aplicamos un aumento de escala al 105% */
 }
 
 .generalContainer::before {

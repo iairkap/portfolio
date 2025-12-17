@@ -28,9 +28,7 @@ const SpotifyRecentTrack = memo(function SpotifyRecentTrack({ language }) {
         <Image src={iconCV.src} width={125} height={125} alt={iconCV.alt} />
       </div>
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>
-          {language === "ES" ? "Descargar CV" : "Download CV"}
-        </h1>
+        <h1 className={styles.title}>{language === "ES" ? "Descargar CV" : "Download CV"}</h1>
       </div>
     </div>
   );

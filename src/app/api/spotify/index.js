@@ -13,9 +13,7 @@ export default async function handler(req, res) {
     url: "https://accounts.spotify.com/api/token",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: `Basic ${Buffer.from(
-        `${client_id}:${client_secret}`
-      ).toString("base64")}`,
+      Authorization: `Basic ${Buffer.from(`${client_id}:${client_secret}`).toString("base64")}`,
     },
     data: "grant_type=client_credentials",
   });

@@ -11,9 +11,7 @@ const Proyectos = memo(function Proyectos({ language }) {
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.titulo}>
-          {language === "ES"
-            ? "Proyectos pasados y actuales"
-            : "Past and Current Projects"}
+          {language === "ES" ? "Proyectos pasados y actuales" : "Past and Current Projects"}
         </h1>
         <h6 className={styles.subtitulos}>
           {language === "ES"

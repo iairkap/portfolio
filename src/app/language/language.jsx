@@ -23,18 +23,12 @@ const Language = memo(function Language() {
           <h1>{language}</h1>
         </div>
         <div className={styles.idiomas}>
-          <div
-            className={styles.languageContainer}
-            onClick={() => handleLanguageChange("ES")}
-          >
+          <div className={styles.languageContainer} onClick={() => handleLanguageChange("ES")}>
             <div>
               <h6 className={language === "ES" ? styles.selected : null}>ES</h6>
             </div>
           </div>
-          <div
-            className={styles.languageContainer}
-            onClick={() => handleLanguageChange("EN")}
-          >
+          <div className={styles.languageContainer} onClick={() => handleLanguageChange("EN")}>
             <div>
               <h6 className={language === "EN" ? styles.selected : null}>EN</h6>
             </div>

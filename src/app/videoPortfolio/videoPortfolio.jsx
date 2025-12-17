@@ -19,11 +19,7 @@ const PlayButton = styled(motion.button)`
 `;
 
 const VideoPortfolio = memo(function VideoPortfolio(props) {
-  const {
-    isOpen: modalIsOpen,
-    open: openModal,
-    close: closeModal,
-  } = useModal();
+  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
 
   const buttonVariants = useMemo(
     () => ({

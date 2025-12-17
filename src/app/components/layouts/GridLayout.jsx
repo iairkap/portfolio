@@ -12,16 +12,12 @@ import Proyectos from "../../proyectos/proyectos";
 const Github = lazy(() => import("../../github/github"));
 const Stack = lazy(() => import("../../stack/stack"));
 const English = lazy(() => import("../../english/english"));
-const VideoPortfolio = lazy(() =>
-  import("../../videoPortfolio/videoPortfolio")
-);
+const VideoPortfolio = lazy(() => import("../../videoPortfolio/videoPortfolio"));
 const Whatsapp = lazy(() => import("../../whatsapp/whatsapp"));
 const Email = lazy(() => import("../../email/email"));
 const Spotify = lazy(() => import("../../spotify/spotify"));
 const SoyHenry = lazy(() => import("../../soyHenry/soyhenry"));
-const Recomendaciones = lazy(() =>
-  import("../../recomendaciones/recomendaciones")
-);
+const Recomendaciones = lazy(() => import("../../recomendaciones/recomendaciones"));
 
 // Fallback simple para Suspense
 const ComponentLoader = () => <div style={{ minHeight: "100px" }} />;

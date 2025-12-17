@@ -234,7 +234,9 @@
   -webkit-transition: -webkit-transform 0.4s;
   transition: -webkit-transform 0.4s;
   -o-transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
+  transition:
+    transform 0.4s,
+    -webkit-transform 0.4s;
   background-color: ghostwhite;
   border-radius: 90px 90px 25px 25px;
   -moz-border-radius: 90px 90px 25px 25px;
@@ -398,7 +400,9 @@
   -webkit-transition: -webkit-transform 0.4s;
   transition: -webkit-transform 0.4s;
   -o-transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
+  transition:
+    transform 0.4s,
+    -webkit-transform 0.4s;
 }
 
 .lines {

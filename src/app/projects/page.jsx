@@ -51,9 +51,7 @@ function Projects() {
                   <Image src={prevArrow} className={styles.Arrow} />
                 </Link>
               </div>
-              <h1 className={styles.titulo}>
-                {language === "ES" ? "PROYECTOS" : "PROJECTS"}
-              </h1>{" "}
+              <h1 className={styles.titulo}>{language === "ES" ? "PROYECTOS" : "PROJECTS"}</h1>{" "}
             </div>
             <Image
               className={styles.imagen}

@@ -5,17 +5,11 @@ import Image from "next/image";
 
 const Github = memo(function Github({ language }) {
   return (
-    <a
-      href="https://github.com/iairkap"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="https://github.com/iairkap" target="_blank" rel="noopener noreferrer">
       <div className={styles.generalContainer}>
         <Image src={Fithub} className={styles.imagen} />
         <div className={styles.textContainer}>
-          <h1 className={styles.titulo}>
-            {language === "ES" ? "Github" : "Github"}
-          </h1>
+          <h1 className={styles.titulo}>{language === "ES" ? "Github" : "Github"}</h1>
           <h6 className={styles.subtitulos}>
             {language === "ES"
               ? "Revisa los proyectos en los que he estado trabajando y en los que estoy trabajando actualmente."

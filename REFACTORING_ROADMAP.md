@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 18 ✅
+- **Completados:** 19 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 9 ⏳
+- **Pendientes:** 8 ⏳
 
 ---
 
@@ -603,10 +603,44 @@ src/app/
 
 ---
 
-### ⏳ ARCH-004: Implementar error boundaries
+### ✅ ARCH-004: Implementar error boundaries
 
-**Status:** Pendiente  
-**Prioridad:** 🟡 MEDIA
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🟡 MEDIA  
+**Impacto real:** Error boundaries implementados con UI fallback elegante
+
+**Acciones completadas:**
+
+- ✅ Crear ErrorBoundary component (Class Component con componentDidCatch)
+- ✅ Crear ErrorBoundary.module.css con diseño responsive
+- ✅ Envolver root layout con ErrorBoundary (protección app-wide)
+- ✅ Envolver projects/page.jsx con ErrorBoundary
+- ✅ Envolver audiovisual/page.jsx con ErrorBoundary
+- ✅ Mostrar detalles técnicos solo en development mode
+- ✅ Añadir acciones de reset y navegación a home
+
+**Archivos creados:**
+
+- ✅ src/app/components/ErrorBoundary.jsx: Class Component con error catching
+- ✅ src/app/components/ErrorBoundary.module.css: Estilos con gradiente púrpura
+
+**Archivos modificados:**
+
+- ✅ src/app/layout.js: Envuelto children con ErrorBoundary
+- ✅ src/app/projects/page.jsx: Envuelto contenido con ErrorBoundary
+- ✅ src/app/audiovisual/page.jsx: Envuelto contenido con ErrorBoundary
+
+**Beneficios:**
+
+- Prevención de crashes completos de la app
+- UX mejorada con fallback UI elegante
+- Logging de errores para debugging
+- Acciones de recuperación (reset, volver al home)
+- Stack traces visibles en development
+- Base preparada para integración con Sentry/logging services
+
+**Commit:** `arch(errors): implement error boundaries for graceful error handling` (4ebec36)  
+**Fecha:** 16 Diciembre 2025
 
 **Commit:** `arch(errors): add error boundaries for graceful failure handling`
 

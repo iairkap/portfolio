@@ -9,18 +9,11 @@ import { useModal } from "../hooks/useModal";
 import { useTheme } from "../hooks";
 
 const Recomendaciones = memo(function Recomendaciones({ language }) {
-  const {
-    isOpen: modalIsOpen,
-    open: openModal,
-    close: closeModal,
-  } = useModal();
-  const [currentRecommendationIndex, setCurrentRecommendationIndex] =
-    useState(0);
+  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
+  const [currentRecommendationIndex, setCurrentRecommendationIndex] = useState(0);
   const darkMode = useTheme();
 
-  const modalContentStyles = darkMode
-    ? styles.modalContentDark
-    : styles.modalContentLight;
+  const modalContentStyles = darkMode ? styles.modalContentDark : styles.modalContentLight;
 
   const textStyles = darkMode ? styles.textDark : styles.textLight;
 
@@ -91,14 +84,8 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
   };
 
   const recommendation = recomendaciones[currentRecommendationIndex];
-  const {
-    projectName,
-    name,
-    date,
-    contactInformation,
-    recomendacionIngles,
-    recomendacionEspañol,
-  } = recommendation;
+  const { projectName, name, date, contactInformation, recomendacionIngles, recomendacionEspañol } =
+    recommendation;
   recommendation;
 
   const customStyles = {
@@ -144,11 +131,7 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
             </p>
             <div className={styles.ending}>
               <h6 className={styles.date}>{date}</h6>
-              <Image
-                src={nextrec}
-                onClick={handleNextRecommendation}
-                className={styles.Arrow}
-              />
+              <Image src={nextrec} onClick={handleNextRecommendation} className={styles.Arrow} />
             </div>
           </div>
         </div>

@@ -121,12 +121,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(
-    29,
-    28,
-    28,
-    0.746
-  ); /* Ajusta la opacidad según tus necesidades */
+  background-color: rgba(29, 28, 28, 0.746); /* Ajusta la opacidad según tus necesidades */
   border-radius: 1.4rem;
   z-index: -1; /* Esto coloca el elemento detrás del contenido */
   justify-content: center; /* Centrar verticalmente el contenido */

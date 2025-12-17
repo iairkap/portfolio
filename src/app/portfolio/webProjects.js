@@ -33,14 +33,7 @@ export const proyectosWebs = [
     textExplainEs: `Lideré el desarrollo de una plataforma interactiva para el programa Argentinatech, diseñando soluciones integrales desde cero utilizando una pila de tecnología moderna. Utilicé React y Next.js para el desarrollo frontend, asegurando una interfaz de usuario dinámica y receptiva. Para el backend, implementé APIs robustas utilizando Node.js, optimizando las interacciones de datos en tiempo real. La aplicación incluye características avanzadas como evaluación de elegibilidad de usuarios y gestión de datos de financiamiento educativo, con integración en AWS para almacenamiento de datos seguro y escalable. Contribuí significativamente a la documentación del proyecto utilizando Swagger e implementé las mejores prácticas de codificación, facilitando la escalabilidad y el mantenimiento del sistema.`,
 
     picture: `https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screenshot%202024-12-09%20at%2010.35.07.png?alt=media&token=7fcf3b49-8e90-4b45-92fb-c6af06904fe3`,
-    stack: [
-      "Next Js",
-      "Prisma",
-      "Retool",
-      "Firebase",
-      "REST API",
-      "DocuSign API",
-    ],
+    stack: ["Next Js", "Prisma", "Retool", "Firebase", "REST API", "DocuSign API"],
   },
 
   {
@@ -63,15 +56,7 @@ export const proyectosWebs = [
     Las próximas características incluyen: un sistema de pago dividido, un sistema de roles divididos y un calendario de actividades por roles de invitados.`,
 
     picture: `https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/Screenshot%202024-02-15%20at%2012.20.34.png?alt=media&token=477fa169-8597-4330-a6d9-819cafd42fb8`,
-    stack: [
-      "Next Js",
-      "TypeScript",
-      "Astro",
-      "Next Auth",
-      "JWT",
-      "Prisma",
-      "Sass",
-    ],
+    stack: ["Next Js", "TypeScript", "Astro", "Next Auth", "JWT", "Prisma", "Sass"],
     github: "https://github.com/iairkap/linkforlife",
   },
   {
@@ -111,15 +96,7 @@ export const proyectosWebs = [
     backgroundContainer: "#5D16CC",
     picture:
       "https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/iair%2FResilense.png?alt=media&token=d99b1f74-5f9e-4daa-9202-2dd388d38110",
-    stack: [
-      "Next Js",
-      "Prisma",
-      "I18n",
-      "Api Video",
-      "Paypal",
-      "Next-Auth",
-      "Zustand",
-    ],
+    stack: ["Next Js", "Prisma", "I18n", "Api Video", "Paypal", "Next-Auth", "Zustand"],
     textExplainEs: `Resilense, una empresa pionera en sus primeras etapas, está remodelando el panorama del apoyo terapéutico al proporcionar orientación integral desde su inicio. Especializada en servicios de asesoramiento y apoyo, Resilense tiene como objetivo ofrecer recursos terapéuticos innovadores para apoyar el bienestar emocional. La plataforma, desarrollada con tecnologías líderes como Next.js y React, garantiza una experiencia fluida, segura y centrada en el usuario.
     
     Nuestros servicios abarcan una variedad de recursos terapéuticos, desde títeres hasta cursos en video al estilo de Udemy, disponibles mediante suscripción. Además, proporcionamos un libro para lectura compartida con los niños, fortaleciendo los vínculos emocionales entre padres e hijos.
@@ -184,14 +161,7 @@ export const proyectosWebs = [
     picture: realcoverb,
     textExplainEs:
       "Real Cover es mi primer proyecto freelance, una tienda electrónica especializada en la venta al por mayor de fundas de notebooks personalizadas. Esta plataforma se ha diseñado para ofrecer una amplia gama de diseños únicos y personalizables que se adaptan a diversas preferencias y estilos. Gracias a la integración de Next.js, un marco de trabajo de React, se garantiza una experiencia de usuario optimizada, rápida y segura. Además, la implementación de Prisma, un ORM moderno para Node.js y TypeScript, permite un manejo eficiente y seguro de la base de datos. En conjunto, estas tecnologías permiten que Real Cover sea un servicio intuitivo, fácil de usar y completamente seguro para los clientes y para la gestión de su inventario. Con Real Cover, cada funda de notebook es más que una simple protección, es una expresión de identidad.",
-    stack: [
-      "Next Js",
-      "Prisma",
-      "Firebase",
-      "Cloudinary",
-      "Mercado Pago API",
-      "React Spring",
-    ],
+    stack: ["Next Js", "Prisma", "Firebase", "Cloudinary", "Mercado Pago API", "React Spring"],
     backgroundContainer: "#327234",
     demo: null,
     github: "https://github.com/iairkap/realcover",

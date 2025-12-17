@@ -1,15 +1,15 @@
 "use client";
 
-import React, { Component } from 'react';
-import styles from './ErrorBoundary.module.css';
+import React, { Component } from "react";
+import styles from "./ErrorBoundary.module.css";
 
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       hasError: false,
       error: null,
-      errorInfo: null
+      errorInfo: null,
     };
   }
 
@@ -20,11 +20,11 @@ class ErrorBoundary extends Component {
 
   componentDidCatch(error, errorInfo) {
     // Log error details for debugging
-    console.error('Error Boundary caught an error:', error, errorInfo);
-    
+    console.error("Error Boundary caught an error:", error, errorInfo);
+
     this.setState({
       error,
-      errorInfo
+      errorInfo,
     });
 
     // Here you could send the error to a logging service like Sentry
@@ -32,10 +32,10 @@ class ErrorBoundary extends Component {
   }
 
   handleReset = () => {
-    this.setState({ 
+    this.setState({
       hasError: false,
       error: null,
-      errorInfo: null
+      errorInfo: null,
     });
   };
 
@@ -46,11 +46,9 @@ class ErrorBoundary extends Component {
         <div className={styles.errorContainer}>
           <div className={styles.errorContent}>
             <h1 className={styles.errorTitle}>⚠️ Algo salió mal</h1>
-            <p className={styles.errorMessage}>
-              Lo sentimos, ha ocurrido un error inesperado.
-            </p>
-            
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            <p className={styles.errorMessage}>Lo sentimos, ha ocurrido un error inesperado.</p>
+
+            {process.env.NODE_ENV === "development" && this.state.error && (
               <details className={styles.errorDetails}>
                 <summary>Ver detalles técnicos</summary>
                 <pre className={styles.errorStack}>
@@ -61,16 +59,10 @@ class ErrorBoundary extends Component {
             )}
 
             <div className={styles.errorActions}>
-              <button 
-                onClick={this.handleReset}
-                className={styles.resetButton}
-              >
+              <button onClick={this.handleReset} className={styles.resetButton}>
                 Intentar de nuevo
               </button>
-              <button 
-                onClick={() => window.location.href = '/'}
-                className={styles.homeButton}
-              >
+              <button onClick={() => (window.location.href = "/")} className={styles.homeButton}>
                 Volver al inicio
               </button>
             </div>
