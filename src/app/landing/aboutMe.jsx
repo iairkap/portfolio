@@ -28,9 +28,9 @@ const AboutMe = memo(function AboutMe({ language }) {
             src={cyberpunk}
             alt="Iair Kaplun - Full Stack Developer"
             className={styles.heroImage}
-            priority
-            quality={75}
-            sizes="(max-width: 768px) 0px, 50vw"
+            loading="lazy"
+            quality={60}
+            sizes="(max-width: 768px) 1px, 50vw"
           />
         </div>
       </div>
