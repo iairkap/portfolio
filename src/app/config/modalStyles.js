@@ -2,15 +2,8 @@
  * Configuración centralizada de estilos para modales
  */
 export const MODAL_STYLES = {
-  overlay: {
-    backgroundColor: "rgba(0,0,0,0.75)",
-    backdropFilter: "blur(5px)",
-  },
-  overlayWithHeight: {
-    backgroundColor: "rgba(0,0,0,0.75)",
-    backdropFilter: "blur(5px)",
-    height: "100dvh",
-  },
+  overlay: {},  // Estilos de overlay ahora en globals.css
+  overlayWithHeight: {},  // Estilos de overlay ahora en globals.css
   content: {
     backgroundColor: "transparent",
     border: "none",
