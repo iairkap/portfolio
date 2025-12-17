@@ -8,11 +8,12 @@ import { setLanguage, selectLanguage } from "../redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
 import HeaderProjects from "../components/headerProjects";
 import VideoGrid from "../components/VideoGrid";
+import { useTheme, useLanguage } from "../hooks";
 
 const AudiovisualPortfolioPage = (props) => {
   const dispatch = useDispatch();
-  const language = useSelector(selectLanguage);
-  const darkMode = useSelector((state) => state.darkMode.value);
+  const language = useLanguage();
+  const darkMode = useTheme();
 
   console.log(language);
 

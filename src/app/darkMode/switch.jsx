@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./SwitchComponent.css";
 import { useSelector } from "react-redux";
+import { useTheme } from "../hooks";
 
 const SwitchComponent = ({ handleToggle }) => {
-  const isChecked = useSelector((state) => state.darkMode.value);
+  const isChecked = useTheme();
   console.log(isChecked);
   return (
     <label>

@@ -6,12 +6,13 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import star from "../../../public/star.svg";
 import { useModal } from "../hooks/useModal";
+import { useTheme } from "../hooks";
 
 const Recomendaciones = memo(function Recomendaciones({ language }) {
   const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
   const [currentRecommendationIndex, setCurrentRecommendationIndex] =
     useState(0);
-  const darkMode = useSelector((state) => state.darkMode.value);
+  const darkMode = useTheme();
 
   const modalContentStyles = darkMode
     ? styles.modalContentDark

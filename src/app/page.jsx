@@ -11,6 +11,7 @@ import Link from "next/link";
 import { setLanguage, selectLanguage } from "./redux/languageSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Noise from "./noise/noise";
+import { useTheme, useLanguage } from "./hooks";
 
 // Lazy loading de componentes below-the-fold
 const Github = lazy(() => import("./github/github"));
@@ -27,9 +28,9 @@ const Recomendaciones = lazy(() => import("./recomendaciones/recomendaciones"));
 const ComponentLoader = () => <div style={{ minHeight: "100px" }} />;
 
 export default function Home() {
-  const darkMode = useSelector((state) => state.darkMode.value);
+  const darkMode = useTheme();
   const dispatch = useDispatch();
-  const language = useSelector(selectLanguage);
+  const language = useLanguage();
 
   useEffect(() => {
     document.body.className = darkMode ? "dark" : "light";

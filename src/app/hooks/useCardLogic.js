@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectLanguage } from "../redux/languageSlice";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useModal } from "./useModal";
+import { useTheme, useLanguage } from "./index";
 
 /**
  * Custom hook para la lógica del componente Card
@@ -16,8 +17,8 @@ export function useCardLogic() {
     close: closeModal,
   } = useModal();
   const isSmallScreen = useMediaQuery("(max-width:768px)");
-  const language = useSelector(selectLanguage);
-  const darkMode = useSelector((state) => state.darkMode.value);
+  const language = useLanguage();
+  const darkMode = useTheme();
 
   const modalContentStyles = darkMode
     ? "modalContentDark"
