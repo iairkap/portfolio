@@ -23,7 +23,15 @@ const AboutMe = memo(function AboutMe({ language }) {
             }}
           />
         </div>
-        <div className={styles.imageContainer}></div>
+        <div className={styles.imageContainer}>
+          <Image
+            src={cyberpunk}
+            alt="Iair Kaplun - Full Stack Developer"
+            className={styles.heroImage}
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
       </div>
     </div>
   );

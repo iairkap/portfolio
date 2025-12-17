@@ -15,12 +15,14 @@ import English from "./english/english";
 import Proyectos from "./proyectos/proyectos";
 import Link from "next/link";
 
-// Lazy loading para mobile
-const Github = lazy(() => import("./github/github"));
-const Whatsapp = lazy(() => import("./whatsapp/whatsapp"));
-const Email = lazy(() => import("./email/email"));
+// Lazy loading solo para componentes pesados
 const VideoPortfolio = lazy(() => import("./videoPortfolio/videoPortfolio"));
 const Stack = lazy(() => import("./stack/stack"));
+
+// Importar componentes ligeros directamente
+import Github from "./github/github";
+import Whatsapp from "./whatsapp/whatsapp";
+import Email from "./email/email";
 
 // Fallback simple para Suspense
 const ComponentLoader = () => <div style={{ minHeight: "100px" }} />;
@@ -58,16 +60,10 @@ export default function Home() {
         <Link href="/projects">
           <Proyectos language={language} />
         </Link>
-        <Suspense fallback={<ComponentLoader />}>
-          <Github language={language} />
-        </Suspense>
+        <Github language={language} />
         <div className={styles.secondRow}>
-          <Suspense fallback={<ComponentLoader />}>
-            <Whatsapp />
-          </Suspense>
-          <Suspense fallback={<ComponentLoader />}>
-            <Email />
-          </Suspense>
+          <Whatsapp />
+          <Email />
         </div>
         <Suspense fallback={<ComponentLoader />}>
           <VideoPortfolio language={language} />
