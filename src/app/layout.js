@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter, Montserrat } from "next/font/google";
 import ReduxProvider from "./ReduxProvider";
-import ErrorBoundary from "./components/ErrorBoundary";
+import { ErrorBoundary } from "./components";
 
 const inter = Inter({ subsets: ["latin"] });
 

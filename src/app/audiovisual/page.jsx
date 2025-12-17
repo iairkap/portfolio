@@ -4,11 +4,9 @@ import styles from "../projects/projects.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { setLanguage, selectLanguage } from "../redux/languageSlice";
+import { setLanguage, selectLanguage } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
-import HeaderProjects from "../components/headerProjects";
-import VideoGrid from "../components/VideoGrid";
-import ErrorBoundary from "../components/ErrorBoundary";
+import { HeaderProjects, VideoGrid, ErrorBoundary } from "../components";
 import { useTheme, useLanguage } from "../hooks";
 
 const AudiovisualPortfolioPage = (props) => {

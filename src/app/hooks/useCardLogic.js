@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectLanguage } from "../redux/languageSlice";
+import { selectLanguage } from "../redux";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useModal } from "./useModal";
 import { useTheme, useLanguage } from "./index";

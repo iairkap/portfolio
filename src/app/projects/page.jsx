@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Card from "./cardpaginas";
-import ErrorBoundary from "../components/ErrorBoundary";
+import { ErrorBoundary } from "../components";
 import { motion } from "framer-motion";
-import { setLanguage, selectLanguage } from "../redux/languageSlice";
+import { setLanguage, selectLanguage } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
 import { useTheme, useLanguage } from "../hooks";
 

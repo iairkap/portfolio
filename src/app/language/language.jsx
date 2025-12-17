@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from "react";
 import styles from "./language.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { setLanguage } from "../redux/languageSlice";
+import { setLanguage } from "../redux";
 
 const Language = memo(function Language() {
   const language = useSelector((state) => state.language.value);
