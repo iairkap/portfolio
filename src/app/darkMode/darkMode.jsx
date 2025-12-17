@@ -4,7 +4,7 @@ import { toggleDarkMode } from "../redux/darkm";
 import styles from "./dark.module.css";
 import SwitchComponent from "./switch";
 
-const DarkMode = memo(const DarkMode = memo(function DarkMode() {
+const DarkMode = memo(function DarkMode() {
   const dispatch = useDispatch();
 
   const handleToggle = useCallback(() => {

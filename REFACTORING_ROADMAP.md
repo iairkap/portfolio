@@ -8,9 +8,9 @@
 ## 📊 RESUMEN DE PROGRESO
 
 - **Total de Tickets:** 27
-- **Completados:** 15 ✅
+- **Completados:** 16 ✅
 - **En Progreso:** 0 🔄
-- **Pendientes:** 12 ⏳
+- **Pendientes:** 11 ⏳
 
 ---
 
@@ -342,24 +342,37 @@ module.exports = {
 
 ---
 
-### ⏳ REFACTOR-004: Crear componente GridLayout
+### ✅ REFACTOR-004: Crear componente GridLayout
 
-**Status:** Pendiente  
-**Prioridad:** 🟡 ALTA
+**Status:** ✅ COMPLETADO  
+**Prioridad:** 🟡 ALTA  
+**Impacto real:** page.jsx reducido 155 → 93 líneas (40% reducción)
 
-**Objetivo:** Reducir `page.jsx` de 129 a ~50 líneas
+**Objetivo alcanzado:** Extraer lógica de layout desktop
 
-**Crear:**
+**Creado:**
 
-- `src/app/components/layouts/GridLayout.jsx`
-- `src/app/components/layouts/MobileLayout.jsx`
+- ✅ src/app/components/layouts/GridLayout.jsx (120+ líneas)
+  - Maneja todo el layout grid para desktop
+  - Lazy loading con Suspense para componentes below-the-fold
+  - Props: language, onLanguageChange
 
-**Archivos afectados:**
+**Refactorizado:**
 
-- [ ] Crear componentes layout
-- [ ] Refactor `src/app/page.jsx`
+- ✅ src/app/page.jsx (155 → 93 líneas)
+  - Separación clara entre desktop (GridLayout) y mobile
+  - handleLanguageChange callback extraído
+  - Responsabilidad enfocada en lógica de app
 
-**Commit:** `refactor(layout): extract grid layout to separate component`
+**Beneficios:**
+
+- SRP: page.jsx enfocado en app logic, GridLayout en layout
+- Mantenibilidad: Cambios de layout aislados
+- Legibilidad: Estructura de alto nivel clara
+- Testabilidad: GridLayout testeable independientemente
+
+**Commit:** `refactor(layout): extract GridLayout component from page.jsx`  
+**Fecha:** 16 Diciembre 2025
 
 ---
 
@@ -371,11 +384,13 @@ module.exports = {
 **Objetivo alcanzado:** 173 líneas → 3 archivos (~90 líneas c/u)
 
 **Archivos creados:**
+
 - ✅ Card.jsx (presentacional, 97 líneas)
 - ✅ useCardLogic.js (business logic, 33 líneas)
 - ✅ CardModal.jsx (modal UI, 77 líneas)
 
 **Beneficios:**
+
 - SRP aplicado correctamente
 - Lógica separada de presentación
 - Componentes testeables independientemente
@@ -389,9 +404,11 @@ module.exports = {
 **Prioridad:** 🟢 MEDIA
 
 **Creado:**
+
 - ✅ src/app/components/ui/ModalOverlay.jsx (wrapper reutilizable)
 
 **Beneficios:**
+
 - Componente DRY para todos los modales
 - Props flexibles y customizables
 - Integrado con MODAL_STYLES centralizadas
@@ -404,9 +421,11 @@ module.exports = {
 **Prioridad:** 🟢 BAJA
 
 **Creado:**
+
 - ✅ src/app/config/modalStyles.js (constantes de estilos)
 
 **Beneficios:**
+
 - Estilos centralizados y reutilizables
 - Fácil mantenimiento y consistencia
 - DRY principle aplicado
@@ -475,6 +494,7 @@ module.exports = {
 - ✅ DarkMode (+ useCallback para handleToggle)
 
 **Beneficios:**
+
 - Componentes puros envueltos con memo saltan re-renders cuando props no cambian
 - Event handlers memoizados con useCallback mantienen igualdad referencial
 - Arrays/objetos estáticos memoizados con useMemo previenen recreación
