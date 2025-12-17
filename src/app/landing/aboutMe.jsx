@@ -29,7 +29,8 @@ const AboutMe = memo(function AboutMe({ language }) {
             alt="Iair Kaplun - Full Stack Developer"
             className={styles.heroImage}
             priority
-            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={75}
+            sizes="(max-width: 768px) 0px, 50vw"
           />
         </div>
       </div>

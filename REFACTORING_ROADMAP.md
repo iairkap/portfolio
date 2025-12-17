@@ -529,7 +529,7 @@ Cada feature tiene su carpeta con componentes y estilos coubicados.
 src/app/
 ├── features/ (16 features organizadas)
 │   ├── github/           # GitHub integration
-│   ├── linkedin/         # LinkedIn integration  
+│   ├── linkedin/         # LinkedIn integration
 │   ├── projects/         # Web projects portfolio
 │   ├── audiovisual/      # Video portfolio
 │   ├── darkMode/         # Theme switching

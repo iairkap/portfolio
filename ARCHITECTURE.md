@@ -155,6 +155,7 @@ RootLayout (layout.js)
 ```
 
 **Ventajas:**
+
 - Server Components por defecto
 - Streaming y Suspense nativo
 - Layouts compartidos
@@ -170,11 +171,11 @@ function Card() {
 
 // ✅ Después: Composición (SRP)
 function Card() {
-  const logic = useCardLogic();  // Business logic
+  const logic = useCardLogic(); // Business logic
   return (
     <>
-      <CardUI {...logic} />        // Presentation
-      <CardModal {...modal} />     // Feature específico
+      <CardUI {...logic} /> // Presentation
+      <CardModal {...modal} /> // Feature específico
     </>
   );
 }
@@ -195,6 +196,7 @@ import VideoGrid from "../components/VideoGrid";
 ```
 
 **Beneficios:**
+
 - Imports limpios
 - Single source of truth
 - Facilita refactoring
@@ -215,6 +217,7 @@ function Component() {
 ```
 
 **Ventajas:**
+
 - Scoping automático (no colisiones)
 - Type-safe con TypeScript
 - Bundle optimization
@@ -250,8 +253,8 @@ export const darkModeSlice = createSlice({
   reducers: {
     toggleDarkMode: (state) => {
       state.value = !state.value;
-    }
-  }
+    },
+  },
 });
 
 // languageSlice.js
@@ -261,8 +264,8 @@ export const languageSlice = createSlice({
   reducers: {
     setLanguage: (state, action) => {
       state.value = action.payload;
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -270,7 +273,7 @@ export const languageSlice = createSlice({
 
 ```javascript
 // selectors.js
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
 const selectDarkModeState = (state) => state.darkMode;
 
@@ -281,6 +284,7 @@ export const selectDarkMode = createSelector(
 ```
 
 **Ventajas:**
+
 - Memoización automática
 - Prevención de re-renders innecesarios
 - Performance optimizada
@@ -339,10 +343,10 @@ const text = language === "ES" ? "Hola" : "Hello";
  */
 export function useModal() {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
-  
+
   return { isOpen, openModal, closeModal };
 }
 ```
@@ -356,14 +360,11 @@ export function useModal() {
  */
 export function useTouchDevice() {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-  
+
   useEffect(() => {
-    setIsTouchDevice(
-      'ontouchstart' in window || 
-      navigator.maxTouchPoints > 0
-    );
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);
-  
+
   return isTouchDevice;
 }
 ```
@@ -380,12 +381,12 @@ export function useCardLogic() {
   const darkMode = useTheme();
   const { isOpen, openModal, closeModal } = useModal();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  
+
   return {
     language,
     darkMode,
     isMobile,
-    modal: { isOpen, openModal, closeModal }
+    modal: { isOpen, openModal, closeModal },
   };
 }
 ```
@@ -441,10 +442,12 @@ const Stack = dynamic(() => import("../stack/stack"), { ssr: false });
 ### 1. Imágenes
 
 **Antes:**
+
 - PNG/JPEG sin optimizar: ~90 MB
 - `<img>` tags sin lazy loading
 
 **Después:**
+
 - WebP optimizado: ~9.8 MB (-89%)
 - `next/image` con lazy loading automático
 - Responsive sizes y srcset
@@ -455,7 +458,7 @@ const Stack = dynamic(() => import("../stack/stack"), { ssr: false });
   alt="Project"
   width={300}
   height={200}
-  loading="lazy"  // Automático con next/image
+  loading="lazy" // Automático con next/image
 />
 ```
 
@@ -473,13 +476,17 @@ const handleClick = useCallback(() => {
 }, [dependencies]);
 
 // useMemo para cálculos costosos
-const icons = useMemo(() => [
-  { name: "react", icon: <FaReact /> },
-  // ...
-], []);
+const icons = useMemo(
+  () => [
+    { name: "react", icon: <FaReact /> },
+    // ...
+  ],
+  []
+);
 ```
 
 **16 componentes con memo:**
+
 - AboutMe, Stack, Github, English, Email
 - Spotify, Whatsapp, SoyHenry, Linkedin
 - Proyectos, Recomendaciones, DarkMode
@@ -600,6 +607,7 @@ import logo from "../../../public/logo.svg";
 **Decisión (ARCH-001):** Redux único, eliminar Context API
 
 **Razones:**
+
 - ✅ Performance: Reselect memoization
 - ✅ DevTools: Time-travel debugging
 - ✅ Middleware: Redux Thunk para async
@@ -607,6 +615,7 @@ import logo from "../../../public/logo.svg";
 - ✅ Escalabilidad: Mejor para estado complejo
 
 **Context API removido:**
+
 - ❌ LanguageContext.js (eliminado)
 - ❌ Re-renders innecesarios
 - ❌ No memoization built-in
@@ -616,6 +625,7 @@ import logo from "../../../public/logo.svg";
 **Decisión:** CSS Modules + Tailwind
 
 **Razones:**
+
 - ✅ Performance: Sin runtime overhead
 - ✅ Bundle size: CSS puro minificado
 - ✅ SSR: Sin hydration issues
@@ -627,10 +637,12 @@ import logo from "../../../public/logo.svg";
 **Decisión:** 9 componentes lazy, 7 eager
 
 **Criterios:**
+
 - **Lazy:** Below-the-fold, no críticos
 - **Eager:** Above-the-fold, interactivos
 
 **Componentes Lazy:**
+
 ```
 Github, Stack, English, VideoPortfolio
 Whatsapp, Email, Spotify, SoyHenry, Edad
@@ -639,6 +651,7 @@ Whatsapp, Email, Spotify, SoyHenry, Edad
 ### 4. ¿Por qué Next.js 16 con Turbopack?
 
 **Razones:**
+
 - ✅ Build speed: 5x más rápido que Webpack
 - ✅ HMR: Instant feedback en development
 - ✅ App Router: Server Components
@@ -649,12 +662,14 @@ Whatsapp, Email, Spotify, SoyHenry, Edad
 **Decisión:** Migración progresiva
 
 **Estrategia:**
+
 1. Phase 1: Config + interfaces (TS-001)
 2. Phase 2: Redux + hooks (TS-002)
 3. Phase 3: Core components (TS-003)
 4. Phase 4: Resto del proyecto (TS-004)
 
 **Beneficios:**
+
 - ✅ Zero breaking changes
 - ✅ Incremental adoption
 - ✅ Time to market controlado
@@ -666,6 +681,7 @@ Whatsapp, Email, Spotify, SoyHenry, Edad
 **Completados: 21/27 (78%)**
 
 ### ✅ Performance (7/7)
+
 - next/font optimization
 - WebP images (-89%)
 - next/image component
@@ -675,6 +691,7 @@ Whatsapp, Email, Spotify, SoyHenry, Edad
 - Next.js 13→16, React 18→19
 
 ### ✅ Clean Code (9/10)
+
 - Dead code removal
 - Custom hooks (5 hooks)
 - Component extraction (GridLayout, CardModal)
@@ -682,6 +699,7 @@ Whatsapp, Email, Spotify, SoyHenry, Edad
 - Config centralization
 
 ### ✅ Architecture (5/6)
+
 - State consolidation (Redux only)
 - Reselect memoization
 - Error boundaries
@@ -689,6 +707,7 @@ Whatsapp, Email, Spotify, SoyHenry, Edad
 - Barrel exports
 
 ### ⏳ Pending (6 tickets)
+
 - REFACTOR-010: Feature-based structure
 - ARCH-006: This documentation ✅
 - TS-001-004: TypeScript migration (4 tickets)
