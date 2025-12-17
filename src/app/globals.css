@@ -21,3 +21,20 @@ body.light {
 body.dark {
   background-color: #252525;
 }
+
+/* React Modal Overlay - Fixed positioning for full viewport coverage */
+.ReactModal__Overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999 !important;
+}
+
+.ReactModal__Content {
+  position: relative !important;
+  inset: auto !important;
+}
