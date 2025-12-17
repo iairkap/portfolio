@@ -50,20 +50,27 @@ const VideoPortfolio = memo(function VideoPortfolio(props) {
   return (
     <div className={styles.generalContainer}>
       <div className={styles.clickContainer}>
-        <Image src={click} className={styles.click} alt="click"></Image>
+        <Image
+          src={click}
+          className={styles.click}
+          alt="Click to view audiovisual portfolio"
+        />
       </div>
       <div className={styles.playContainer}>
         <div className={styles.iconContainer}>
-          <PlayButton
-            whileHover="hover"
-            variants={buttonVariants}
-            onClick={openModal}
-            className={styles.button}
-          >
-            <Link href={"/audiovisual"}>
-              <Image src={play} className={styles.playbu} alt="play"></Image>
-            </Link>
-          </PlayButton>
+          <Link href={"/audiovisual"}>
+            <PlayButton
+              whileHover="hover"
+              variants={buttonVariants}
+              className={styles.button}
+            >
+              <Image
+                src={play}
+                className={styles.playbu}
+                alt="Play audiovisual portfolio video"
+              />
+            </PlayButton>
+          </Link>
           <h1 className={styles.videoReel}>Portfolio Audiovisual</h1>
         </div>
       </div>
