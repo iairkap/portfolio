@@ -3,7 +3,7 @@ import styles from "./email.module.css";
 import email from "../../../public/email.svg";
 import Image from "next/image";
 
-const Email = memo(const Email = memo(function Email(props) {
+const Email = memo(function Email(props) {
   const handleClick = useCallback(() => {
     const message = encodeURIComponent("Hola, me gustaría trabajar con vos!");
     const email = "iairkap@gmail.com";
