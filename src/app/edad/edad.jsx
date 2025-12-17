@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from "react";
 import styles from "./edad.module.css";
 
-const Edad = memo(const Edad = memo(function Edad({ language }) {
+const Edad = memo(function Edad({ language }) {
   const age = useMemo(() => {
     const currentYear = new Date().getFullYear();
     const birthYear = 1994;
