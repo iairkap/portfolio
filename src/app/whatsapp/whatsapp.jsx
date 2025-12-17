@@ -13,7 +13,7 @@ const Whatsapp = memo(function Whatsapp(props) {
   return (
     <div className={styles.generalContainer} onClick={handleClick}>
       <div className={styles.iconContainer}>
-        <Image src={whatsapp} width={145} height={145} alt="" />
+        <Image src={whatsapp} width={145} height={145} alt="WhatsApp contact icon" />
       </div>
     </div>
   );

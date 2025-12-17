@@ -10,7 +10,7 @@ const Linkedin = memo(function Linkedin(props) {
     <Link href="https://www.linkedin.com/in/iair-kaplun-97145a88/">
       <div className={styles.generalContainer}>
         <div className={styles.clickContainer}>
-          <Image src={click} className={styles.click}></Image>
+          <Image src={click} className={styles.click} alt="Click to view LinkedIn profile" />
         </div>
         <div className={styles.linkedinContainer}>
           <svg

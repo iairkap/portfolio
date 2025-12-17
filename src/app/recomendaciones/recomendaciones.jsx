@@ -105,7 +105,7 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
 
   return (
     <div className={styles.generalContainer} onClick={openModal}>
-      <Image src={star}></Image>
+      <Image src={star} alt="View recommendations and testimonials" />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -131,7 +131,12 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
             </p>
             <div className={styles.ending}>
               <h6 className={styles.date}>{date}</h6>
-              <Image src={nextrec} onClick={handleNextRecommendation} className={styles.Arrow} />
+              <Image
+                src={nextrec}
+                onClick={handleNextRecommendation}
+                className={styles.Arrow}
+                alt="Next recommendation"
+              />
             </div>
           </div>
         </div>

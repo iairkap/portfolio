@@ -7,7 +7,7 @@ const Proyectos = memo(function Proyectos({ language }) {
   return (
     <div className={styles.generalContainer}>
       <div className={styles.clickContainer}>
-        <Image src={click} className={styles.click}></Image>
+        <Image src={click} className={styles.click} alt="Click to view projects" />
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.titulo}>

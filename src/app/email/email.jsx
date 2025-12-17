@@ -13,7 +13,7 @@ const Email = memo(function Email(props) {
   return (
     <div className={styles.generalContainer} onClick={handleClick}>
       <div className={styles.iconContainer}>
-        <Image src={email} width={145} height={145} alt="" />
+        <Image src={email} width={145} height={145} alt="Email contact icon" />
       </div>
     </div>
   );

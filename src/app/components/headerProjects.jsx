@@ -12,7 +12,13 @@ function headerProjects({ styles, language }) {
       <div className={styles.tituloba}>
         <div className={styles.arrow}>
           <Link href="/">
-            <Image src={"/prevArrow.svg"} className={styles.Arrow} width={100} height={100} />
+            <Image
+              src={"/prevArrow.svg"}
+              className={styles.Arrow}
+              width={100}
+              height={100}
+              alt="Back to home"
+            />
           </Link>
         </div>
         <div className={styles.titileContainer}>

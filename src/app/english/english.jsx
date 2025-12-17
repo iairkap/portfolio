@@ -9,7 +9,7 @@ const English = memo(function English({ language }) {
     <Link href="https://www.efset.org/cert/Lonahf">
       <div className={styles.generalContainer}>
         <div className={styles.clickContainer}>
-          <Image src={click} className={styles.click}></Image>
+          <Image src={click} className={styles.click} alt="Click to view English certificate" />
         </div>
         <div className={styles.textContainer}>
           <h6 className={styles.subtituloa}>

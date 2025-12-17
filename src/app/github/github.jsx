@@ -7,7 +7,7 @@ const Github = memo(function Github({ language }) {
   return (
     <a href="https://github.com/iairkap" target="_blank" rel="noopener noreferrer">
       <div className={styles.generalContainer}>
-        <Image src={Fithub} className={styles.imagen} />
+        <Image src={Fithub} className={styles.imagen} alt="GitHub profile" />
         <div className={styles.textContainer}>
           <h1 className={styles.titulo}>{language === "ES" ? "Github" : "Github"}</h1>
           <h6 className={styles.subtitulos}>
