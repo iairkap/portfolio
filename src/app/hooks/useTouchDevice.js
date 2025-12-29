@@ -6,7 +6,9 @@ import { useMemo } from "react";
  */
 export function useTouchDevice() {
   return useMemo(() => {
-    if (typeof window === "undefined") return false;
+    if (typeof window === "undefined") {
+      return false;
+    }
 
     return (
       "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0

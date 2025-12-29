@@ -1,28 +1,25 @@
 .generalContainer {
-  height: 20.25rem;
   flex-direction: column;
-  border-radius: 1.5625rem;
-  margin-top: 1.5rem;
-  background-color: #76a4fb;
-  transition: transform 0.2 s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
-}
-
-.generalContainer:hover {
-  transform: scale(1.02); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+  border-radius: 30px;
+  height: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.3s ease;
 }
 
 .clickContainer {
   display: flex;
   justify-content: flex-end;
-  margin: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
 }
 .linkedinContainer {
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 2rem;
+  height: 100%;
+}
+
+.linkedinIcon path {
+  fill: var(--icon-color);
 }
 
 @media screen and (max-width: 768px) {

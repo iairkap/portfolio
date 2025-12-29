@@ -1,15 +1,15 @@
-import React, { useState, memo, useMemo } from "react";
+import React, { useState, memo, useMemo, useEffect } from "react";
 import styles from "./videoPortfolio.module.css";
 import Image from "next/image";
 import click from "../../../public/click.svg";
 import play from "../../../public/play.svg";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import Modal from "react-modal";
 import Link from "next/link";
-import { useModal } from "../hooks/useModal";
+import MarqueeText from "../components/ui/MarqueeText";
+import { useTouchDevice } from "../hooks";
+
 const PlayButton = styled(motion.button)`
-  /* Agrega tus estilos personalizados aquí */
   background: transparent;
   border: none;
   cursor: pointer;
@@ -19,7 +19,26 @@ const PlayButton = styled(motion.button)`
 `;
 
 const VideoPortfolio = memo(function VideoPortfolio(props) {
-  const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
+  const phrases = {
+    ES: "PORTAFOLIO AUDIOVISUAL • VIDEOS DE PROYECTOS • DEMOS",
+    EN: "AUDIOVISUAL PORTFOLIO • PROJECT VIDEOS • DEMOS",
+  };
+
+  const [isHovered, setIsHovered] = useState(false);
+  const isTouchDevice = useTouchDevice();
+
+  // Auto-alternar en touch devices cada 3 segundos
+  useEffect(() => {
+    if (!isTouchDevice) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setIsHovered((prev) => !prev);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isTouchDevice]);
 
   const buttonVariants = useMemo(
     () => ({
@@ -33,35 +52,44 @@ const VideoPortfolio = memo(function VideoPortfolio(props) {
     }),
     []
   );
-  const customStyles = {
-    overlay: {
-      backgroundColor: "rgba(0,0,0,0.75)",
-      backdropFilter: "blur(5px)",
-    },
-    content: {
-      backgroundColor: "transparent",
-      border: "none",
-      width: "80%",
-      height: "70%",
-      margin: "auto",
-      overflow: "visible",
-    },
-  };
+
+  const currentText =
+    (props.language === "ES" ? phrases.ES : phrases.EN) +
+    " \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ";
+
   return (
     <div className={styles.generalContainer}>
-      <div className={styles.clickContainer}>
-        <Image src={click} className={styles.click} alt="Click to view audiovisual portfolio" />
-      </div>
-      <div className={styles.playContainer}>
-        <div className={styles.iconContainer}>
-          <Link href={"/audiovisual"}>
-            <PlayButton whileHover="hover" variants={buttonVariants} className={styles.button}>
-              <Image src={play} className={styles.playbu} alt="Play audiovisual portfolio video" />
-            </PlayButton>
-          </Link>
-          <h1 className={styles.videoReel}>Portfolio Audiovisual</h1>
+      <Link href={"/audiovisual"} className={styles.link}>
+        <div className={styles.clickContainer}>
+          <Image src={click} className={styles.click} alt="Click to view audiovisual portfolio" />
         </div>
-      </div>
+        <div className={styles.playContainer}>
+          <div
+            className={styles.iconContainer}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {!isHovered && (
+              <PlayButton whileHover="hover" variants={buttonVariants} className={styles.button}>
+                <Image
+                  src={play}
+                  className={styles.playbu}
+                  alt="Play audiovisual portfolio video"
+                />
+              </PlayButton>
+            )}
+          </div>
+          <div className={styles.textContainer}>
+            <MarqueeText
+              isVisible={isHovered}
+              text={currentText}
+              fontSize="2rem"
+              speed={60}
+              customClassName={styles.alwaysWhiteText}
+            />
+          </div>
+        </div>
+      </Link>
     </div>
   );
 });

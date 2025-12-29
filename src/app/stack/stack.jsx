@@ -1,8 +1,11 @@
 import React, { memo, useMemo } from "react";
 import Image from "next/image";
 import styles from "./stack.module.css";
+import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
-const Stack = memo(function Stack(props) {
+const Stack = memo(function Stack({ language }) {
+  const darkMode = useSelector((state) => state.darkMode.value);
   const icons = useMemo(
     () => [
       { src: "/typescript.svg", alt: "TypeScript" },
@@ -17,21 +20,50 @@ const Stack = memo(function Stack(props) {
       { src: "/nodejs.svg", alt: "Node.js" },
       { src: "/git.svg", alt: "Git" },
       { src: "/javascript.svg", alt: "JavaScript" },
+      { src: "java.svg", alt: "Java" },
+      { src: "astro.svg", alt: "Astro" },
+      { src: "docker.svg", alt: "Docker" },
     ],
     []
   );
 
+  const duplicatedIcons = [...icons, ...icons, ...icons, ...icons, ...icons, ...icons];
+
   return (
     <div className={styles.generalContainer}>
-      <div className={styles.iconContainer}>
-        {icons.map((icon, index) => (
-          <div key={index} className={styles.icon}>
-            <Image src={icon.src} width={45} height={45} alt={icon.alt} />
-            {/* Tooltip por cada vez que hago hover sobre el icon se va a mostrar el nombre que figura en el icons.alt */}
-            <span className={styles.tooltip}>{icon.alt}</span>
-          </div>
-        ))}
+      <h2 className={styles.title}>Tech stack</h2>
+
+      <div className={styles.carouselWrapper}>
+        <motion.div
+          className={styles.iconCarousel}
+          animate={{
+            x: [-93, -(icons.length * 93) - 93], // 45px icon + 48px gap = 93px por icono
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 25,
+              ease: "linear",
+            },
+          }}
+        >
+          {duplicatedIcons.map((icon, index) => (
+            <div
+              key={index}
+              className={`${styles.icon} ${darkMode ? styles.iconDark : styles.iconLight}`}
+            >
+              <Image src={icon.src} width={45} height={45} alt={icon.alt} />
+            </div>
+          ))}
+        </motion.div>
       </div>
+
+      <p className={styles.description}>
+        {language === "ES"
+          ? "Principalmente con experiencia en stacks modernos de frontend, backend e infraestructura, y siempre con interés en explorar y aprender nuevas herramientas y plataformas."
+          : "Primarily experienced across modern frontend, backend, and infrastructure stacks, while always eager to explore and learn new tools and platforms."}
+      </p>
     </div>
   );
 });

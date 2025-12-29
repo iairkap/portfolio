@@ -56,6 +56,7 @@
   max-width: 100%;
   height: auto;
 }
+
 .aboutMeContainer {
   grid-area: about;
   grid-row: span 2;
@@ -142,22 +143,53 @@
   }
 }
 
-/* I need to display .onlyMobile only in mobiles */
+/* Desktop Layout - ocultar en mobile */
+.desktopLayout {
+  display: block;
+}
 
-@media screen and (min-width: 768px) {
-  .onlyMobile {
+@media screen and (max-width: 768px) {
+  .desktopLayout {
     display: none;
   }
 }
 
+/* Mobile Layout - mostrar solo en mobile */
+.onlyMobile {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .onlyMobile {
-    margin: 1rem;
-    margin-bottom: 2rem;
+    display: block;
+    padding: 1rem;
+    padding-top: 2rem;
   }
+
+  .firstRow {
+    margin-bottom: 1rem;
+  }
+
   .secondRow {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .githubMobile {
+    min-height: 250px;
+    margin-bottom: 1rem;
+  }
+
+  .projectsMobile {
+    display: block;
+    min-height: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .videoMobile {
+    min-height: 200px;
+    height: 100%;
   }
 }

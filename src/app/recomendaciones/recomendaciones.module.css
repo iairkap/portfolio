@@ -1,40 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 .generalContainer {
-  height: 20.25rem;
   flex-direction: column;
-  border-radius: 1.5625rem;
-  margin-top: 1.5rem;
-  background-color: #c53434;
+  border-radius: 30px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   align-items: center;
+  height: 100%;
   justify-content: center;
   display: flex;
-  padding: 4rem;
-  transition: transform 0.3s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
+  transition: border-color 0.3s ease;
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.generalContainer:hover {
-  transform: scale(1.02); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+.starIconDark {
+  width: 40px;
+  height: 40px;
+  transition: filter 0.3s ease;
+}
+
+.starIconLight {
+  width: 40px;
+  height: 40px;
+  filter: invert(1);
+  transition: filter 0.3s ease;
 }
 
 .modalContentLight {
   position: relative;
-  background-color: #d9d9d9;
-  border-radius: 1.4rem;
-  width: 90%;
-  height: 90%;
-  margin: auto;
-  padding: 20px;
+  background: linear-gradient(135deg, hsl(215, 26%, 12%) 0%, hsl(215, 26%, 10%) 100%);
+  border: 2px solid #475569;
+  border-radius: 30px;
+  width: 100%;
+  height: auto;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .modalContentDark {
   position: relative;
-  background-color: #2d2d2d;
-  border-radius: 1.4rem;
-  width: 90%;
-  height: 90%;
-  margin: auto;
-  padding: 20px;
+  background: linear-gradient(135deg, hsl(215, 26%, 12%) 0%, hsl(215, 26%, 10%) 100%);
+  border: 2px solid #475569;
+  border-radius: 30px;
+  width: 100%;
+  height: auto;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .modalContent::before {
@@ -54,19 +67,15 @@
 .textLight {
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
-  margin-top: 6rem;
-  margin-right: 1rem;
-  color: black;
+  gap: 1.5rem;
+  color: #e2e8f0;
 }
 
 .textDark {
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
-  margin-top: 6rem;
-  margin-right: 1rem;
-  color: #d9d9d9;
+  gap: 1.5rem;
+  color: #e2e8f0;
 }
 
 .primerRenglon {
@@ -78,10 +87,11 @@
 
 .name {
   font-family: Montserrat, sans-serif;
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
+  color: var(--accent-color);
 }
 .texto {
   margin-top: 1rem;
@@ -124,17 +134,34 @@
 
 .closeM {
   position: absolute;
-  top: 0.5rem;
+  top: 1.5rem;
   right: 2rem;
   z-index: 9999;
   font-size: 2rem;
-  /* Agrega otros estilos necesarios */
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.closeM:hover {
+  transform: scale(1.2);
+  color: #a0edb5;
 }
 
 .Arrow {
   display: flex;
-
   justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  filter: brightness(0) saturate(100%) invert(88%) sepia(13%) saturate(1207%) hue-rotate(75deg)
+    brightness(92%) contrast(89%);
+}
+
+.Arrow:hover {
+  transform: scale(1.1);
 }
 
 .ending {

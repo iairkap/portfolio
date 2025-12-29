@@ -1,60 +1,93 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SwitchComponent.css";
-import { useSelector } from "react-redux";
 import { useTheme } from "../hooks";
 
-const SwitchComponent = ({ handleToggle }) => {
+const SwitchComponent = () => {
   const isChecked = useTheme();
-  console.log(isChecked);
+
   return (
-    <label>
-      <input type="checkbox" className="slider" onChange={handleToggle} />
-      <div className={`switch ${isChecked ? "checked" : ""}`}>
-        <div className="suns"></div>
-        <div className="moons">
-          <div className="star star-1"></div>
-          <div className="star star-2"></div>
-          <div className="star star-3"></div>
-          <div className="star star-4"></div>
-          <div className="star star-5"></div>
-          <div className="first-moon"></div>
-        </div>
-        <div className="sand"></div>
-        <div className="bb8">
-          <div className="antennas">
-            <div className="antenna short"></div>
-            <div className="antenna long"></div>
-          </div>
-          <div className="head">
-            <div className="stripe one"></div>
-            <div className="stripe two"></div>
-            <div className="eyes">
-              <div className="eye one"></div>
-              <div className="eye two"></div>
-            </div>
-            <div className="stripe detail">
-              <div className="detail zero"></div>
-              <div className="detail zero"></div>
-              <div className="detail one"></div>
-              <div className="detail two"></div>
-              <div className="detail three"></div>
-              <div className="detail four"></div>
-              <div className="detail five"></div>
-              <div className="detail five"></div>
-            </div>
-            <div className="stripe three"></div>
-          </div>
-          <div className="ball">
-            <div className="lines one"></div>
-            <div className="lines two"></div>
-            <div className="ring one"></div>
-            <div className="ring two"></div>
-            <div className="ring three"></div>
-          </div>
-          <div className="shadow"></div>
-        </div>
-      </div>
-    </label>
+    <div className="theme-toggle">
+      {isChecked ? (
+        // Luna (dark mode)
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="theme-icon moon-icon">
+          <path
+            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        // Sol (light mode)
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="theme-icon sun-icon">
+          <circle cx="12" cy="12" r="5" strokeWidth="2" />
+          <line
+            x1="12"
+            y1="1"
+            x2="12"
+            y2="3"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="12"
+            y1="21"
+            x2="12"
+            y2="23"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="4.22"
+            y1="4.22"
+            x2="5.64"
+            y2="5.64"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="18.36"
+            y1="18.36"
+            x2="19.78"
+            y2="19.78"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="1"
+            y1="12"
+            x2="3"
+            y2="12"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="21"
+            y1="12"
+            x2="23"
+            y2="12"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="4.22"
+            y1="19.78"
+            x2="5.64"
+            y2="18.36"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="18.36"
+            y1="5.64"
+            x2="19.78"
+            y2="4.22"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      )}
+    </div>
   );
 };
 

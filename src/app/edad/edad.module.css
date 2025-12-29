@@ -3,32 +3,31 @@
 .generalContainer {
   height: 20.25rem;
   flex-direction: column;
-  border-radius: 1.5625rem;
-  margin-top: 1.5rem;
-  background-color: #d04f4f;
+  border-radius: 30px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   align-items: center;
   justify-content: center;
   display: flex;
+  height: 100%;
 }
 
 .subtitulo {
-  color: #fff;
+  color: var(--card-text);
   font-family: Montserrat, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: -10px; /* Adjust this value to meet your needs */
 }
 
 .titulo {
-  color: #fff;
+  color: var(--card-text);
   font-family: Montserrat, sans-serif;
-  font-size: 6rem;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
-  margin-bottom: -5px; /* Adjust this value to meet your needs */
 }
 
 @media screen and (max-width: 768px) {

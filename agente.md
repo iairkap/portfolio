@@ -1,5 +1,7 @@
 # AI Agent Instruction File: Portfolio Refactoring & Optimization
 
+REVISA BIEN LOS FILES ANTES DE ESCRIBIR PARA NO GENERAR ERRORES DE ESTILO
+
 ## 1. Rol y Objetivo
 
 Actúa como un **Senior Software Architect y Performance Engineer**. Tu objetivo es refactorizar este proyecto de portfolio para elevarlo a un estándar profesional de nivel "Senior".
@@ -21,21 +23,6 @@ JAMÁS escribas código inmediatamente. Para cada tarea o componente, sigue este
 1.  **Analizar:** Lee el código actual, identifica violaciones de SOLID, cuellos de botella de rendimiento y malas prácticas.
 2.  **Proponer:** Explica brevemente qué vas a cambiar y por qué.
 3.  **Ejecutar:** Una vez confirmado, aplica los cambios.
-
-### B. Commits Atómicos (Atomic Commits)
-
-**ESTRICTAMENTE PROHIBIDO** hacer refactorizaciones masivas en un solo paso.
-
-- Debes trabajar archivo por archivo o función por función.
-- Un cambio lógico = Un commit.
-- Si tocas estilos, no toques lógica en el mismo paso.
-- Si refactorizas la estructura, no cambies la funcionalidad al mismo tiempo.
-
-**Formato de Commit sugerido:**
-
-- `refactor(component): extract logic to custom hook for SRP`
-- `perf(image): implement lazy loading and next/image`
-- `style(nav): fix mobile responsiveness`
 
 ### C. Estándares de Código
 

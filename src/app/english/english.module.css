@@ -1,25 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 .generalContainer {
-  height: 20.25rem;
   flex-direction: column;
-  position: relative; /* Agregado */
-
-  border-radius: 1.5625rem;
-  margin-top: 1.5rem;
-  background-color: #ad365a;
-  padding: 1.5rem;
-  transition: transform 0.2s ease-out; /* Agregamos una transición suave de 0.3 segundos con ease-out */
-}
-.generalContainer:hover {
-  transform: scale(1.02); /* Al hacer hover, aplicamos un aumento de escala al 105% */
+  display: flex;
+  position: relative;
+  border-radius: 30px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.3s ease;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .subtituloa,
 .subtitulob {
-  color: #fff;
+  color: var(--card-text);
   font-family: Montserrat, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -27,9 +25,9 @@
 }
 
 .titulo {
-  color: #fff;
+  color: var(--card-text);
   font-family: Montserrat, sans-serif;
-  font-size: 6rem;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
@@ -37,17 +35,11 @@
   margin: 0;
 }
 
-.clickContainer {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .textContainer {
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -58,20 +50,17 @@
 
 @media screen and (max-width: 768px) {
   .generalContainer {
-    height: 11.7rem;
     margin: none;
   }
   .subtituloa {
     display: none;
   }
   .subtitulob {
-    margin-top: -10px;
   }
   .titulo {
     margin: none;
   }
   .textContainer {
     padding: 0rem;
-    gap: -2rem;
   }
 }

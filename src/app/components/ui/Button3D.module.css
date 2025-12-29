@@ -1,0 +1,74 @@
+.linkWrapper {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button3D {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  transform: rotate(0) rotateY(0.05turn) rotateX(-0.1turn);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--card-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  /* Efecto 3D con sombras en capas */
+  box-shadow:
+    0.15rem 0.15rem 0 0 #232b34,
+    0.3rem 0.3rem 0 0 #232b34,
+    0.45rem 0.45rem 0 0 #232b34,
+    0.6rem 0.6rem 0 0 #232b34;
+}
+
+.button3D::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.button3D:hover {
+  transform: rotate(0) rotateY(0.05turn) rotateX(-0.1turn) translate(0.15rem, 0.15rem);
+  box-shadow:
+    0.1rem 0.1rem 0 0 #232b34,
+    0.2rem 0.2rem 0 0 #232b34,
+    0.3rem 0.3rem 0 0 #232b34;
+  border-color: #5a6c85;
+}
+
+.button3D:active {
+  transform: rotate(0) rotateY(0.05turn) rotateX(-0.1turn) translate(0.45rem, 0.45rem);
+  box-shadow:
+    0.05rem 0.05rem 0 0 #232b34,
+    0.1rem 0.1rem 0 0 #232b34;
+}
+
+.button3D svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--icon-color);
+}
+
+@media (max-width: 768px) {
+  .button3D {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .button3D svg {
+    width: 20px;
+    height: 20px;
+  }
+}

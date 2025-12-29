@@ -6,31 +6,45 @@ import { setLanguage } from "../redux";
 const Language = memo(function Language() {
   const language = useSelector((state) => state.language.value);
   const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.darkMode.value);
 
-  const handleLanguageChange = useCallback(
-    (newLanguage) => {
-      console.log("Changing language to:", newLanguage);
-      dispatch(setLanguage(newLanguage));
-    },
-    [dispatch]
-  );
+  const handleLanguageChange = useCallback(() => {
+    const newLanguage = language === "ES" ? "EN" : "ES";
+    dispatch(setLanguage(newLanguage));
+  }, [dispatch, language]);
 
-  console.log("Render Language component:", language); // Agrega esta línea
   return (
-    <div className={styles.generalBackground}>
+    <div
+      className={styles.generalBackground}
+      onClick={() => {
+        handleLanguageChange();
+      }}
+    >
       <div className={styles.contenedor}>
         <div className={styles.titulo}>
           <h1>{language}</h1>
         </div>
         <div className={styles.idiomas}>
-          <div className={styles.languageContainer} onClick={() => handleLanguageChange("ES")}>
+          <div className={styles.languageContainer}>
             <div>
-              <h6 className={language === "ES" ? styles.selected : null}>ES</h6>
+              <h6
+                className={
+                  language === "ES" ? (darkMode ? styles.selectedDark : styles.selectedLight) : null
+                }
+              >
+                ES
+              </h6>
             </div>
           </div>
-          <div className={styles.languageContainer} onClick={() => handleLanguageChange("EN")}>
+          <div className={styles.languageContainer}>
             <div>
-              <h6 className={language === "EN" ? styles.selected : null}>EN</h6>
+              <h6
+                className={
+                  language === "EN" ? (darkMode ? styles.selectedDark : styles.selectedLight) : null
+                }
+              >
+                EN
+              </h6>
             </div>
           </div>
         </div>

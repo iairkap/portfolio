@@ -5,8 +5,10 @@ import { setLanguage } from "./redux/languageSlice";
 import { useDispatch } from "react-redux";
 import Noise from "./helpers/noise";
 import { useTheme, useLanguage } from "./hooks";
-import GridLayout from "./components/layouts/GridLayout";
+import GridLayoutV2 from "./components/layouts/GridLayoutV2";
 import AboutMe from "./landing/aboutMe";
+import AboutMeV2 from "./landing/aboutMeV2";
+import HeroSection from "./heroSection/heroction";
 import Language from "./language/language";
 import DarkMode from "./darkMode/darkMode";
 import Edad from "./edad/edad";
@@ -18,6 +20,7 @@ import Link from "next/link";
 // Lazy loading solo para componentes pesados
 const VideoPortfolio = lazy(() => import("./videoPortfolio/videoPortfolio"));
 const Stack = lazy(() => import("./stack/stack"));
+const Recomendaciones = lazy(() => import("./recomendaciones/recomendaciones"));
 
 // Importar componentes ligeros directamente
 import Github from "./github/github";
@@ -40,34 +43,55 @@ export default function Home() {
 
   return (
     <main className={styles.effects}>
-      {/* Desktop Grid Layout */}
-      <GridLayout language={language} onLanguageChange={handleLanguageChange} />
+      {/* Desktop Grid Layout V2 */}
+      <div className={styles.desktopLayout}>
+        <GridLayoutV2 language={language} onLanguageChange={handleLanguageChange} />
+      </div>
 
       {/* Mobile Layout */}
       <article className={styles.onlyMobile}>
+        <HeroSection language={language} />
+
+        {/* About Me */}
         <div className={styles.firstRow}>
-          <AboutMe language={language} />
+          <AboutMeV2 language={language} />
         </div>
+
+        {/* Language + Dark Mode */}
         <div className={styles.secondRow}>
           <Language language={language} setLanguage={handleLanguageChange} />
-          <Edad language={language} />
+          <DarkMode />
         </div>
-        <DarkMode />
+
+        {/* Age + English Level */}
         <div className={styles.secondRow}>
-          <Linkedin language={language} />
+          <Edad language={language} />
           <English language={language} />
         </div>
-        <Link href="/projects">
+
+        {/* Portfolio */}
+        <Link href="/projects" className={styles.projectsMobile}>
           <Proyectos language={language} />
         </Link>
-        <Github language={language} />
-        <div className={styles.secondRow}>
-          <Whatsapp />
-          <Email />
+
+        {/* GitHub */}
+        <div className={styles.githubMobile}>
+          <Github language={language} />
         </div>
-        <Suspense fallback={<ComponentLoader />}>
-          <VideoPortfolio language={language} />
-        </Suspense>
+
+        {/* Audiovisual + Testimonios */}
+        <div className={styles.secondRow}>
+          <Suspense fallback={<ComponentLoader />}>
+            <div className={styles.videoMobile}>
+              <VideoPortfolio language={language} />
+            </div>
+          </Suspense>
+          <Suspense fallback={<ComponentLoader />}>
+            <Recomendaciones language={language} />
+          </Suspense>
+        </div>
+
+        {/* Tech Stack */}
         <Suspense fallback={<ComponentLoader />}>
           <Stack />
         </Suspense>

@@ -1,12 +1,12 @@
 .generalBackground {
   display: flex;
-  height: 20.25rem;
   flex-direction: column;
-  border-radius: 1.5625rem;
-  margin-top: 1.5rem;
+  border-radius: 30px;
   align-items: center; /* Centra horizontalmente */
   justify-content: center; /* Centra verticalmente */
-  background: #0b143b;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  height: 100%;
 }
 
 @media screen and (max-width: 768px) {

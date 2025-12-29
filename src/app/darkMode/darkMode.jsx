@@ -12,8 +12,8 @@ const DarkMode = memo(function DarkMode() {
   }, [dispatch]);
 
   return (
-    <div className={styles.generalBackground}>
-      <SwitchComponent handleToggle={handleToggle} />
+    <div className={styles.generalBackground} onClick={() => handleToggle()}>
+      <SwitchComponent />
     </div>
   );
 });

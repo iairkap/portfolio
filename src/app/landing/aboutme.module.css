@@ -1,150 +1,314 @@
 .backgroundColor {
-  background-color: #0b143b;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 30px;
-  margin-top: 1.5rem;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  min-height: 400px;
 }
 
-.water {
-  position: absolute;
-  width: 100%;
+.backgroundColorLight {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border-light);
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  opacity: 0.05;
+  min-height: 400px;
+}
+
+/* Nombre arriba a la izquierda */
+.nameTag {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--card-text);
+  letter-spacing: 0.05em;
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.backgroundColorLight .nameTag {
+  color: #0b143b;
+}
+
+/* Título profesional - centrado, desaparece en hover */
+.professionalTitle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-color), #58b69d, #7ec8e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.08em;
+  z-index: 20;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.backgroundColorLight .professionalTitle {
+  background: linear-gradient(135deg, #ff6b4a, #ff9e7a, #ffb89e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Container para las figuras geométricas */
+.geometricContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
   z-index: 1;
 }
 
-.water::before,
-.water::after {
-  content: "";
-  width: 200%;
-  height: 200%;
+/* Círculo */
+.circle {
   position: absolute;
-  top: -150%;
-  left: -50%;
-  border-radius: 40%;
-  animation: anim 12s linear infinite;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(1px);
 }
 
-.water::after {
-  width: 204%;
-  background-color: #ececec80;
-  left: -52%;
-  animation-delay: 0.5s;
+.circleDark {
+  background: linear-gradient(135deg, var(--accent-color), #3166b4);
+  opacity: 0.7;
+}
+
+.circleLight {
+  background: linear-gradient(135deg, #ffc59e, #ff9e7a);
+  opacity: 0.6;
+}
+
+/* Cuadrado */
+.square {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(1px);
+}
+
+.squareDark {
+  background: linear-gradient(135deg, #58b69d, #235b7b);
+  opacity: 0.6;
+}
+
+.squareLight {
+  background: linear-gradient(135deg, #ffb6d9, #ff9ec5);
+  opacity: 0.5;
+}
+
+/* Triángulo */
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(1px);
+}
+
+.triangleDark {
+  border-bottom: 70px solid #7ec8e3;
+  opacity: 0.6;
+}
+
+.triangleLight {
+  border-bottom: 70px solid #ff9e7a;
+  opacity: 0.5;
+}
+
+/* Container del texto - efecto subte/marquee infinito */
+.textContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeContent {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.phraseContainer {
+  display: none;
+}
+
+.marqueeText {
+  font-family: "Roboto", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #e0e7ff;
+  padding-right: 5rem;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+.backgroundColorLight .marqueeText {
+  color: #1a1a1a;
+  font-weight: 800;
+}
+
+.hoverText {
+  display: none;
+}
+
+/* Botón See My Projects - esquina inferior derecha */
+.projectsButton {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.projectsLink {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e7ff;
+  text-decoration: none;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.projectsLink:hover {
+  border-color: var(--accent-color);
+  background: rgba(131, 221, 158, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(131, 221, 158, 0.3);
+}
+
+.backgroundColorLight .projectsLink {
+  color: #0b143b;
+  border-color: rgba(11, 20, 59, 0.3);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.backgroundColorLight .projectsLink:hover {
+  border-color: #ff6b4a;
+  background: rgba(255, 107, 74, 0.15);
+  box-shadow: 0 5px 20px rgba(255, 107, 74, 0.3);
+}
+
+/* Remove old styles */
+.geometricShapes,
+.water,
+.canvas3D,
+.animatedBackground,
+.floatingShape1,
+.floatingShape2,
+.floatingShape3 {
+  display: none;
 }
 
 .Container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  z-index: 3;
-}
-
-.Container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  z-index: 3;
+  display: none;
 }
 
 .ContainerText {
-  display: flex;
-  flex-direction: column;
-  margin-left: 4rem;
-  gap: 2rem;
-  margin-top: 17rem;
+  display: none;
 }
+
 .titulo {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-size: 2.8rem;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
+  display: none;
 }
 
 .parrafo {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  width: 25.875rem;
-
-  font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.imagen {
-  border-bottom-right-radius: 1.875rem;
-}
-
-.imageContainer {
-  height: 680px;
-  width: 50vw;
-  position: relative;
-  overflow: hidden;
-}
-
-.heroImage {
-  object-fit: cover;
-  object-position: bottom;
-  width: 100%;
-  height: 100%;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
-  /* Selecciona un valor en base a tu diseño */
-  .Container {
-    flex-direction: column; /* Cambia la dirección de los elementos */
-    align-items: center;
-
-    /* Centra los elementos */
-  }
-
   .backgroundColor {
+    min-height: 500px;
+    margin-top: 1rem;
   }
+
+  .Container {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+  }
+
   .ContainerText {
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-  }
-
-  .imageContainer {
-    display: none;
+    gap: 1.5rem;
   }
 
   .titulo {
-    font-size: 2rem; /* Disminuye el tamaño de la fuente del título */
+    font-size: 2.2rem;
   }
 
   .parrafo {
-    font-size: 1.2rem; /* Disminuye el tamaño de la fuente del párrafo */
-    width: 90%; /* Ajusta el ancho del párrafo */
-    margin: 0 auto; /* Centra el párrafo */
+    font-size: 1.1rem;
+    max-width: 100%;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .imageContainer {
-    height: 50vw; /* Ajusta el valor según necesites */
+  .circle {
+    width: 120px;
+    height: 120px;
+    top: 8%;
+    right: 5%;
   }
-  .ContainerText {
-    margin: 0px;
-    padding: 1rem;
-  }
-}
 
-@media screen and (max-width: 770px) {
-  .imageContainer {
-    background-image: none;
+  .square {
+    width: 90px;
+    height: 90px;
+    top: 55%;
+    left: 5%;
+  }
+
+  .triangle {
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 104px solid rgba(200, 200, 255, 0.18);
+    bottom: 15%;
+    right: 10%;
   }
 }

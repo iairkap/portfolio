@@ -1,0 +1,158 @@
+.effects {
+  animation: slide-in 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.gridSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* V2 Layout Styles - Bento Grid */
+.contenedorGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 1800px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Responsive padding */
+@media (min-width: 480px) {
+  .contenedorGrid {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .contenedorGrid {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contenedorGrid {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .contenedorGrid {
+    padding: 0 6rem;
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .contenedorGrid {
+    padding: 0 30rem;
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .contenedorGrid {
+    padding: 0 20rem;
+    max-width: 1600px;
+  }
+}
+
+/* Hero Title - más compacto */
+
+/* Bento Grid - Main Section */
+.mainGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* Left Column - About Me (8 columns) */
+.leftColumn {
+  grid-column: span 6;
+}
+
+/* Right Column (4 columns) */
+.rightColumn {
+  grid-column: span 6;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  gap: 1rem;
+  height: 100%;
+}
+
+/* Top Row - Language + Dark Mode */
+.topRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Bottom Card - Projects */
+.bottomCard {
+  height: 100%;
+  display: flex;
+}
+
+.bottomCard a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+/* Bento Grid - Rest of cards */
+.restGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  margin-top: 0;
+  grid-auto-rows: minmax(150px, auto);
+}
+
+/* Left Side containers */
+.githubContainer {
+  grid-column: span 6;
+  grid-row: span 1;
+}
+
+.videoContainer {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.recomendacionesContainer {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+/* Right Side - Stack */
+.stackContainer {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+/* Mobile - ocultar GridLayoutV2 completamente */
+@media screen and (max-width: 768px) {
+  .contenedorGrid {
+    display: none;
+  }
+
+  .gridSection {
+    display: none;
+  }
+}

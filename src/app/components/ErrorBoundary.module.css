@@ -77,7 +77,7 @@
 
 .resetButton {
   background: #667eea;
-  color: white;
+  color: var(--card-text);
 }
 
 .resetButton:hover {

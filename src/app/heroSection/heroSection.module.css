@@ -1,0 +1,113 @@
+.heroTitle {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+  color: var(--card-text);
+  position: relative;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+/* Círculo verde animado tipo "disponible" */
+.statusIndicator {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.statusIndicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.75;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.75;
+  }
+  75%,
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.titleDark {
+  font-size: clamp(4rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--card-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.titleLight {
+  font-size: clamp(4rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #212529;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.buttonIcon path {
+  fill: var(--icon-color);
+}
+
+@media (max-width: 768px) {
+  .buttonContainer {
+    gap: 0.75rem;
+  }
+}

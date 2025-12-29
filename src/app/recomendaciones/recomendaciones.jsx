@@ -1,4 +1,4 @@
-import React, { useState, memo, useMemo } from "react";
+import React, { useState, memo, useMemo, useEffect } from "react";
 import styles from "./recomendaciones.module.css";
 import Modal from "react-modal";
 import nextrec from "../../../public/nextrec.svg";
@@ -6,12 +6,38 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import star from "../../../public/star.svg";
 import { useModal } from "../hooks/useModal";
-import { useTheme } from "../hooks";
+import { useTheme, useTouchDevice } from "../hooks";
+import MarqueeText from "../components/ui/MarqueeText";
+import { motion } from "framer-motion";
 
 const Recomendaciones = memo(function Recomendaciones({ language }) {
+  // Set app element on mount
+  useEffect(() => {
+    Modal.setAppElement("body");
+  }, []);
   const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
   const [currentRecommendationIndex, setCurrentRecommendationIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const darkMode = useTheme();
+  const isTouchDevice = useTouchDevice();
+
+  // Auto-alternar en touch devices cada 3 segundos
+  useEffect(() => {
+    if (!isTouchDevice) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setIsHovered((prev) => !prev);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isTouchDevice]);
+
+  const marqueeText =
+    language === "ES"
+      ? "RECOMENDACIONES • TESTIMONIOS • EXPERIENCIAS • "
+      : "RECOMMENDATIONS • TESTIMONIALS • EXPERIENCES • ";
 
   const modalContentStyles = darkMode ? styles.modalContentDark : styles.modalContentLight;
 
@@ -90,22 +116,49 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
 
   const customStyles = {
     overlay: {
-      backgroundColor: "rgba(0,0,0,0.75)",
-      backdropFilter: "blur(5px)",
+      backgroundColor: "rgba(0, 0, 0, 0.85)",
+      backdropFilter: "blur(10px)",
+      zIndex: 9999,
     },
     content: {
       backgroundColor: "transparent",
       border: "none",
-      width: "80%",
-      height: "70%",
+      width: "85%",
+      maxWidth: "900px",
+      height: "auto",
+      maxHeight: "85vh",
       margin: "auto",
       overflow: "visible",
+      padding: 0,
     },
   };
 
   return (
-    <div className={styles.generalContainer} onClick={openModal}>
-      <Image src={star} alt="View recommendations and testimonials" />
+    <div
+      className={styles.generalContainer}
+      onClick={openModal}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      data-theme={darkMode ? "dark" : "light"}
+    >
+      {/* Star icon - desaparece en hover */}
+      {!isHovered && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+        >
+          <Image
+            src={star}
+            alt="View recommendations and testimonials"
+            className={darkMode ? styles.starIconDark : styles.starIconLight}
+          />
+        </motion.div>
+      )}
+
+      {/* Texto marquee - aparece en hover */}
+      <MarqueeText isVisible={isHovered} text={marqueeText} fontSize="1.2rem" speed={50} />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

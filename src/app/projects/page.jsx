@@ -53,13 +53,6 @@ function Projects() {
               </div>
               <h1 className={styles.titulo}>{language === "ES" ? "PROYECTOS" : "PROJECTS"}</h1>{" "}
             </div>
-            <Image
-              className={styles.imagen}
-              src="https://firebasestorage.googleapis.com/v0/b/real-cover.appspot.com/o/proyects.png?alt=media&token=0efecff7-c43b-4536-970d-2d1e3c3ae5a7"
-              alt="Projects"
-              width={172}
-              height={233}
-            />
           </div>
           <Card />
         </motion.div>

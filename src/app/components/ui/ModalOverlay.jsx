@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "react-modal";
 import { MODAL_STYLES } from "../../config/modalStyles";
 
@@ -17,6 +17,13 @@ export function ModalOverlay({
   className = "",
   ...props
 }) {
+  // Configurar el app element para accesibilidad
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      Modal.setAppElement("body");
+    }
+  }, []);
+
   const mergedStyles = {
     overlay: { ...MODAL_STYLES.overlay, ...customStyles.overlay },
     content: { ...MODAL_STYLES.content, ...customStyles.content },

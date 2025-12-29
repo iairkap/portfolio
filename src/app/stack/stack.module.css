@@ -1,130 +1,118 @@
 .generalContainer {
-  height: 20.25rem;
   flex-direction: column;
-  border-radius: 1.5625rem;
-  margin-top: 1.5rem;
-  background-color: #36a6ad;
+  border-radius: 30px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 
-.iconContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2.1000000000000014rem;
-  width: 75%;
-  height: 65%;
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--card-text);
+  padding-top: 1rem;
+  align-self: flex-start;
+  margin-left: 2rem;
+}
+
+.carouselWrapper {
+  width: 100%;
+  height: 60%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradiente izquierdo */
+.carouselWrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(to right, var(--card-bg) 0%, rgba(54, 166, 173, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Gradiente derecho */
+.carouselWrapper::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(to left, var(--card-bg) 0%, rgba(54, 166, 173, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.iconCarousel {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  height: 100%;
+  will-change: transform;
 }
 
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* añadido: contexto para el tooltip */
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
 }
 
-/* Tooltip */
-.tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px); /* encima del icono */
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: 6px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease;
-  z-index: 10;
+.iconDark {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
 }
 
-/* flecha del tooltip */
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid rgba(0, 0, 0, 0.85);
+.iconLight {
+  filter: invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
 }
 
-/* mostrar al hover/keyboard focus */
-.icon:hover .tooltip,
-.icon:focus-within .tooltip {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+.icon:hover {
+  transform: scale(1.15);
+}
+
+.description {
+  color: var(--card-text);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: center;
+  padding: 0 2rem 1.5rem 2rem;
+  margin: 0;
+  opacity: 0.85;
+  max-width: 90%;
 }
 
 /* ajuste en pantallas pequeñas */
 @media (max-width: 480px) {
-  .tooltip {
-    font-size: 0.7rem;
-    padding: 5px 6px;
-    bottom: calc(100% + 6px);
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .carouselWrapper::before,
+  .carouselWrapper::after {
+    width: 60px;
+  }
+
+  .iconCarousel {
+    gap: 2rem;
   }
 }
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative; /* añadido: contexto para el tooltip */
-}
 
-/* Tooltip */
-.tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px); /* encima del icono */
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: 6px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 160ms ease,
-    transform 160ms ease;
-  z-index: 10;
-}
-
-/* flecha del tooltip */
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid rgba(0, 0, 0, 0.85);
-}
-
-/* mostrar al hover/keyboard focus */
-.icon:hover .tooltip,
-.icon:focus-within .tooltip {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* ajuste en pantallas pequeñas */
-@media (max-width: 480px) {
-  .tooltip {
-    font-size: 0.7rem;
-    padding: 5px 6px;
-    bottom: calc(100% + 6px);
+@media screen and (max-width: 768px) {
+  .generalContainer {
+    height: 255px;
   }
 }

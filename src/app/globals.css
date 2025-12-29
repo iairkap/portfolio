@@ -4,6 +4,13 @@
 
 :root {
   --font-montserrat: var(--font-montserrat);
+  /* Default (dark) theme colors */
+  --card-bg: hsl(215, 26%, 7.5%);
+  --card-border: #475569;
+  --card-hover: hsl(215, 26%, 10%);
+  --card-text: #e2e8f0;
+  --accent-color: #83dd9e;
+  --icon-color: #e2e8f0;
 }
 
 body {
@@ -15,11 +22,112 @@ body {
 }
 
 body.light {
-  background-color: #d4d4d4;
+  background-color: #fff;
+  overflow-x: hidden;
+  /* Light theme colors - clean grays with warm accent */
+  --card-bg: #f8f9fa;
+  --card-border: #e9ecef;
+  --card-hover: #f1f3f5;
+  --card-text: #212529;
+  --accent-color: #ff6b4a;
+  --icon-color: #212529;
+}
+
+/* Ray lights para light mode - colores cálidos */
+body.light::before {
+  content: "";
+  position: absolute;
+  top: -252px;
+  left: 100px;
+  height: 267px;
+  width: 1192px;
+  border-radius: 9999px;
+  filter: blur(48px);
+  background: radial-gradient(ellipse closest-side at center, #ffc59e, #ff8c6180);
+  transform: rotate(-20deg);
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+body.light::after {
+  content: "";
+  position: absolute;
+  top: -440px;
+  left: -200px;
+  height: 388px;
+  width: 1758px;
+  border-radius: 9999px;
+  filter: blur(48px);
+  background: radial-gradient(ellipse closest-side at center, #ffb6d9, #ff9ec580);
+  transform: rotate(40deg);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  body.light::before {
+    opacity: 0.3;
+  }
+  body.light::after {
+    opacity: 0.4;
+  }
 }
 
 body.dark {
-  background-color: #252525;
+  background-color: #050a0e;
+  overflow-x: hidden;
+  /* Dark theme colors (explicit) */
+  --card-bg: hsl(215, 26%, 7.5%);
+  --card-border: #475569;
+  --card-hover: hsl(215, 26%, 10%);
+  --card-text: #e2e8f0;
+  --accent-color: #83dd9e;
+  --icon-color: #e2e8f0;
+}
+
+/* Ray lights para dark mode - solo al inicio */
+body.dark::before {
+  content: "";
+  position: absolute;
+  top: -252px;
+  left: 100px;
+  height: 267px;
+  width: 1192px;
+  border-radius: 9999px;
+  filter: blur(48px);
+  background: radial-gradient(ellipse closest-side at center, #83dd9e, #3166b480);
+  transform: rotate(-20deg);
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+body.dark::after {
+  content: "";
+  position: absolute;
+  top: -440px;
+  left: -200px;
+  height: 388px;
+  width: 1758px;
+  border-radius: 9999px;
+  filter: blur(48px);
+  background: radial-gradient(ellipse closest-side at center, #83dd9e, #3166b480);
+  transform: rotate(40deg);
+  opacity: 0.8;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  body.dark::before {
+    opacity: 0.4;
+  }
 }
 
 /* React Modal Overlay - Fixed positioning for full viewport coverage */

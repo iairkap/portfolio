@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 import { ModalOverlay } from "../components/ui";
 import { MODAL_STYLES } from "../config/modalStyles";
 import styles from "./cardpaginas.module.css";
@@ -22,14 +22,19 @@ export function CardModal({ isOpen, onClose, project, language, modalContentStyl
       className={styles.modalContent}
       contentLabel={project.name}
     >
-      <Helmet>
-        <style>{`
-          .modalContent::before {
-            background-color: ${project.backgroundContainer};
-          }
-        `}</style>
-      </Helmet>
-      <div className={styles[modalContentStyles]}>
+      <style jsx>{`
+        .${styles.modalContent}::before {
+          background-color: ${project.backgroundContainer};
+        }
+      `}</style>
+      <motion.div
+        className={styles[modalContentStyles]}
+        layoutId={`card-container-${project.name}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+      >
         <button className={styles.close} onClick={onClose}>
           x
         </button>
@@ -50,21 +55,19 @@ export function CardModal({ isOpen, onClose, project, language, modalContentStyl
             ))}
           </div>
           <div className={styles.linkContainer}>
-            <h2>
-              <h2 className={styles.website}>Web site:</h2>
-              <a href={project.demo} target="_blank" className={styles.link}>
-                {project.demo}
-              </a>
-            </h2>
+            <h2 className={styles.website}>Web site:</h2>
+            <a href={project.demo} target="_blank" className={styles.link}>
+              {project.demo}
+            </a>
           </div>
-          <h2>
+          <div className={styles.linkContainer}>
             <h2 className={styles.website}>GitHub:</h2>
             <a href={project.github} target="_blank" className={styles.link}>
               {project.github}
             </a>
-          </h2>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </ModalOverlay>
   );
 }
