@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #050a0e; /* Default dark background para evitar blanco en over-scroll */
+  min-height: 100vh;
+}
+
 :root {
   --font-montserrat: var(--font-montserrat);
   /* Default (dark) theme colors */
@@ -15,16 +20,21 @@
 
 body {
   position: relative;
-  height: 100vh;
+  min-height: 100vh; /* Cambiado de height a min-height para permitir scroll */
   width: 100vw;
+  background-color: #050a0e; /* Default dark background para evitar flash blanco */
   transition: background-color 0.5s ease;
   font-family: var(--font-montserrat), Montserrat, sans-serif;
+  overflow-x: hidden;
+}
+
+html.light {
+  background-color: #fff; /* Sincronizar html con body para evitar blanco en over-scroll */
 }
 
 body.light {
   background-color: #fff;
   overflow-x: hidden;
-  /* Light theme colors - clean grays with warm accent */
   --card-bg: #f8f9fa;
   --card-border: #e9ecef;
   --card-hover: #f1f3f5;
@@ -33,48 +43,8 @@ body.light {
   --icon-color: #212529;
 }
 
-/* Ray lights para light mode - colores cálidos */
-body.light::before {
-  content: "";
-  position: absolute;
-  top: -252px;
-  left: 100px;
-  height: 267px;
-  width: 1192px;
-  border-radius: 9999px;
-  filter: blur(48px);
-  background: radial-gradient(ellipse closest-side at center, #ffc59e, #ff8c6180);
-  transform: rotate(-20deg);
-  opacity: 0.6;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out;
-}
-
-body.light::after {
-  content: "";
-  position: absolute;
-  top: -440px;
-  left: -200px;
-  height: 388px;
-  width: 1758px;
-  border-radius: 9999px;
-  filter: blur(48px);
-  background: radial-gradient(ellipse closest-side at center, #ffb6d9, #ff9ec580);
-  transform: rotate(40deg);
-  opacity: 0.5;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out;
-}
-
-@media (min-width: 768px) {
-  body.light::before {
-    opacity: 0.3;
-  }
-  body.light::after {
-    opacity: 0.4;
-  }
+html.dark {
+  background-color: #050a0e; /* Sincronizar html con body para evitar blanco en over-scroll */
 }
 
 body.dark {
@@ -90,44 +60,34 @@ body.dark {
 }
 
 /* Ray lights para dark mode - solo al inicio */
-body.dark::before {
+body.dark::before,
+body.dark::after {
   content: "";
   position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+body.dark::before {
   top: -252px;
   left: 100px;
   height: 267px;
   width: 1192px;
-  border-radius: 9999px;
-  filter: blur(48px);
   background: radial-gradient(ellipse closest-side at center, #83dd9e, #3166b480);
   transform: rotate(-20deg);
-  opacity: 1;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out;
 }
 
 body.dark::after {
-  content: "";
-  position: absolute;
   top: -440px;
   left: -200px;
   height: 388px;
   width: 1758px;
-  border-radius: 9999px;
-  filter: blur(48px);
   background: radial-gradient(ellipse closest-side at center, #83dd9e, #3166b480);
   transform: rotate(40deg);
   opacity: 0.8;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-out;
-}
-
-@media (min-width: 768px) {
-  body.dark::before {
-    opacity: 0.4;
-  }
 }
 
 /* React Modal Overlay - Fixed positioning for full viewport coverage */

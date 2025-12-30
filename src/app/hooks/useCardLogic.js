@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../redux";
@@ -12,7 +13,7 @@ import { useTheme, useLanguage } from "./index";
 export function useCardLogic() {
   const [isHovered, setIsHovered] = useState(false);
   const { isOpen: modalIsOpen, open: openModal, close: closeModal } = useModal();
-  const isSmallScreen = useMediaQuery("(max-width:768px)");
+  const isSmallScreen = useMediaQuery("(max-width:1017px)"); // Extendido para cubrir gap 768-1017px
   const language = useLanguage();
   const darkMode = useTheme();
 

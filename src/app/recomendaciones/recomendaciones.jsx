@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import star from "../../../public/star.svg";
 import { useModal } from "../hooks/useModal";
-import { useTheme, useTouchDevice } from "../hooks";
+import { useTheme, useTouchDevice, useIsMobile } from "../hooks";
 import MarqueeText from "../components/ui/MarqueeText";
 import { motion } from "framer-motion";
 
@@ -20,6 +20,7 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
   const [isHovered, setIsHovered] = useState(false);
   const darkMode = useTheme();
   const isTouchDevice = useTouchDevice();
+  const isMobile = useIsMobile();
 
   // Auto-alternar en touch devices cada 3 segundos
   useEffect(() => {
@@ -123,13 +124,21 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
     content: {
       backgroundColor: "transparent",
       border: "none",
-      width: "85%",
-      maxWidth: "900px",
-      height: "auto",
-      maxHeight: "85vh",
+      width: isMobile ? "100%" : "85%",
+      maxWidth: isMobile ? "none" : "900px",
+      height: isMobile ? "90vh" : "auto",
+      maxHeight: isMobile ? "90vh" : "85vh",
       margin: "auto",
       overflow: "visible",
       padding: 0,
+      ...(isMobile && {
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        top: "auto",
+        borderRadius: "30px 30px 0 0",
+      }),
     },
   };
 
@@ -167,7 +176,17 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
       >
-        <div className={modalContentStyles}>
+        <motion.div
+          className={modalContentStyles}
+          initial={isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
+          animate={isMobile ? { y: 0 } : { opacity: 1, scale: 1 }}
+          exit={isMobile ? { y: "100%" } : { opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          style={{
+            overflowY: isMobile ? "auto" : "visible",
+            maxHeight: isMobile ? "90vh" : "auto",
+          }}
+        >
           <button onClick={closeModal} className={styles.closeM}>
             x{" "}
           </button>
@@ -192,7 +211,7 @@ const Recomendaciones = memo(function Recomendaciones({ language }) {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </Modal>
     </div>
   );

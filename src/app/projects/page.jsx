@@ -17,6 +17,13 @@ function Projects() {
   const language = useLanguage();
   const darkMode = useTheme();
 
+  // Aplicar tema al body cuando se monta el componente
+  React.useEffect(() => {
+    const theme = darkMode ? "dark" : "light";
+    document.documentElement.className = theme; // html
+    document.body.className = theme; // body
+  }, [darkMode]);
+
   const pageVariants = {
     initial: { opacity: 0, scale: 0.9 },
     in: { opacity: 1, scale: 1 },
@@ -48,7 +55,12 @@ function Projects() {
             <div className={styles.tituloba}>
               <div className={styles.arrow}>
                 <Link href="/">
-                  <Image src={prevArrow} className={styles.Arrow} alt="Back to home" />
+                  <Image 
+                    src={prevArrow} 
+                    className={styles.Arrow} 
+                    alt="Back to home"
+                    style={{ color: darkMode ? '#ffffff' : '#000000' }}
+                  />
                 </Link>
               </div>
               <h1 className={styles.titulo}>{language === "ES" ? "PROYECTOS" : "PROJECTS"}</h1>{" "}

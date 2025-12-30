@@ -15,11 +15,38 @@ export function ProjectModalContent({ project, language, textStyles }) {
       transition={{ delay: 0.2, duration: 0.4 }}
     >
       <h1 className={styles.name}>{project.name}</h1>
-      <h3 className={styles.parrafo}>
-        {language === "ES" ? project.textExplainEs : project.textExplainEn}
-      </h3>
+      
+      {/* Detectar si es proyecto con Front/Back o proyecto normal */}
+      {project.frontExplainEn ? (
+        // Proyecto con estructura Front/Back  
+        <>
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ fontWeight: 700, fontSize: "1.25rem", marginBottom: "0.75rem" }}>
+              Frontend Development
+            </h3>
+            <h3 className={styles.parrafo}>
+              {language === "ES" ? project.frontExplainEs : project.frontExplainEn}
+            </h3>
+          </div>
+          
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ fontWeight: 700, fontSize: "1.25rem", marginBottom: "0.75rem" }}>
+              Backend Development
+            </h3>
+            <h3 className={styles.parrafo}>
+              {language === "ES" ? project.backExplainEs : project.backExplainEn}
+            </h3>
+          </div>
+        </>
+      ) : (
+        // Proyecto normal
+        <h3 className={styles.parrafo}>
+          {language === "ES" ? project.textExplainEs : project.textExplainEn}
+        </h3>
+      )}
+      
       <div className={styles.stackAll}>
-        {project.stack.map((tech, index) => (
+        {project.stack?.map((tech, index) => (
           <motion.h3
             key={index}
             className={styles.stackfa}

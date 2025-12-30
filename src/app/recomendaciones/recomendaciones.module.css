@@ -50,6 +50,16 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+/* Mobile drawer styles */
+@media screen and (max-width: 767px) {
+  .modalContentLight,
+  .modalContentDark {
+    padding: 1.5rem 1.25rem;
+    border-radius: 30px 30px 0 0;
+    min-height: 90vh;
+  }
+}
+
 .modalContent::before {
   content: "";
   position: absolute;
@@ -83,6 +93,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 1rem;
+  padding-right: 3.5rem; /* Espacio para el botón de cerrar */
+}
+
+@media screen and (max-width: 767px) {
+  .primerRenglon {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 0; /* Sin padding extra en mobile */
+  }
+  
+  .phoneNumber {
+    align-self: flex-start;
+  }
 }
 
 .name {
@@ -149,6 +173,15 @@
 .closeM:hover {
   transform: scale(1.2);
   color: #a0edb5;
+}
+
+/* Mobile close button positioning */
+@media screen and (max-width: 767px) {
+  .closeM {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.75rem;
+  }
 }
 
 .Arrow {

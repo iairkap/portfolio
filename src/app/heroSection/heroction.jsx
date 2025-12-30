@@ -6,7 +6,7 @@ import Button3D from "../components/ui/Button3D";
 function HeroSection({ language }) {
   const darkMode = useSelector((state) => state.darkMode.value);
 
-  console.log(darkMode);
+
 
   const text = {
     tooltip: language === "ES" ? "Disponible para contratar" : "Available to hire",

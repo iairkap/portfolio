@@ -1,12 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+
+
+
+/* Deshabilitar hover en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .contenedor:hover .imageContainer,
+  .contenedor:hover .textContainer {
+    /* Forzar que no se apliquen estilos de hover en touch devices */
+    pointer-events: auto !important;
+  }
+}
+
 .contenedor {
   border-radius: 1.875rem;
   position: relative;
   overflow: hidden;
   background: #6351b9;
   margin-top: 1rem;
-  height: 32.365rem;
+  height: 32.33rem;
   cursor: pointer;
 }
 
@@ -21,10 +33,13 @@
   bottom: 0;
   overflow: hidden;
   border-radius: 1.875rem 1.875rem 0 0;
-  will-change: transform, width, height;
+  will-change: transform, width, height, opacity, filter;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
+  /* Optimización para blur effect */
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
 }
 
 .cardImage {
@@ -63,63 +78,75 @@
 }
 
 .nombreDelProyecto {
-  color: var(--card-text);
+  /* color removido - se aplica inline desde el componente con project.textColor */
   font-family: Montserrat, sans-serif;
-  font-size: 60px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.2;
   margin-top: 3rem;
 }
 
 @media (max-width: 768px) {
   .nombreDelProyecto {
-    font-size: 2rem;
     margin-top: 1.5rem;
   }
 }
 
 .textExplain {
-  color: var(--card-text);
+  /* color removido - se aplica inline desde el componente con project.textColor */
   font-family: Montserrat, sans-serif;
-  font-size: 1;
+  font-size: clamp(0.875rem, 2vw, 1.1rem);
   font-style: normal;
   font-weight: 300;
-  line-height: normal;
-  margin-top: 3rem;
+  line-height: 1.5;
+  margin-top: 1.5rem;
+  max-width: 90%;
+}
+
+.sectionLabel {
+  font-weight: 700;
+  opacity: 0.9;
+  margin-right: 0.25rem;
 }
 
 @media (max-width: 768px) {
   .textExplain {
-    font-size: 0.875rem;
     margin-top: 1rem;
-    line-height: 1.4;
   }
 }
 
 .stackfa {
-  color: var(--card-text);
+  /* color removido - se aplica inline desde el componente con project.textColor */
   font-family: Montserrat, sans-serif;
-  font-size: 1rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   font-weight: 500;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   margin-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0.25rem 0.75rem;
 }
 
 .textContainer {
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 2rem;
+  padding-right: 3rem;
+  z-index: 1;
+  will-change: opacity, transform;
 }
 
 @media (max-width: 768px) {
   .textContainer {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
-    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-right: 1.5rem;
   }
 }
 
@@ -197,8 +224,10 @@
   grid-template-columns: repeat(2, 1fr);
   margin-left: 8rem;
   gap: 3rem;
-  margin-bottom: 2rem;
   margin-top: 2rem;
+  padding-bottom: 3rem;
+  position: relative;
+  z-index: 1; /* Por encima del gradiente del body */
 }
 
 .modalOverlay {
@@ -319,7 +348,7 @@
 
 @media screen and (min-width: 1018px) and (max-width: 1280px) {
   .contenedor {
-    height: 20rem;
+    height: 28rem; /* Aumentado para mejor visualización del texto */
   }
 }
 
@@ -328,7 +357,7 @@
     grid-template-columns: 1fr;
   }
   .contenedor {
-    height: 20rem;
+    height: 25em;
   }
 }
 
@@ -392,16 +421,4 @@
   outline: none;
 }
 
-.smallScreenClass {
-  height: 100%;
-  width: 100%;
-  transform: scale(1);
-  align-self: center;
-  justify-self: center;
-  padding: 0px;
-  margin: 0px;
-}
-
-.smallScreenClass:hover {
-  transform: scale(1);
-}
+/* Clase removida - lógica movida a JS con useResponsiveAnimation */

@@ -70,21 +70,14 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
       style={{ position: "relative", overflow: "hidden" }} // Asegura que nada se salga
     >
       {/* Nombre arriba a la izquierda */}
-      <motion.div
-        className={styles.nameTag}
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className={styles.nameTag}>
         iair kaplun
-      </motion.div>
+      </div>
 
       {/* Título profesional - desaparece en hover */}
       {!isHovered && (
         <motion.div
           className={styles.professionalTitle}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5 }}
         >
@@ -98,7 +91,6 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
           {/* Círculo - Empieza grande, posición 0° */}
           <motion.div
             className={`${styles.circle} ${darkMode ? styles.circleDark : styles.circleLight}`}
-            initial={{ opacity: 0 }}
             animate={{
               x: [
                 orbitRadius * Math.cos(0),
@@ -114,7 +106,6 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
               ],
               scale: [1.8, 0.6, 0.6, 1.8],
               rotate: 360,
-              opacity: 1,
             }}
             exit={{ opacity: 0 }}
             transition={{
@@ -127,7 +118,6 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
           {/* Cuadrado - Empieza pequeño, posición 120° */}
           <motion.div
             className={`${styles.square} ${darkMode ? styles.squareDark : styles.squareLight}`}
-            initial={{ opacity: 0 }}
             animate={{
               x: [
                 orbitRadius * Math.cos((2 * Math.PI) / 3),
@@ -143,7 +133,6 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
               ],
               scale: [0.6, 1.8, 0.6, 0.6],
               rotate: -360,
-              opacity: 1,
             }}
             exit={{ opacity: 0 }}
             transition={{
@@ -156,7 +145,6 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
           {/* Triángulo - Empieza pequeño, posición 240° */}
           <motion.div
             className={`${styles.triangle} ${darkMode ? styles.triangleDark : styles.triangleLight}`}
-            initial={{ opacity: 0 }}
             animate={{
               x: [
                 orbitRadius * Math.cos((4 * Math.PI) / 3),
@@ -172,7 +160,6 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
               ],
               scale: [0.6, 0.6, 1.8, 0.6],
               rotate: 360,
-              opacity: 1,
             }}
             exit={{ opacity: 0 }}
             transition={{

@@ -1,0 +1,20 @@
+# Modern browsers only - eliminates legacy JS polyfills
+# This configuration tells build tools (Babel, PostCSS, etc.) to target modern browsers
+
+# Market share > 0.5%
+> 0.5%
+
+# Last 2 versions of each browser
+last 2 versions
+
+# Exclude dead browsers
+not dead
+
+# Explicitly exclude IE 11
+not IE 11
+
+# Exclude Opera Mini (limited JS support)
+not op_mini all
+
+# Target modern ES6+ capable browsers
+# This eliminates ~14 KiB of polyfills

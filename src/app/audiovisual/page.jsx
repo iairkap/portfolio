@@ -14,6 +14,13 @@ const AudiovisualPortfolioPage = (props) => {
   const language = useLanguage();
   const darkMode = useTheme();
 
+  // Aplicar tema al body cuando se monta el componente
+  React.useEffect(() => {
+    const theme = darkMode ? "dark" : "light";
+    document.documentElement.className = theme; // html
+    document.body.className = theme; // body
+  }, [darkMode]);
+
   console.log(language);
 
   const background = darkMode ? styles.backgroundDark : styles.backgroundLight;

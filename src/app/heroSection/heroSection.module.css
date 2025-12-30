@@ -107,7 +107,21 @@
 }
 
 @media (max-width: 768px) {
+
   .buttonContainer {
     gap: 0.75rem;
+  }
+
+  .titleDark {
+    font-size: 2rem;
+    text-align: left;
+
+    
+  }
+
+  .titleLight {
+    font-size: 2rem;
+    text-align: left;
+
   }
 }

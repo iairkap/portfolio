@@ -88,7 +88,7 @@
   .generalContainer {
     /*     width: 27rem;
  */
-    height: 11.7rem;
+    height:100%
   }
   .playbu {
     display: none;
