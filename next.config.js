@@ -5,6 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -13,7 +14,7 @@ const nextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
   },
   compiler: {
@@ -21,8 +22,21 @@ const nextConfig = {
   },
   // swcMinify is enabled by default in Next.js 16+
   experimental: {
-    optimizePackageImports: ['framer-motion', '@mui/material'], // Tree-shake both libraries
+    optimizePackageImports: ["framer-motion"],
     optimizeCss: true, // Inline critical CSS, defer non-critical
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
+          },
+        ],
+      },
+    ];
   },
   reactStrictMode: true,
 };
