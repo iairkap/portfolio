@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://iairkaplun.com.ar/sitemap.xml

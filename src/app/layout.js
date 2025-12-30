@@ -20,6 +20,14 @@ export const metadata = {
   description: "Portfolio of Iair Kaplun, a Full Stack Developer and Audiovisual Designer specializing in React, Next.js, and immersive web experiences.",
   keywords: ["Full Stack Developer", "React", "Next.js", "Portfolio", "Web Design", "Audiovisual", "Frontend", "Backend"],
   authors: [{ name: "Iair Kaplun" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: "Iair Kaplun | Full Stack Developer",
     description: "Immersive portfolio showcasing web development and audiovisual projects.",
