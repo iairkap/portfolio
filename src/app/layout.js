@@ -53,18 +53,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* CRITICAL: Preconnect to Google Fonts FIRST */}
+        {/* CRITICAL: Preconnect to Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* CRITICAL: Preload hero font to fix LCP */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         
         {/* Recursos de imágenes */}
         <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
