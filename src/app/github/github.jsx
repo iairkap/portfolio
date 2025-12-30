@@ -1,18 +1,10 @@
 import React, { memo } from "react";
 import styles from "./github.module.css";
-import Fithub from "../../../public/github.svg";
-import Image from "next/image";
 
 const Github = memo(function Github({ language }) {
   return (
     <a href="https://github.com/iairkap" target="_blank" rel="noopener noreferrer">
       <div className={styles.generalContainer}>
-        <Image 
-          src={Fithub} 
-          className={styles.imagen} 
-          alt="GitHub profile"
-          priority
-        />
         <div className={styles.textContainer}>
           <h1 className={styles.titulo}>{language === "ES" ? "Github" : "Github"}</h1>
           <h6 className={styles.subtitulos}>
