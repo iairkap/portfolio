@@ -47,6 +47,8 @@
 /* Título profesional - centrado, desaparece en hover */
 .professionalTitle {
   position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Roboto", sans-serif;
   font-size: 3rem;

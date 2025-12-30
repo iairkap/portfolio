@@ -1,5 +1,6 @@
 "use client";
 import React, { memo, useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import styles from "./aboutme.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
@@ -207,16 +208,16 @@ const AboutMeV2 = memo(function AboutMeV2({ language }) {
         </AnimatePresence>
       </div>
 
-      {/* Botón See My Projects */}
+      {/* Botón See My Projects - esquina inferior derecha */}
       <motion.div
         className={styles.projectsButton}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <a href="#projects" className={styles.projectsLink}>
+        <Link href="/projects" className={styles.projectsLink}>
           {language === "ES" ? "ver mis proyectos" : "see my projects"}
-        </a>
+        </Link>
       </motion.div>
     </div>
   );
