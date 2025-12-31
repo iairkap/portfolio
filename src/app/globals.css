@@ -93,6 +93,14 @@ body.dark::after {
   opacity: 0.8;
 }
 
+/* Hide ray lights on mobile to prevent horizontal scroll */
+@media screen and (max-width: 768px) {
+  body.dark::before,
+  body.dark::after {
+    display: none;
+  }
+}
+
 /* React Modal Overlay - Fixed positioning for full viewport coverage */
 .ReactModal__Overlay {
   position: fixed !important;
