@@ -5,10 +5,10 @@
 
 .contenedorGrid {
   margin-top: 2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: grid;
+  gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "about about about language"
@@ -17,11 +17,30 @@
     "github  github stack english"
     "video video whatsapp email"
     "henry spotify spotify  recomendaciones ";
-  align-items: center;
+  align-items:center;
   justify-content: center;
   row-gap: 0.5rem;
   column-gap: 1rem;
   margin-bottom: 2rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Desktop margins only on large screens */
+@media screen and (min-width: 1024px) {
+  .contenedorGrid {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contenedorGrid {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: auto;
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 .contenedorGrid > * {

@@ -41,11 +41,7 @@ export const metadata = {
     title: "Iair Kaplun | Full Stack Developer",
     description: "Check out my portfolio featuring web dev and audiovisual work.",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
   themeColor: "#050a0e",
 };
 
