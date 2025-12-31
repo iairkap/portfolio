@@ -101,15 +101,19 @@
 .backgroundDark {
   /* background-color removido - usar el del body global para ver el gradiente */
   height: fit-content;
-  max-width: 100vw;
-  min-height: 100vh; /* Asegura que ocupe toda la altura */
-  position: relative; /* Para que el z-index funcione correctamente */
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw; /* Prevent overflow */
+  overflow-x: hidden; /* Critical for swipe */
+  background-color: #050a0e;
+  position: relative;
 }
 
 .backgroundLight {
-  /* background-color removido - usar el del body global para ver el gradiente */
-  height: auto;
-  max-width: 100vw;
-  min-height: 100vh; /* Asegura que ocupe toda la altura */
-  position: relative; /* Para que el z-index funcione correctamente */
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw; /* Prevent overflow */
+  overflow-x: hidden; /* Critical for swipe */
+  background-color: #fff;
+  position: relative;
 }
